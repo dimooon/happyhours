@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    </style>
+
+    <style name="app_padding">
+
+        <item name="android:padding">5dip</item>
+
+    </style>
+
+</resources>
