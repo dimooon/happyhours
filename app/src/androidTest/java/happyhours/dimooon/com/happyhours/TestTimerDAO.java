@@ -49,7 +49,7 @@ public class TestTimerDAO extends AndroidTestCase{
         Log.e(TAG,"timers: "+timers);
 
         assertTrue(timers.size() > 0);
-        assertTrue(timers.size() == 2);
+        assertTrue(timers.size() == 3);
 
         assertNotSame(happyTimer, happyTimer2);
     }
@@ -83,20 +83,25 @@ public class TestTimerDAO extends AndroidTestCase{
         assertNotNull(timers);
 
         assertTrue(timers.size() > 0);
-        assertTrue(timers.size() == 1);
+        assertTrue(timers.size() == 2);
     }
 
     public void testTimerDelete(){
         HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
         validateTimer(happyTimer,TIMER_MOCK_NAME1);
 
-        boolean deleted = happyDAOFacade.deleteTimer(happyTimer.getId());
-        assertTrue(deleted);
-
         ArrayList<HappyTimer> timers = happyDAOFacade.getTimers();
         assertNotNull(timers);
 
-        assertTrue(timers.size() == 0);
+        assertTrue(timers.size() == 2);
+
+        boolean deleted = happyDAOFacade.deleteTimer(happyTimer.getId());
+        assertTrue(deleted);
+
+        timers = happyDAOFacade.getTimers();
+        assertNotNull(timers);
+
+        assertTrue(timers.size() == 1);
     }
 
     private HappyTimer createTimer(String name){

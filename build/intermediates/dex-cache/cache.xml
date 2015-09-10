@@ -2,46 +2,46 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\dimooon\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-e6b0a41c7e61e076ac53ba0ddb2b45c7939971c8.jar" />
-    </item>
-    <item
-        jar="C:\HappyHours\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.2.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\classes-1c50967828292b8b4e8a2082589f2fd92c8cc4f2.jar" />
-    </item>
-    <item
-        jar="C:\HappyHours\app\build\intermediates\exploded-aar\com.android.support\cardview-v7\22.0.0\jars\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\classes-d7c327c3f23f4e83d863743366c2d7709e37da9e.jar" />
-    </item>
-    <item
-        jar="C:\HappyHours\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\libs\internal_impl-22.2.0.jar"
+        jar="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-eb452c1cc46ed91524ab60ef33188d55effb85e9.jar" />
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-c3968fbcb297e6be12b28c21c6ec3c34e22f2e8c.jar" />
     </item>
     <item
-        jar="C:\HappyHours\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\22.0.0\jars\classes.jar"
+        jar="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.0.0/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="c6d79137693d494dee16372d3921f919eb724ced">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\classes-1806fba04f035efe83a107507885e800d057acde.jar" />
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/classes-c340a25f5f31de52b785fffb81e86b2592365218.jar" />
     </item>
     <item
-        jar="C:\HappyHours\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\jars\classes.jar"
+        jar="/home/dimooon/SMART/Tools/adt-bundle-linux-x86_64-20140321/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-78787600300f0bace0c7bf712c1b60e55ea6e325.jar" />
+    </item>
+    <item
+        jar="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
-        <dex dex="C:\HappyHours\app\build\intermediates\pre-dexed\debug\classes-a263636f77ef056d8a1374f995ec0225874c119a.jar" />
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/classes-108fa073154582569c38bbc9012f9b1ee98a15d2.jar" />
+    </item>
+    <item
+        jar="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/22.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="11842de6a309c447b3a3d60d73ad637a87c58994">
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/classes-56294872a718a2eee23fff0cf71b1ee9a9abb757.jar" />
+    </item>
+    <item
+        jar="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/dimooon/SMART/HH/happyhours/app/build/intermediates/pre-dexed/debug/classes-1a9279783d7e8838a4c1f9d763f66a386e6a0d02.jar" />
     </item>
 
 </items>

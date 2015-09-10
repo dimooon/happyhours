@@ -22,6 +22,7 @@ public class SessionDAO extends HappyDAO implements Session {
         ContentValues values = new ContentValues();
         values.put(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_ID, 0);
         values.put(HappySession.TABLE_COLUMN_NAME, name);
+        values.put(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP, System.currentTimeMillis());
 
         return executeInsert(HappySession.TABLE_NAME,HappySession.TABLE_COLUMN_NAME_NULLABLE,values);
     }
@@ -32,7 +33,8 @@ public class SessionDAO extends HappyDAO implements Session {
         String[] projection = {
                 HappySession.TABLE_COLUMN_ID,
                 HappySession.TABLE_COLUMN_TIMER_ACTIVITY_ID,
-                HappySession.TABLE_COLUMN_NAME
+                HappySession.TABLE_COLUMN_NAME,
+                HappySession.TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP
         };
 
         String sortOrder = HappySession.TABLE_COLUMN_NAME + " ASC";
@@ -43,8 +45,9 @@ public class SessionDAO extends HappyDAO implements Session {
         long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_ID));
         long activityTimerId = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_ID));
         String name = cursor.getString(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_NAME));
+        long timestamp = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP));
 
-        return new HappySession(itemId,activityTimerId,name);
+        return new HappySession(itemId,activityTimerId,name,timestamp);
 
     }
 
@@ -54,7 +57,8 @@ public class SessionDAO extends HappyDAO implements Session {
         String[] projection = {
                 HappySession.TABLE_COLUMN_ID,
                 HappySession.TABLE_COLUMN_TIMER_ACTIVITY_ID,
-                HappySession.TABLE_COLUMN_NAME
+                HappySession.TABLE_COLUMN_NAME,
+                HappySession.TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP
         };
 
         String sortOrder = HappySession.TABLE_COLUMN_NAME + " ASC";
@@ -69,8 +73,9 @@ public class SessionDAO extends HappyDAO implements Session {
             long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_ID));
             long activityTimerId = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_ID));
             String name = cursor.getString(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_NAME));
+            long timestamp = cursor.getLong(cursor.getColumnIndexOrThrow(HappySession.TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP));
 
-            sessions.add(new HappySession(itemId,activityTimerId, name));
+            sessions.add(new HappySession(itemId,activityTimerId, name,timestamp));
         }
 
         return sessions;

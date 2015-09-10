@@ -45,7 +45,16 @@ public class SessionTimer{
             public void run() {
                 update(1);
             }
-        },0,1000);
+        },1000,1000);
 
     }
+
+    public void stopTimerCount(){
+        if(timerCountTask!=null){
+            timerCountTask.cancel();
+            timerCountTask.purge();
+            timerCountTask = null;
+        }
+    }
+
 }

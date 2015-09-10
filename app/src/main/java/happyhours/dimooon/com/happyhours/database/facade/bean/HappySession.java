@@ -6,6 +6,7 @@ public class HappySession {
     public static final String TABLE_COLUMN_ID = "id";
     public static final String TABLE_COLUMN_NAME = "name";
     public static final String TABLE_COLUMN_TIMER_ACTIVITY_ID = "timerActivityId";
+    public static final String TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP = "timerActivityTimestamp";
     public static final String TABLE_COLUMN_NAME_NULLABLE = "0";
     private static final String INTEGER_TYPE = " INTEGER";
     private static final String TEXT_TYPE = " TEXT";
@@ -14,7 +15,8 @@ public class HappySession {
             "CREATE TABLE " + TABLE_NAME + " (" +
                     TABLE_COLUMN_ID + " INTEGER PRIMARY KEY," +
                     TABLE_COLUMN_NAME + TEXT_TYPE + "," +
-                    TABLE_COLUMN_TIMER_ACTIVITY_ID + INTEGER_TYPE +
+                    TABLE_COLUMN_TIMER_ACTIVITY_ID + INTEGER_TYPE + "," +
+                    TABLE_COLUMN_TIMER_ACTIVITY_TIMESTAMP + INTEGER_TYPE +
                     " )";
 
     public static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME;
@@ -22,14 +24,16 @@ public class HappySession {
     private long id;
     private long timerActivityId;
     private String name;
+    private long timestamp;
 
     public HappySession() {
     }
 
-    public HappySession(long id, long timerActivityId, String name) {
+    public HappySession(long id, long timerActivityId, String name, long timestamp) {
         this.id = id;
         this.timerActivityId = timerActivityId;
         this.name = name;
+        this.timestamp = timestamp;
     }
 
     public long getId() {
@@ -56,16 +60,25 @@ public class HappySession {
         this.name = name;
     }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof HappySession)) return false;
 
-        HappySession that = (HappySession) o;
+        HappySession session = (HappySession) o;
 
-        if (id != that.id) return false;
-        if (timerActivityId != that.timerActivityId) return false;
-        return name.equals(that.name);
+        if (id != session.id) return false;
+        if (timerActivityId != session.timerActivityId) return false;
+        if (timestamp != session.timestamp) return false;
+        return name.equals(session.name);
 
     }
 
@@ -74,6 +87,7 @@ public class HappySession {
         int result = (int) (id ^ (id >>> 32));
         result = 31 * result + (int) (timerActivityId ^ (timerActivityId >>> 32));
         result = 31 * result + name.hashCode();
+        result = 31 * result + (int) (timestamp ^ (timestamp >>> 32));
         return result;
     }
 
@@ -83,6 +97,7 @@ public class HappySession {
                 "id=" + id +
                 ", timerActivityId=" + timerActivityId +
                 ", name='" + name + '\'' +
+                ", timestamp=" + timestamp +
                 '}';
     }
 }

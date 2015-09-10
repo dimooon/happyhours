@@ -43,8 +43,6 @@ public class TestDAOFlows extends AndroidTestCase{
         long sessionId = happyDAOFacade.createSession("NEW_MOCK_FLOW_SESSION");
         HappySession session = happyDAOFacade.getSession(sessionId);
 
-
-
     }
 
     public void testCreateSession(){

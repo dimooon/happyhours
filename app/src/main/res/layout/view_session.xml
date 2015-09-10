@@ -6,7 +6,7 @@
     <TextView android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/caption"
-        android:text="Story 28.08.2015 - 18:02"/>
+        android:text="@string/session_view_name_and_date_pattern"/>
 
     <TextView android:layout_width="match_parent"
         android:layout_height="wrap_content"

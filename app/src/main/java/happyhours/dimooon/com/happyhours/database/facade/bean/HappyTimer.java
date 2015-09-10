@@ -2,6 +2,8 @@ package happyhours.dimooon.com.happyhours.database.facade.bean;
 
 public class HappyTimer {
 
+    public static final long DEFAULT_TIMER_ID = 1;
+
     public static final String TABLE_NAME = "TimerTable";
     public static final String TABLE_COLUMN_ID = "id";
     public static final String TABLE_COLUMN_NAME = "name";

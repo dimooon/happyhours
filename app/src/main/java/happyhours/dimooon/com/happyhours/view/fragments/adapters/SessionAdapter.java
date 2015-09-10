@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.R;
+import happyhours.dimooon.com.happyhours.database.SessionManager;
 import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.view.ObservableSeekBar;
 
@@ -18,6 +19,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     private List<HappyTimerActivity> timers;
     private SessionListItemClickListener itemClickListener;
+    private SessionManager manager;
 
     public interface SessionListItemClickListener{
         void onItemClick(View itemView);
@@ -34,9 +36,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         }
     }
 
-    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener) {
+    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionManager manager) {
         this.itemClickListener = itemClickListener;
         setData(timers);
+        this.manager = manager;
     }
 
     public void setData(ArrayList<HappyTimerActivity> timers){
@@ -67,7 +70,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(timers.get(position).getTimerName());
-        holder.value.setProgress(((int)timers.get(position).getActivityValue()));
+        holder.value.setProgress((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue());
+        ((ObservableSeekBar)holder.value).assignDAO(manager.getDaoFacade());
+        ((ObservableSeekBar)holder.value).assignTimerActivity(timers.get(position));
+
     }
     @Override
     public int getItemCount() {

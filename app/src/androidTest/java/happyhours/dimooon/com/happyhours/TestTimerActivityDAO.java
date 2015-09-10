@@ -19,11 +19,11 @@ public class TestTimerActivityDAO extends AndroidTestCase{
 
     private HappyFacade happyDAOFacade = null;
 
-    private static final long MOCK_TIMER_ID = 0l;
-    private static final long MOCK_ACTIVITY_ID = 0l;
+    private static final long MOCK_TIMER_ID = 1l;
+    private static final long MOCK_ACTIVITY_ID = 1l;
     private static final long MOCK_TIMER_ACTIVITY_VALUE = 1000l;
 
-    private static final long MOCK_TIMER_ID1 = 1l;
+    private static final long MOCK_TIMER_ID1 = 2l;
     private static final long MOCK_ACTIVITY_ID1 = 2l;
     private static final long MOCK_TIMER_ACTIVITY_VALUE1 = 1050l;
 
@@ -47,10 +47,16 @@ public class TestTimerActivityDAO extends AndroidTestCase{
         HappyTimerActivity happyTimerActivity = createTimerActivity(MOCK_TIMER_ID, MOCK_ACTIVITY_ID, MOCK_TIMER_ACTIVITY_VALUE);
         validateTimerActivity(happyTimerActivity, MOCK_TIMER_ACTIVITY_VALUE);
 
+        happyTimerActivity.setTimerName(happyDAOFacade.getTimer(happyTimerActivity.getId()).getName());
+
         HappyTimerActivity timerActivityFromDatabase = happyDAOFacade.getTimerActivity(happyTimerActivity.getId());
+        validateTimerActivity(timerActivityFromDatabase,MOCK_TIMER_ACTIVITY_VALUE);
+
+        timerActivityFromDatabase.setTimerName(happyDAOFacade.getTimer(timerActivityFromDatabase.getId()).getName());
 
         assertNotNull(happyTimerActivity);
         assertNotNull(timerActivityFromDatabase);
+
         assertEquals(happyTimerActivity, timerActivityFromDatabase);
     }
     public void testGetTimerActivities(){

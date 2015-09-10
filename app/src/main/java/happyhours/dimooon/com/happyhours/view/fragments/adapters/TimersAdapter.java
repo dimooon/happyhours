@@ -10,21 +10,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
+import happyhours.dimooon.com.happyhours.view.fragments.CreateTimerDialog;
 
 public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder> {
 
-    private List<HappyTimer> timers;
+    private static List<HappyTimer> timers;
+    private static CreateTimerDialog.CreateTimerDialogListener listener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
+        public int position;
         public ViewHolder(View v) {
             super(v);
         name = (TextView) v.findViewById(android.R.id.text1);
+
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(listener != null){
+                        listener.onNewItemSelected(timers.get(position));
+                    }
+                }
+            });
+
         }
     }
 
     public TimersAdapter(ArrayList<HappyTimer> timers) {
         this.timers = timers;
+    }
+
+    public void setListener(CreateTimerDialog.CreateTimerDialogListener listener){
+        this.listener = listener;
     }
 
     @Override
@@ -36,7 +53,7 @@ public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(timers.get(position).getName());
-
+        holder.position = position;
     }
     @Override
     public int getItemCount() {

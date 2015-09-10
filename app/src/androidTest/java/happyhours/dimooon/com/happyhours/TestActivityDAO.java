@@ -97,7 +97,7 @@ public class TestActivityDAO extends AndroidTestCase{
         ArrayList<HappyTimer> timers = happyDAOFacade.getTimers();
         assertNotNull(timers);
 
-        assertTrue(timers.size() == 0);
+        assertTrue(timers.size() == 1);
     }
 
     private HappyActivity createActivity(long value){

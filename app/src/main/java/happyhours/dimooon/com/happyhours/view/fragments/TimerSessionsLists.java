@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 
 import happyhours.dimooon.com.happyhours.R;
+import happyhours.dimooon.com.happyhours.database.SessionManager;
 import happyhours.dimooon.com.happyhours.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.view.fragments.adapters.SessionsAdapter;
@@ -29,11 +30,6 @@ public class TimerSessionsLists extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-    }
-
-    @Override
-    public void onResume() {
-        super.onResume();
 
         ArrayList<HappyTimer> timers = new ArrayList<HappyTimer>();
 
@@ -45,6 +41,12 @@ public class TimerSessionsLists extends Fragment {
         sessionsView = (RecyclerView) getView().findViewById(R.id.sessions);
         sessionsView.setHasFixedSize(true);
         sessionsView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        sessionsView.setAdapter(new SessionsAdapter(new HappyFacade(getActivity()).getSessions()));
+        sessionsView.setAdapter(new SessionsAdapter(new HappyFacade(getActivity()).getSessions(), getActivity(), new SessionManager(getActivity())));
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 }
