@@ -4,6 +4,7 @@ package happyhours.dimooon.com.happyhours.database.facade.dao;
 import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.ArrayList;
 
@@ -140,5 +141,27 @@ public class TimerActivityDAO extends HappyDAO implements TimerActivity{
         int deleteCount = database.delete(HappyTimerActivity.TABLE_NAME, selection, selectionArgs);
 
         return deleteCount == 1;
+    }
+
+    @Override
+    public long getFullTime(long id) {
+
+        String query = "SELECT SUM("+HappyTimerActivity.TABLE_COLUMN_VALUE+") "+
+                        "FROM " + HappyTimerActivity.TABLE_NAME+" "+
+                        "WHERE " + HappyTimerActivity.TABLE_COLUMN_SESSION_ID+" == "+ id+ " AND " + HappyTimerActivity.TABLE_COLUMN_TIMER_ID +" > 0";
+
+        Cursor cursor = database.rawQuery(query, null);
+        cursor.moveToFirst();
+        return cursor.getLong(0);
+    };
+
+    @Override
+    public long getHappyTime(long id) {
+        return 0;
+    }
+
+    @Override
+    public HappyTimerActivity getMostHappyTask(long id) {
+        return null;
     }
 }

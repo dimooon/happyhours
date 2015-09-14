@@ -16,9 +16,10 @@ public class TimerDAO extends HappyDAO implements Timer{
     }
 
     @Override
-    public long createTimer(String name) {
+    public long createTimer(String name,boolean happy) {
         ContentValues values = new ContentValues();
         values.put(HappyTimer.TABLE_COLUMN_NAME, name);
+        values.put(HappyTimer.TABLE_COLUMN_HAPPY, happy ? 1 : 0);
 
         return executeInsert(HappyTimer.TABLE_NAME,HappyTimer.TABLE_COLUMN_NAME_NULLABLE,values);
     }
@@ -28,6 +29,7 @@ public class TimerDAO extends HappyDAO implements Timer{
         String[] projection = {
                 HappyTimer.TABLE_COLUMN_ID,
                 HappyTimer.TABLE_COLUMN_NAME,
+                HappyTimer.TABLE_COLUMN_HAPPY
         };
 
         String sortOrder = HappyTimer.TABLE_COLUMN_NAME + " ASC";
@@ -41,7 +43,9 @@ public class TimerDAO extends HappyDAO implements Timer{
         cursor.moveToFirst();
         long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_ID));
         String name = cursor.getString(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_NAME));
-        return new HappyTimer(itemId,name);
+        int happy = cursor.getInt(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_HAPPY));
+
+        return new HappyTimer(itemId,name,happy);
     }
 
     @Override
@@ -49,6 +53,7 @@ public class TimerDAO extends HappyDAO implements Timer{
         String[] projection = {
                 HappyTimer.TABLE_COLUMN_ID,
                 HappyTimer.TABLE_COLUMN_NAME,
+                HappyTimer.TABLE_COLUMN_HAPPY,
         };
 
         String sortOrder = HappyTimer.TABLE_COLUMN_NAME + " ASC";
@@ -61,8 +66,9 @@ public class TimerDAO extends HappyDAO implements Timer{
         for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
             long itemId = cursor.getLong(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_ID));
             String name = cursor.getString(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_NAME));
+            int happy = cursor.getInt(cursor.getColumnIndexOrThrow(HappyTimer.TABLE_COLUMN_HAPPY));
 
-            timers.add(new HappyTimer(itemId,name));
+            timers.add(new HappyTimer(itemId,name,happy));
         }
 
         return timers;

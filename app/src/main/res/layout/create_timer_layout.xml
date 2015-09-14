@@ -4,15 +4,22 @@
     android:layout_height="match_parent">
 
     <RelativeLayout
-        android:visibility="gone"
+        android:visibility="visible"
         android:id="@+id/createNewTimerDialogCreateView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <CheckBox
+            android:id="@+id/happy_task_check_box"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/createNewTimerDialogName"/>
+        android:id="@+id/createNewTimerDialogName"
+        android:layout_toRightOf="@id/happy_task_check_box"/>
 
         <Button
             android:layout_width="wrap_content"
@@ -20,6 +27,8 @@
             android:text="go back"
             android:id="@+id/createNewTimerDialogGoBackButton"
             android:layout_below="@+id/createNewTimerDialogName"/>
+
+
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -27,12 +36,10 @@
         android:text="Add"
         android:layout_below="@+id/createNewTimerDialogName"
         android:layout_toRightOf="@+id/createNewTimerDialogGoBackButton"/>
-
-
-
     </RelativeLayout>
 
     <RelativeLayout
+        android:visibility="gone"
         android:id="@+id/createNewTimerDialogListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">

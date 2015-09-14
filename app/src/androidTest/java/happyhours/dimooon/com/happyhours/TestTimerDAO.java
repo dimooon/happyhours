@@ -31,16 +31,16 @@ public class TestTimerDAO extends AndroidTestCase{
     }
 
     public void testTimerCreate(){
-        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
+        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1,false);
         validateTimer(happyTimer,TIMER_MOCK_NAME1);
     }
 
     public void testTimerReadAll(){
 
-        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
+        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1,false);
         validateTimer(happyTimer, TIMER_MOCK_NAME1);
 
-        HappyTimer happyTimer2 = createTimer(TIMER_MOCK_NAME2);
+        HappyTimer happyTimer2 = createTimer(TIMER_MOCK_NAME2,false);
         validateTimer(happyTimer2, TIMER_MOCK_NAME2);
 
         ArrayList<HappyTimer> timers = happyDAOFacade.getTimers();
@@ -55,7 +55,7 @@ public class TestTimerDAO extends AndroidTestCase{
     }
 
     public void testTimerRead(){
-        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
+        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1,false);
         validateTimer(happyTimer,TIMER_MOCK_NAME1);
 
         HappyTimer timerFromDatabase = happyDAOFacade.getTimer(happyTimer.getId());
@@ -66,7 +66,7 @@ public class TestTimerDAO extends AndroidTestCase{
     }
 
     public void testTimerUpdate(){
-        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
+        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1,false);
         validateTimer(happyTimer,TIMER_MOCK_NAME1);
 
         boolean updated = happyDAOFacade.updateTimer(happyTimer.getId(), TIMER_MOCK_NAME2);
@@ -87,7 +87,7 @@ public class TestTimerDAO extends AndroidTestCase{
     }
 
     public void testTimerDelete(){
-        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1);
+        HappyTimer happyTimer = createTimer(TIMER_MOCK_NAME1,false);
         validateTimer(happyTimer,TIMER_MOCK_NAME1);
 
         ArrayList<HappyTimer> timers = happyDAOFacade.getTimers();
@@ -104,9 +104,9 @@ public class TestTimerDAO extends AndroidTestCase{
         assertTrue(timers.size() == 1);
     }
 
-    private HappyTimer createTimer(String name){
+    private HappyTimer createTimer(String name,boolean happy){
 
-        HappyTimer timer = happyDAOFacade.getTimer(happyDAOFacade.createTimer(name));
+        HappyTimer timer = happyDAOFacade.getTimer(happyDAOFacade.createTimer(name,happy));
 
         return timer;
     }

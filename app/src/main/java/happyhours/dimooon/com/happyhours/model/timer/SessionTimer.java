@@ -33,12 +33,15 @@ public class SessionTimer{
 
     public void update(long value) {
         for(TimerUpdatedListener observers : listeners){
-            observers.publishValue(value);
+            boolean timeIsOver = observers.publishValue(value);
+            if (timeIsOver){
+                stopTimerCount();
+                return;
+            }
         }
     }
 
     public void startTimerCount() {
-
         timerCountTask = new Timer();
         timerCountTask.schedule(new TimerTask() {
             @Override
@@ -46,7 +49,6 @@ public class SessionTimer{
                 update(1);
             }
         },1000,1000);
-
     }
 
     public void stopTimerCount(){
@@ -56,5 +58,4 @@ public class SessionTimer{
             timerCountTask = null;
         }
     }
-
 }

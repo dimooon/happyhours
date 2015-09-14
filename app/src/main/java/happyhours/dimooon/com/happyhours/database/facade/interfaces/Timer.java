@@ -6,7 +6,7 @@ import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
 
 public interface Timer {
 
-    long createTimer(String name);
+    long createTimer(String name,boolean happy);
     HappyTimer getTimer(long id);
     ArrayList<HappyTimer> getTimers();
     boolean updateTimer(long id,String name);

@@ -11,4 +11,7 @@ public interface TimerActivity {
     ArrayList<HappyTimerActivity> getTimerActivities(long sessionId);
     boolean updateTimerActivity(long itemId,long timerId,long activityId,long value);
     boolean deleteTimerActivity(long id);
+    long getFullTime(long id);
+    long getHappyTime(long id);
+    HappyTimerActivity getMostHappyTask(long id);
 }

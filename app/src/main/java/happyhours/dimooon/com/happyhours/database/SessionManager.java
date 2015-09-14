@@ -5,6 +5,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 import happyhours.dimooon.com.happyhours.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
@@ -36,18 +37,13 @@ public class SessionManager {
         for(HappyTimerActivity timerActivity: timerActivities){
 
             timerActivity.setTimerName(daoFacade.getTimer(timerActivity.getTimerId()).getName());
-
-            Log.e(TAG,"timerActivity: "+timerActivity);
-
         }
-
-
 
         return timerActivities;
     }
 
-    public HappyTimer createTimer(String name){
-        return daoFacade.getTimer(daoFacade.createTimer(name));
+    public HappyTimer createTimer(String name,boolean happy){
+        return daoFacade.getTimer(daoFacade.createTimer(name,happy));
     }
 
     public long addTimerToSession(HappySession session,HappyTimer timer){
@@ -61,4 +57,60 @@ public class SessionManager {
     public HappyFacade getDaoFacade(){
         return daoFacade;
     }
+
+    public long getFullTimeForSession(HappySession session){
+        return daoFacade.getFullTime(session.getId());
+    }
+
+    public long getHappyTimeForSession(HappySession session){
+
+        long happyTime = 0;
+
+        for(HappyTimerActivity activity : getTimerActivities(session)){
+
+            HappyTimer timer = daoFacade.getTimer(activity.getTimerId());
+
+            if(timer.getHappy() == 1){
+                happyTime+=activity.getActivityValue();
+            }
+        }
+
+        return happyTime;
+    }
+
+    public HappyTimerActivity getMostHappyTask(HappySession session){
+
+        ArrayList<HappyTimerActivity> activities =  new ArrayList<>();
+
+        for(HappyTimerActivity activity : getTimerActivities(session)){
+
+            HappyTimer timer = daoFacade.getTimer(activity.getTimerId());
+
+            if(timer.getHappy() == 1){
+                activities.add(activity);
+            }
+        }
+
+        if(activities == null || activities.size() == 0){
+            return null;
+        }else if(activities!=null && activities.size() == 1){
+            return activities.get(0);
+        }
+
+        Collections.sort(activities, new Comparator<HappyTimerActivity>() {
+            @Override
+            public int compare(HappyTimerActivity timerActivity, HappyTimerActivity t1) {
+
+                if(timerActivity.getActivityValue() > t1.getActivityValue()){
+                    return -1;
+                }else if(t1.getActivityValue() > timerActivity.getActivityValue()){
+                    return 1;
+                }
+                return 0;
+            }
+        });
+
+        return activities.get(0);
+    };
+
 }

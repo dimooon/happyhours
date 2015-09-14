@@ -56,9 +56,9 @@ public class TestDAOFlows extends AndroidTestCase{
     }
 
     private ArrayList<HappyTimer> getValidatedTimerList(){
-        long timerCodingId = happyDAOFacade.createTimer(CODDING);
-        long timerVKId = happyDAOFacade.createTimer("VK");
-        long timerEspressoTvId = happyDAOFacade.createTimer("EspressoTV");
+        long timerCodingId = happyDAOFacade.createTimer(CODDING,false);
+        long timerVKId = happyDAOFacade.createTimer("VK",true);
+        long timerEspressoTvId = happyDAOFacade.createTimer("EspressoTV",true);
 
         HappyTimer timerCoding = happyDAOFacade.getTimer(timerCodingId);
         HappyTimer timerVK = happyDAOFacade.getTimer(timerVKId);

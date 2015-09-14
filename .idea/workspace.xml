@@ -10,41 +10,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ce677528-5b1b-4e00-8bfe-9004c8729db2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/StartSessionDialog.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/Utils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/session_create_dialog.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/gradle_project_sync_data.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappySession.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappySession.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.4/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/SessionDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/SessionDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestActivityDAO.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestActivityDAO.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerActivityDAO.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerActivityDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestFlowManager.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestFlowManager.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java" afterPath="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/TimersAdapter.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/TimersAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_session_lists.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_session_lists.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/view_session.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/view_session.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/Timer.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/Timer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/TimerActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/TimerActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerActivityDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerActivityDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerDAO.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/TimerUpdatedListener.java" afterPath="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/TimerUpdatedListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="happyhours.iws" />
@@ -66,35 +52,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SessionView.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java">
+      <file leaf-file-name="CreateTimerDialog.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37656903">
-              <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-              <folding>
-                <element signature="e#2261#2385#0" expanded="true" />
-                <element signature="e#3967#3968#0" expanded="true" />
-                <element signature="e#4012#4013#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TimerSessionsLists.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SessionsAdapter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="91" selection-start-line="86" selection-start-column="91" selection-end-line="86" selection-end-column="91" />
+            <state vertical-scroll-proportion="0.88560885">
+              <caret line="85" column="68" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
               <folding />
             </state>
           </provider>
@@ -1563,25 +1525,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestActivityDAO.java" />
         <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerActivityDAO.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layour.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/TimersAdapter.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_session_lists.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/session_create_dialog.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/StartSessionDialog.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappySession.java" />
-        <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/SessionDAO.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
@@ -1589,8 +1542,24 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/view_session.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/Utils.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/TimerUpdatedListener.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/TimerActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/Timer.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java" />
+        <option value="$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestFlowManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerActivityDAO.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java" />
       </list>
     </option>
   </component>
@@ -1670,6 +1639,10 @@
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -1689,6 +1662,98 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="view" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="timer" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="happyhours" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="database" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -1703,12 +1768,14 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="015d165c321c180a" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="079834470de74246" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="SMART_2" />
     <property name="FullScreen" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="SessionManager&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java&#10;Sess&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java&#10;HappyT&#9;PSI&#9;JAVA://happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer" />
+    <property name="SearchEverywhereHistoryKey" value="TimerDa&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerDAO.java&#10;SessionManager&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java&#10;Happ&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java&#10;SessionMa&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java&#10;HappyF&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java&#10;Ha&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimerActivity.java&#10;HappyT&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java&#10;timer&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerActivityDAO.java&#10;Happyfa&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java&#10;Sess&#9;FILE&#9;file:///home/dimooon/SMART/HH/happyhours/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
+    <property name="OverrideImplement.combined" value="true" />
+    <property name="OverrideImplement.overriding.sorted" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -1785,6 +1852,66 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
       <option name="USE_LAST_SELECTED_DEVICE" value="true" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestFlowManager" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="2" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="happyhours.dimooon.com.happyhours.TestFlowManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="false" name="testSessionMostHap...()" type="AndroidTestRunConfigurationType" factoryName="Android Tests" temporary="true" nameIsGenerated="true">
+      <module name="app" />
+      <option name="TESTING_TYPE" value="3" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="testSessionMostHappyTask" />
+      <option name="CLASS_NAME" value="happyhours.dimooon.com.happyhours.TestFlowManager" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
       <option name="USE_COMMAND_LINE" value="true" />
       <option name="COMMAND_LINE" value="" />
@@ -1971,17 +2098,21 @@
       <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
       <method />
     </configuration>
-    <list size="4">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Android Application.app" />
       <item index="1" class="java.lang.String" itemvalue="Android Tests.Tests in 'happyhours.dimooon.com.happyhours'" />
       <item index="2" class="java.lang.String" itemvalue="Android Tests.testStartNewSessio...()" />
       <item index="3" class="java.lang.String" itemvalue="Android Tests.TestTimerActivityDAO..." />
+      <item index="4" class="java.lang.String" itemvalue="Android Tests.TestFlowManager" />
+      <item index="5" class="java.lang.String" itemvalue="Android Tests.testSessionMostHap...()" />
     </list>
     <recent_temporary>
-      <list size="3">
+      <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Android Tests.Tests in 'happyhours.dimooon.com.happyhours'" />
-        <item index="1" class="java.lang.String" itemvalue="Android Tests.TestTimerActivityDAO..." />
-        <item index="2" class="java.lang.String" itemvalue="Android Tests.testStartNewSessio...()" />
+        <item index="1" class="java.lang.String" itemvalue="Android Tests.testSessionMostHap...()" />
+        <item index="2" class="java.lang.String" itemvalue="Android Tests.TestFlowManager" />
+        <item index="3" class="java.lang.String" itemvalue="Android Tests.TestTimerActivityDAO..." />
+        <item index="4" class="java.lang.String" itemvalue="Android Tests.testStartNewSessio...()" />
       </list>
     </recent_temporary>
     <configuration name="&lt;template&gt;" type="Applet" default="true" selected="false">
@@ -2015,7 +2146,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="55" y="14" width="1875" height="1076" extended-state="6" />
+    <frame x="55" y="14" width="1875" height="1076" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2031,16 +2162,16 @@
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18186843" sideWeight="0.5078125" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32903227" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.45376346" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38494623" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18186843" sideWeight="0.4921875" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.672043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2498618" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28709677" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2063,94 +2194,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="65" />
-          <folding>
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1719#1720#0" expanded="false" />
-            <element signature="e#3638#3639#0" expanded="false" />
-            <element signature="e#3690#3691#0" expanded="false" />
-            <element signature="e#3741#3742#0" expanded="true" />
-            <element signature="e#3776#3777#0" expanded="true" />
-            <element signature="e#3741#3742#0" expanded="true" />
-            <element signature="e#3776#3777#0" expanded="true" />
-            <element signature="e#3816#3817#0" expanded="true" />
-            <element signature="e#3857#3858#0" expanded="true" />
-            <element signature="e#3890#3891#0" expanded="false" />
-            <element signature="e#3936#3937#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#2443#2444#0" expanded="false" />
-            <element signature="e#2501#2502#0" expanded="false" />
-            <element signature="e#2664#2665#0" expanded="false" />
-            <element signature="e#2723#2724#0" expanded="false" />
-            <element signature="e#3343#3344#0" expanded="false" />
-            <element signature="e#3380#3381#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="65" selection-start-line="47" selection-start-column="58" selection-end-line="47" selection-end-column="65" />
-          <folding>
-            <element signature="e#1682#1683#0" expanded="false" />
-            <element signature="e#1719#1720#0" expanded="false" />
-            <element signature="e#3638#3639#0" expanded="false" />
-            <element signature="e#3690#3691#0" expanded="false" />
-            <element signature="e#3741#3742#0" expanded="true" />
-            <element signature="e#3776#3777#0" expanded="true" />
-            <element signature="e#3741#3742#0" expanded="true" />
-            <element signature="e#3776#3777#0" expanded="true" />
-            <element signature="e#3816#3817#0" expanded="true" />
-            <element signature="e#3857#3858#0" expanded="true" />
-            <element signature="e#3890#3891#0" expanded="false" />
-            <element signature="e#3936#3937#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#2443#2444#0" expanded="false" />
-            <element signature="e#2501#2502#0" expanded="false" />
-            <element signature="e#2664#2665#0" expanded="false" />
-            <element signature="e#2723#2724#0" expanded="false" />
-            <element signature="e#3343#3344#0" expanded="false" />
-            <element signature="e#3380#3381#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2213,12 +2256,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="79" selection-start-line="15" selection-start-column="79" selection-end-line="15" selection-end-column="79" />
           <folding>
-            <element signature="e#2443#2444#0" expanded="false" />
-            <element signature="e#2501#2502#0" expanded="false" />
-            <element signature="e#2664#2665#0" expanded="false" />
-            <element signature="e#2723#2724#0" expanded="false" />
-            <element signature="e#3343#3344#0" expanded="false" />
-            <element signature="e#3380#3381#0" expanded="false" />
+            <element signature="e#2596#2597#0" expanded="false" />
+            <element signature="e#2654#2655#0" expanded="false" />
+            <element signature="e#2817#2818#0" expanded="false" />
+            <element signature="e#2876#2877#0" expanded="false" />
+            <element signature="e#3517#3518#0" expanded="false" />
+            <element signature="e#3554#3555#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -2227,48 +2270,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="24" selection-start-line="67" selection-start-column="24" selection-end-line="67" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestFlowManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53594774">
-          <caret line="31" column="22" selection-start-line="31" selection-start-column="16" selection-end-line="31" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12448133">
-          <caret line="4" column="45" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.95261437">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestActivityDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="99" column="37" selection-start-line="99" selection-start-column="37" selection-end-line="99" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimerActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="103" column="0" selection-start-line="103" selection-start-column="0" selection-end-line="103" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -2290,38 +2291,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5586592">
           <caret line="30" column="56" selection-start-line="30" selection-start-column="56" selection-end-line="30" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09803922">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3517588">
-          <caret line="14" column="49" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/TimerUpdatedListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0955414">
-          <caret line="4" column="9" selection-start-line="4" selection-start-column="9" selection-end-line="4" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -2361,17 +2330,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.26881722">
-          <caret line="10" column="43" selection-start-line="10" selection-start-column="43" selection-end-line="10" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/session_create_dialog.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -2379,29 +2337,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2956989">
           <caret line="11" column="44" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding>
-            <element signature="e#2443#2444#0" expanded="false" />
-            <element signature="e#2501#2502#0" expanded="false" />
-            <element signature="e#2664#2665#0" expanded="false" />
-            <element signature="e#2723#2724#0" expanded="false" />
-            <element signature="e#3343#3344#0" expanded="false" />
-            <element signature="e#3380#3381#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2447,25 +2382,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44444445">
-          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
-          <folding>
-            <element signature="e#3917#3918#0" expanded="false" />
-            <element signature="e#3970#3971#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3030303">
-          <caret line="25" column="42" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12626262">
@@ -2486,27 +2402,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1010101">
           <caret line="22" column="21" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_session.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18650089">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="32" />
-          <folding>
-            <element signature="e#376#420#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.46969697">
-          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -2535,14 +2430,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="43" column="42" selection-start-line="43" selection-start-column="42" selection-end-line="43" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.25104603">
@@ -2553,23 +2440,241 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/ObservableSeekBar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="91" selection-start-line="86" selection-start-column="91" selection-end-line="86" selection-end-column="91" />
+          <caret line="59" column="30" selection-start-line="59" selection-start-column="30" selection-end-line="59" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/view_session.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6183953">
+          <caret line="23" column="51" selection-start-line="23" selection-start-column="25" selection-end-line="23" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/TimerUpdatedListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.055350553">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.94464946">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/MainFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4704797">
+          <caret line="61" column="23" selection-start-line="61" selection-start-column="23" selection-end-line="61" selection-end-column="23" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/SessionView.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37656903">
-          <caret line="12" column="28" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="76" column="33" selection-start-line="76" selection-start-column="33" selection-end-line="76" selection-end-column="33" />
           <folding>
-            <element signature="e#2261#2385#0" expanded="true" />
-            <element signature="e#3967#3968#0" expanded="true" />
-            <element signature="e#4012#4013#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/model/timer/SessionTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="59" column="5" selection-start-line="59" selection-start-column="5" selection-end-line="59" selection-end-column="5" />
+          <folding>
+            <element signature="e#655#656#0" expanded="true" />
+            <element signature="e#704#705#0" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1033#1034#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/TimerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30805686">
+          <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/../../Tools/adt-bundle-linux-x86_64-20140321/sdk/platforms/android-22/android.jar!/android/database/sqlite/SQLiteDatabase.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.36695653">
+          <caret line="262" column="16" selection-start-line="262" selection-start-column="16" selection-end-line="262" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/HappyDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.45181674">
+          <caret line="27" column="49" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/ActivityDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3321033">
+          <caret line="72" column="19" selection-start-line="72" selection-start-column="19" selection-end-line="72" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimerActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2843602">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/interfaces/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16605166">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/bean/HappyTimer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="63" selection-start-line="0" selection-start-column="63" selection-end-line="0" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestDAOFlows.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.87677723">
+          <caret line="60" column="77" selection-start-line="60" selection-start-column="77" selection-end-line="60" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestFlowManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8767773">
+          <caret line="211" column="0" selection-start-line="211" selection-start-column="0" selection-end-line="211" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestTimerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7109005">
+          <caret line="37" column="16" selection-start-line="37" selection-start-column="16" selection-end-line="37" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5466035">
+          <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/androidTest/java/happyhours/dimooon/com/happyhours/TestActivityDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3601896">
+          <caret line="89" column="16" selection-start-line="89" selection-start-column="16" selection-end-line="89" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/session_card_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.65614617">
+          <caret line="53" column="56" selection-start-line="53" selection-start-column="33" selection-end-line="53" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/HappyFacade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="121" column="35" selection-start-line="121" selection-start-column="35" selection-end-line="121" selection-end-column="35" />
+          <folding>
+            <element signature="e#3930#3931#0" expanded="true" />
+            <element signature="e#3985#3986#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/facade/dao/TimerActivityDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="150" column="147" selection-start-line="150" selection-start-column="147" selection-end-line="150" selection-end-column="147" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/database/SessionManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="61" column="33" selection-start-line="61" selection-start-column="33" selection-end-line="61" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/adapters/SessionsAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11439114">
+          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <folding>
+            <element signature="e#5252#5253#0" expanded="true" />
+            <element signature="e#5290#5291#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/TimerSessionsLists.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.77490777">
+          <caret line="43" column="149" selection-start-line="43" selection-start-column="149" selection-end-line="43" selection-end-column="149" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/create_timer_layout.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3522505">
+          <caret line="12" column="49" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/happyhours/dimooon/com/happyhours/view/fragments/CreateTimerDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.88560885">
+          <caret line="85" column="68" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="68" />
+          <folding />
         </state>
       </provider>
     </entry>

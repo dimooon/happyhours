@@ -20,6 +20,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.Utils;
 import happyhours.dimooon.com.happyhours.database.SessionManager;
 import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.view.ObservableSeekBar;
 
 public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHolder> {
@@ -40,6 +41,8 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         public View sessionListAddNewTimerView;
         public RecyclerView sessionTimersList;
         public CardView sessions_rad_view;
+        public View session_list_item_last;
+        public View sessionIncludeLayout;
         public ViewHolder(View v) {
             super(v);
 
@@ -53,6 +56,8 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
             sessionListAddNewTimerView = (View) v.findViewById(R.id.sessionListAddNewTimerView);
             sessionTimersList = (RecyclerView) v.findViewById(R.id.sessionTimersList);
             sessions_rad_view = (CardView) v.findViewById(R.id.sessions_rad_view);
+            session_list_item_last = v.findViewById(R.id.sessionListAddNewTimerView);
+            sessionIncludeLayout = v.findViewById(R.id.sessionIncludeLayout);
         }
     }
 
@@ -85,7 +90,26 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         holder.sessions_rad_view.setLayoutParams(params);
         holder.sessionCardName.setText(sessions.get(position).getName());
         holder.sessionCardDate.setText(Utils.getDate(sessions.get(position).getTimestamp()));
+
+        holder.caption.setVisibility(View.GONE);
+        holder.session_list_item_last.setVisibility(View.GONE);
+
+        long fullSessionTime = manager.getFullTimeForSession(sessions.get(position));
+        String fullSessionTimeString =  String.valueOf(fullSessionTime);
+
+        holder.sessionMainProgress.setProgress((int) fullSessionTime);
+
+        holder.session_card_full_time.setText(fullSessionTimeString);
+        holder.session_card_happy_time.setText(String.valueOf(manager.getHappyTimeForSession(sessions.get(position))));
+        HappyTimerActivity mostHappy = manager.getMostHappyTask(sessions.get(position));
+        if(mostHappy == null){
+            holder.session_card_happy_task.setVisibility(View.GONE);
+        }else{
+            holder.session_card_happy_task.setText(String.valueOf(mostHappy.getTimerName()));
+        }
+
     }
+
     @Override
     public int getItemCount() {
         return sessions.size();

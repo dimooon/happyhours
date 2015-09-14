@@ -9,6 +9,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
 import happyhours.dimooon.com.happyhours.R;
@@ -29,6 +30,8 @@ public class CreateTimerDialog{
 
         private Button backButton;
         private Button addNewTimerButton;
+
+        private CheckBox happyBox;
 
         private HappyFacade facade;
 
@@ -54,6 +57,9 @@ public class CreateTimerDialog{
             addNewTimerButton = (Button) content.findViewById(R.id.createNewTimerDialogAddButton);
 
             facade = new HappyFacade(activity);
+
+            happyBox = (CheckBox) content.findViewById(R.id.happy_task_check_box);
+
             timersList = (RecyclerView) content.findViewById(R.id.available_timers);
             initTimersList(activity);
 
@@ -77,7 +83,7 @@ public class CreateTimerDialog{
                     String name = ((EditText)content.findViewById(R.id.createNewTimerDialogName)).getText().toString();
 
                     if(!TextUtils.isEmpty(name)){
-                        facade.createTimer(name);
+                        facade.createTimer(name,happyBox.isChecked());
                         initTimersList(activity);
                     }
 

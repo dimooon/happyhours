@@ -41,19 +41,23 @@ public class ObservableSeekBar extends SeekBar implements TimerUpdatedListener{
     }
 
     @Override
-    public void publishValue(long value) {
-        if(!active){
-            return;
-        }
+    public boolean publishValue(long value) {
+
         int progress = getProgress() + (int) value;
 
-        Log.e(TAG,"progress: "+progress);
+        if(!active){
+            return !active || progress > 100;
+        }
+
+        Log.e(TAG, "progress: " + progress);
 
         if(timerActivity!=null&&facade!=null){
             facade.updateTimerActivity(timerActivity.getId(),timerActivity.getTimerId(),timerActivity.getActivityId(),progress);
         }
 
         setProgress(progress);
+
+        return progress > 100;
     }
 
     @Override

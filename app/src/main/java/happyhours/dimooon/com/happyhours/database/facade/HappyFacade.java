@@ -37,9 +37,8 @@ public class HappyFacade implements Timer,Activity,TimerActivity,Session {
     }
 
     @Override
-    public long createTimer(String name) {
-
-        return daoTimer.createTimer(name);
+    public long createTimer(String name,boolean happy) {
+        return daoTimer.createTimer(name,happy);
     }
 
     @Override
@@ -117,6 +116,22 @@ public class HappyFacade implements Timer,Activity,TimerActivity,Session {
     public boolean deleteTimerActivity(long id) {
         return daoTimerActivity.deleteTimerActivity(id);
     }
+
+    @Override
+    public long getFullTime(long id) {
+        return daoTimerActivity.getFullTime(id);
+    }
+
+    @Override
+    public long getHappyTime(long id) {
+        return daoTimerActivity.getHappyTime(id);
+    }
+
+    @Override
+    public HappyTimerActivity getMostHappyTask(long id) {
+        return daoTimerActivity.getMostHappyTask(id);
+    }
+
 
     @Override
     public long createSession(String name) {
