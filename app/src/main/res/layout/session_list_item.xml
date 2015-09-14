@@ -25,8 +25,13 @@
 
             <happyhours.dimooon.com.happyhours.view.ObservableSeekBar
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/session_list_item_value"/>
+                android:id="@+id/session_list_item_value"
+                android:background="@drawable/progress_bar_background"
+                android:progressDrawable="@drawable/progress_bar_layer"
+                android:padding="1dip"
+                android:thumb="@android:color/transparent"
+                android:layout_height="30dip"
+                android:indeterminate="false"/>
 
         </LinearLayout>
     </LinearLayout>

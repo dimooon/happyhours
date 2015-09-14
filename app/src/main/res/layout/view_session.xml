@@ -16,15 +16,20 @@
 
     <happyhours.dimooon.com.happyhours.view.ObservableSeekBar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:layout_marginBottom="10dip"
-        android:id="@+id/sessionMainProgress"/>
+        android:id="@+id/sessionMainProgress"
+        android:background="@drawable/progress_bar_background"
+        android:progressDrawable="@drawable/progress_bar_layer"
+        android:padding="1dip"
+        android:thumb="@android:color/transparent"
+        android:layout_height="30dip"
+        android:indeterminate="false"/>
 
     <include layout="@layout/session_list_item_last"
         android:id="@+id/sessionListAddNewTimerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dip"/>
+        android:layout_marginBottom="10dip" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sessionTimersList"
