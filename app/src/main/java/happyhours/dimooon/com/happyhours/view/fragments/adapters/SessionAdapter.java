@@ -72,6 +72,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(timers.get(position).getTimerName());
         holder.value.setProgress((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue());
+        holder.value.setEnabled(false);
         ((ObservableSeekBar)holder.value).assignDAO(manager.getDaoFacade());
         ((ObservableSeekBar)holder.value).assignTimerActivity(timers.get(position));
 

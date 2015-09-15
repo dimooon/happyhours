@@ -41,6 +41,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         public CardView sessions_rad_view;
         public View session_list_item_last;
         public View sessionIncludeLayout;
+        public View session_list_item_value;
         public ViewHolder(View v) {
             super(v);
 
@@ -56,6 +57,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
             sessions_rad_view = (CardView) v.findViewById(R.id.sessions_rad_view);
             session_list_item_last = v.findViewById(R.id.sessionListAddNewTimerView);
             sessionIncludeLayout = v.findViewById(R.id.sessionIncludeLayout);
+            session_list_item_value = v.findViewById(R.id.session_list_item_value);
         }
     }
 
@@ -81,7 +83,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
 
         Resources resource = context.getResources();
-        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 130 + 60 * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
+        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 180 + 70 * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
 
         params.height = (int)dp;
 
@@ -96,6 +98,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         String fullSessionTimeString =  String.valueOf(fullSessionTime);
 
         holder.sessionMainProgress.setProgress((int) fullSessionTime);
+        holder.sessionMainProgress.setEnabled(false);
 
         holder.session_card_full_time.setText(fullSessionTimeString);
         holder.session_card_happy_time.setText(String.valueOf(manager.getHappyTimeForSession(sessions.get(position))));

@@ -22,7 +22,8 @@
                 android:layout_width="40dip"
                 android:layout_height="40dip"
                 android:src="@drawable/plus"
-                android:layout_marginRight="@dimen/standard_margin"/>
+                android:layout_marginRight="@dimen/standard_margin"
+                android:visibility="gone"/>
 
             <happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar
                 android:layout_width="match_parent"

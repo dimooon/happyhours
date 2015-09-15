@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -73,7 +74,9 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     @Override
     public void stopSession(){
-        sessionTimer.stopTimerCount();
+        if(sessionTimer!=null){
+            sessionTimer.stopTimerCount();
+        }
     }
 
     private void initView(){
@@ -112,7 +115,8 @@ public class SessionView extends LinearLayout implements ISessionView{
 
         sessionTimersList = (RecyclerView) findViewById(R.id.sessionTimersList);
         sessionTimersList.setHasFixedSize(true);
-        sessionTimersList.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        sessionTimersList.setLayoutManager(new StaggeredGridLayoutManager(3,SHOW_DIVIDER_BEGINNING));
 
         adapter = new SessionAdapter(timers, new SessionAdapter.SessionListItemClickListener() {
             @Override

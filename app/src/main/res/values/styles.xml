@@ -65,6 +65,7 @@
     <style name="Button.MakeABreak">
         <item name="android:layout_width">80dip</item>
         <item name="android:layout_height">80dip</item>
+        <item name="android:textSize">@dimen/text_size_small</item>
     </style>
 
     <!-- Text Styles -->
