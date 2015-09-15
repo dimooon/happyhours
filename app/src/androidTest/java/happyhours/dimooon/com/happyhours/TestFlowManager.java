@@ -6,10 +6,10 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import happyhours.dimooon.com.happyhours.database.SessionManager;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimerActivity;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 
 public class TestFlowManager extends AndroidTestCase{
 
@@ -18,11 +18,11 @@ public class TestFlowManager extends AndroidTestCase{
 
     public static final String CODDING = "Codding";
 
-    private SessionManager manager;
+    private DatabaseSessionManager manager;
 
     public void setUp() throws Exception {
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
-        manager = new SessionManager(context);
+        manager = new DatabaseSessionManager(context);
         assertNotNull(manager);
     }
 

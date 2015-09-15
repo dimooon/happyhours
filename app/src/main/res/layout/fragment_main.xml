@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    style="@style/app_padding">
+    android:orientation="vertical"
+    style="@style/FullScreen.MainAppPadding"
+    android:background="@null">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        style="@style/Wide.Text"
+        android:layout_marginTop="@dimen/standard_margin"
         android:text=" ------------ back log -"/>
 
     <LinearLayout
@@ -15,28 +15,25 @@
         android:orientation="horizontal"
         android:id="@+id/topBar"/>
 
-    <happyhours.dimooon.com.happyhours.view.SessionView
+    <happyhours.dimooon.com.happyhours.view.session.SessionView
         android:id="@+id/sessionView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        style="@style/FullScreen"
         android:layout_centerInParent="true"
         android:layout_below="@+id/topBar"
         android:visibility="gone"/>
 
     <Button
         android:id="@+id/startSessionButton"
-        android:layout_width="120dip"
-        android:layout_height="120dip"
+        style="@style/Button.StartBack"
         android:text="Start New Story"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true" />
 
     <Button
         android:visibility="gone"
         android:id="@+id/stopSessionButton"
-        android:layout_width="80dip"
-        android:layout_height="80dip"
         android:text="Make a Brake"
         android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"/>
+        android:layout_alignParentRight="true"
+        style="@style/Button.MakeABreak"/>
 
 </RelativeLayout>

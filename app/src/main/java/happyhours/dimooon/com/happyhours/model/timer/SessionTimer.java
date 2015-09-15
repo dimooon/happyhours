@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import happyhours.dimooon.com.happyhours.view.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
 
 public class SessionTimer{
 
@@ -21,6 +21,7 @@ public class SessionTimer{
     public void attach(TimerUpdatedListener activityTimer){
         this.listeners.add(activityTimer);
     }
+
     public void start(ObservableSeekBar listener){
         for(TimerUpdatedListener observers : listeners){
             observers.active(observers.equals(listener)||observers.equals(mainSessionTimer));

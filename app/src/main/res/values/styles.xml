@@ -4,10 +4,91 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
     </style>
 
-    <style name="app_padding">
+    <!--Base alignments -->
 
+    <style name="FullScreen">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="WrapContent">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Wide">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Tall">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <!--Main application -->
+
+    <style name="FullScreen.MainAppPadding">
         <item name="android:padding">5dip</item>
+    </style>
+
+    <style name="FullScreen.MainAppPadding.MainActivityBackground">
+        <item name="android:background">@color/kapp2_blue_light</item>
+    </style>
+
+    <style name="FullScreen.MainPagerBackground">
+        <item name="android:background">@color/light_blue</item>
+    </style>
+
+    <!-- Buttons styles -->
+
+    <style name="Button">
+        <item name="android:textSize">@dimen/text_size_standard</item>
+        <item name="android:background">@color/kapp2_amber</item>
+        <item name="android:textColor">@color/kapp2_black</item>
+    </style>
+
+    <style name="Button.Wide">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+    <style name="Button.WrapContent">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Button.StartBack">
+        <item name="android:layout_width">120dip</item>
+        <item name="android:layout_height">120dip</item>
+    </style>
+
+    <style name="Button.MakeABreak">
+        <item name="android:layout_width">80dip</item>
+        <item name="android:layout_height">80dip</item>
+    </style>
+
+    <!-- Text Styles -->
+
+    <style name="Text">
+        <item name="android:textSize">@dimen/text_size_standard</item>
+        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Text.Small">
+        <item name="android:textSize">@dimen/text_size_small</item>
+        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="Wide.Text">
+        <item name="android:textSize">@dimen/text_size_standard</item>
+        <item name="android:textColor">@color/kapp2_black</item>
 
     </style>
+
+
 
 </resources>

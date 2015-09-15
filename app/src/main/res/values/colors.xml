@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <color name="kapp2_blue_light">#80C4E6</color>
+    <color name="light_blue">#a4cbe0</color>
+    <color name="kapp2_amber">#EBC01C</color>
+
     <color name="amp_green">#81BC41</color>
     <color name="enterprise_blue">#3098D4</color>
     <color name="alt_dark_grey">#333333</color>
@@ -15,15 +19,13 @@
     <color name="camera_frame_color">#A6B3B3B3</color>
     <color name="banner_background">#E622A04B</color>
     <color name="bubble_red">#d33333</color>
-    <color name="light_blue">#a4cbe0</color>
     <color name="lighter">#cccccc</color>
 
     <color name="kapp2_pen_black">#000010</color>
     <color name="kapp2_pen_red">#FF0015</color>
     <color name="kapp2_red">#EC2224</color>
-    <color name="kapp2_amber">#EBC01C</color>
     <color name="kapp2_green">#259E49</color>
-    <color name="kapp2_blue_light">#80C4E6</color>
+
     <color name="kapp2_blue_dark">#3293CF</color>
     <color name="kapp2_black">#000010</color>
     <color name="kapp2_grey_1">#404040</color>

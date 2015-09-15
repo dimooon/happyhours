@@ -5,7 +5,6 @@ import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,18 +16,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.Utils;
-import happyhours.dimooon.com.happyhours.database.SessionManager;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.view.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.tools.DateUtils;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 
 public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHolder> {
 
     private static final String TAG = SessionsAdapter.class.getSimpleName();
     private List<HappySession> sessions;
     private Context context;
-    private SessionManager manager;
+    private DatabaseSessionManager manager;
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView sessionCardName;
@@ -61,7 +59,7 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         }
     }
 
-    public SessionsAdapter(ArrayList<HappySession> sessions, Context context,SessionManager manager) {
+    public SessionsAdapter(ArrayList<HappySession> sessions, Context context,DatabaseSessionManager manager) {
         this.sessions = sessions;
         this.context = context;
         this.manager = manager;
@@ -83,13 +81,13 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
 
         Resources resource = context.getResources();
-        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 260 + 50 * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
+        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 130 + 60 * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
 
         params.height = (int)dp;
 
         holder.sessions_rad_view.setLayoutParams(params);
         holder.sessionCardName.setText(sessions.get(position).getName());
-        holder.sessionCardDate.setText(Utils.getDate(sessions.get(position).getTimestamp()));
+        holder.sessionCardDate.setText(DateUtils.getDate(sessions.get(position).getTimestamp()));
 
         holder.caption.setVisibility(View.GONE);
         holder.session_list_item_last.setVisibility(View.GONE);

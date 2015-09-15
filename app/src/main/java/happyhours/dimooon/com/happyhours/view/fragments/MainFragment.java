@@ -8,14 +8,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.database.SessionManager;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.view.SessionView;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.view.fragments.dialog.StartSessionDialog;
+import happyhours.dimooon.com.happyhours.view.session.SessionView;
 
 public class MainFragment extends Fragment {
 
-    private View startButton;
-    private View stopButton;
+
     private SessionView sessionView;
     private StartSessionDialog.CreateSessionDialogListener listener;
 
@@ -27,38 +27,39 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        startButton = getView().findViewById(R.id.startSessionButton);
-        stopButton = getView().findViewById(R.id.stopSessionButton);
+        final View startButton = getView().findViewById(R.id.startSessionButton);
+        final View stopButton = getView().findViewById(R.id.stopSessionButton);
+
         sessionView = (SessionView) getView().findViewById(R.id.sessionView);
 
         listener = new StartSessionDialog.CreateSessionDialogListener() {
             @Override
             public void onSessionCreated(HappySession session) {
                 sessionView.setSession(MainFragment.this.getActivity(),session);
-                changeSessionState(true);
+                changeSessionState(true,startButton,stopButton);
             }
         };
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeSessionState(R.id.startSessionButton == view.getId());
+                changeSessionState(R.id.startSessionButton == view.getId(),startButton,stopButton);
             }
         });
 
         stopButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                changeSessionState(R.id.startSessionButton == view.getId());
+                changeSessionState(R.id.startSessionButton == view.getId(),startButton,stopButton);
             }
         });
     }
 
-    private void changeSessionState(boolean start){
+    private void changeSessionState(boolean start,View startButton,View stopButton){
 
         if(start){
             if(!sessionView.isSessionStarted()){
-                new StartSessionDialog().show(getActivity(),new SessionManager(getActivity()),listener);
+                new StartSessionDialog().show(getActivity(),new DatabaseSessionManager(getActivity()),listener);
                 return;
             }
             sessionView.startSession();

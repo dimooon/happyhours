@@ -6,9 +6,9 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyActivity;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.database.facade.HappyFacade;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyActivity;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
+import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 
 public class TestActivityDAO extends AndroidTestCase{
 

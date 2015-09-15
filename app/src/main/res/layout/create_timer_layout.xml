@@ -1,72 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical"
+    style="@style/FullScreen">
 
-    <RelativeLayout
-        android:visibility="visible"
-        android:id="@+id/createNewTimerDialogCreateView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <CheckBox
-            android:id="@+id/happy_task_check_box"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"/>
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/createNewTimerDialogName"
-        android:layout_toRightOf="@id/happy_task_check_box"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="go back"
-            android:id="@+id/createNewTimerDialogGoBackButton"
-            android:layout_below="@+id/createNewTimerDialogName"/>
-
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/createNewTimerDialogAddButton"
-        android:text="Add"
-        android:layout_below="@+id/createNewTimerDialogName"
-        android:layout_toRightOf="@+id/createNewTimerDialogGoBackButton"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/createNewTimerDialogListView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/createNewTimerButton"
-        android:text="Add another"/>
-
-    <TextView
-        android:id="@+id/createNewTimerDialogListCaption"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Available timers"
-        android:layout_marginTop="10dip"
-        android:layout_marginBottom="10dip"
-        android:layout_below="@+id/createNewTimerButton"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/available_timers"
-        android:scrollbars="none"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="1dip"
-        android:layout_below="@+id/createNewTimerDialogListCaption"/>
-
-    </RelativeLayout>
+    <include layout="@layout/create_timer_add_new_layout" />
+    <include layout="@layout/create_timer_list_layout" />
 
 </RelativeLayout>

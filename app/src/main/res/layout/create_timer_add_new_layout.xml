@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/createNewTimerDialogCreateView"
+    style="@style/FullScreen"
+    android:visibility="gone"
+    tools:showIn="@layout/create_timer_layout">
+
+    <CheckBox
+        android:id="@+id/happy_task_check_box"
+        style="@style/WrapContent"
+        android:checked="true" />
+
+    <EditText
+        style="@style/Wide"
+        android:id="@+id/createNewTimerDialogName"
+        android:layout_toRightOf="@id/happy_task_check_box" />
+
+    <Button
+        style="@style/Button.WrapContent"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="@string/create_timer_layout_back"
+        android:id="@+id/createNewTimerDialogGoBackButton"
+        android:layout_below="@+id/createNewTimerDialogName" />
+
+    <Button
+        style="@style/Button.Wide"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/createNewTimerDialogAddButton"
+        android:text="@string/create_timer_layout_add"
+        android:layout_below="@+id/createNewTimerDialogName"
+        android:layout_toRightOf="@+id/createNewTimerDialogGoBackButton" />
+</RelativeLayout>

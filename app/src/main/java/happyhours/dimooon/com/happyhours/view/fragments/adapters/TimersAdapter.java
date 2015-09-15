@@ -9,8 +9,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.view.fragments.CreateTimerDialog;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
+import happyhours.dimooon.com.happyhours.view.fragments.dialog.CreateTimerDialog;
 
 public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder> {
 

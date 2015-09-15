@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.database.SessionManager;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.view.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 

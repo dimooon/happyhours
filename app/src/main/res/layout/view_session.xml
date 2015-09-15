@@ -6,15 +6,17 @@
     <TextView android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/caption"
-        android:text="@string/session_view_name_and_date_pattern"/>
+        style="@style/Wide.Text"
+        android:layout_marginTop="5dip"/>
 
     <TextView android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dip"
-        android:layout_marginBottom="10dip"
-        android:text="Main progress"/>
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        style="@style/Text.Small"
+        android:text="Overall"/>
 
-    <happyhours.dimooon.com.happyhours.view.ObservableSeekBar
+    <happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar
         android:layout_width="match_parent"
         android:layout_marginBottom="10dip"
         android:id="@+id/sessionMainProgress"

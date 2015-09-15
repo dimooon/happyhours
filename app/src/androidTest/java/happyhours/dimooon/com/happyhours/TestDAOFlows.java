@@ -2,13 +2,12 @@ package happyhours.dimooon.com.happyhours;
 
 import android.test.AndroidTestCase;
 import android.test.RenamingDelegatingContext;
-import android.util.Log;
 
 import java.util.ArrayList;
 
-import happyhours.dimooon.com.happyhours.database.facade.HappyFacade;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.database.facade.bean.HappyTimer;
+import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 
 public class TestDAOFlows extends AndroidTestCase{
 

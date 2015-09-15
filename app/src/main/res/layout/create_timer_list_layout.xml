@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:visibility="visible"
+    android:id="@+id/createNewTimerDialogListView"
+    style="@style/FullScreen"
+    tools:showIn="@layout/create_timer_layout">
+
+    <Button
+        style="@style/Button.Wide"
+        android:id="@+id/createNewTimerButton"
+        android:text="@string/create_timer_layout_add_another" />
+
+    <TextView
+        android:id="@+id/createNewTimerDialogListCaption"
+        style="@style/Wide"
+        android:text="@string/create_timer_layout_available_caption"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:layout_marginBottom="@dimen/standard_margin"
+        android:layout_below="@+id/createNewTimerButton" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/available_timers"
+        android:scrollbars="none"
+        style="@style/Wide"
+        android:layout_margin="@dimen/standard_margin_list"
+        android:layout_below="@+id/createNewTimerDialogListCaption" />
+
+</RelativeLayout>
