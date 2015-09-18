@@ -69,7 +69,9 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     @Override
     public void startSession(){
-        sessionTimer.startTimerCount();
+        if(sessionTimer!=null){
+            sessionTimer.startTimerCount();
+        }
     }
 
     @Override

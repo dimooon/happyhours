@@ -1,21 +1,13 @@
 package happyhours.dimooon.com.happyhours;
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-
-import java.util.ArrayList;
-import java.util.List;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 
 import happyhours.dimooon.com.happyhours.model.pager.MainPager;
-import happyhours.dimooon.com.happyhours.view.fragments.MainFragment;
-import happyhours.dimooon.com.happyhours.view.fragments.TimerSessionsLists;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends AppCompatActivity {
 
     private MainPager pager;
 
@@ -26,6 +18,8 @@ public class MainActivity extends FragmentActivity {
 
         pager = new MainPager(this, (ViewPager) findViewById(R.id.pager));
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
