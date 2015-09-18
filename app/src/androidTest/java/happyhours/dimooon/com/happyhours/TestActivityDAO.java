@@ -19,6 +19,8 @@ public class TestActivityDAO extends AndroidTestCase{
     private static final long TIMER_MOCK_VALUE1 = 129l;
     private static final long TIMER_MOCK_VALUIE2 = 12334l;
 
+    public static final int TIMERS_COUNT = HappyTimer.defaultTimers.size();
+
     public void setUp() throws Exception {
 
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
@@ -97,7 +99,7 @@ public class TestActivityDAO extends AndroidTestCase{
         ArrayList<HappyTimer> timers = happyDAOFacade.getTimers();
         assertNotNull(timers);
 
-        assertTrue(timers.size() == 1);
+        assertTrue(timers.size() == TIMERS_COUNT);
     }
 
     private HappyActivity createActivity(long value){

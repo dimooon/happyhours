@@ -1,5 +1,7 @@
 package happyhours.dimooon.com.happyhours.model.database.facade.bean;
 
+import java.util.HashMap;
+
 public class HappyTimer {
 
     public static final long DEFAULT_TIMER_ID = 1;
@@ -21,9 +23,27 @@ public class HappyTimer {
                     TABLE_COLUMN_NAME + TEXT_TYPE  +
                     " )";
 
-    public static final String SQL_INSRT_DEFAULT_TIMER =
-            "INSERT INTO " + TABLE_NAME + " (" + TABLE_COLUMN_NAME + " )"+
-            " VALUES ('Default') ";
+    public static final String SQL_INSRT_DEFAULT_TIMERS =
+            "INSERT INTO " + TABLE_NAME + " (" + TABLE_COLUMN_NAME + ")"+
+            " VALUES ('%s') ";
+
+    public static final String USING_THIS_APPLICATION = "I am using this application.";
+    public static final String Codding = "I am writing a code.";
+    public static final String Debugging = "I am looking for issues.";
+    public static final String BugFixing = "I am fixing bug.";
+    public static final String Branching = "I am working with CVS.";
+    public static final String Merging = "I am merging perfect code into dev.";
+
+    public static final HashMap<String,String> defaultTimers = new HashMap<>();
+
+    static {
+        defaultTimers.put(USING_THIS_APPLICATION, String.format(SQL_INSRT_DEFAULT_TIMERS, USING_THIS_APPLICATION));
+        defaultTimers.put(Codding, String.format(SQL_INSRT_DEFAULT_TIMERS, Codding));
+        defaultTimers.put(Debugging, String.format(SQL_INSRT_DEFAULT_TIMERS, Debugging));
+        defaultTimers.put(BugFixing, String.format(SQL_INSRT_DEFAULT_TIMERS, BugFixing));
+        defaultTimers.put(Branching, String.format(SQL_INSRT_DEFAULT_TIMERS, Branching));
+        defaultTimers.put(Merging, String.format(SQL_INSRT_DEFAULT_TIMERS, Merging));
+    }
 
     public static final String SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + TABLE_NAME;
 

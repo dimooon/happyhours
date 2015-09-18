@@ -21,10 +21,14 @@ public class HappyDatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
 
         db.execSQL(HappyTimer.SQL_CREATE_ENTRIES);
-        db.execSQL(HappyTimer.SQL_INSRT_DEFAULT_TIMER);
         db.execSQL(HappyActivity.SQL_CREATE_ENTRIES);
         db.execSQL(HappyTimerActivity.SQL_CREATE_ENTRIES);
         db.execSQL(HappySession.SQL_CREATE_ENTRIES);
+
+        for(String timerInsert: HappyTimer.defaultTimers.values()){
+            db.execSQL(timerInsert);
+        }
+
     }
 
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
