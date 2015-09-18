@@ -2,7 +2,6 @@ package happyhours.dimooon.com.happyhours.view.session;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
@@ -21,7 +20,7 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
-import happyhours.dimooon.com.happyhours.view.fragments.dialog.CreateTimerDialog;
+import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
 import happyhours.dimooon.com.happyhours.view.fragments.adapters.SessionAdapter;
 
 public class SessionView extends LinearLayout implements ISessionView{
@@ -35,7 +34,7 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     private Activity activity;
 
-    private CreateTimerDialog createTimerDialog;
+    private CreateTimerController createTimerDialog;
     private SessionManager manager;
 
     public SessionView(Context context, AttributeSet attrs) {
@@ -91,7 +90,6 @@ public class SessionView extends LinearLayout implements ISessionView{
         manager = initSessionManager();
 
         initSessionActivityList(manager);
-
     }
 
     private void initDateView(){
@@ -132,11 +130,10 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     public void showAddTimerDialog(){
 
-        createTimerDialog = new CreateTimerDialog();
-        createTimerDialog.show(this.activity, new CreateTimerDialog.CreateTimerDialogListener() {
+        createTimerDialog = new CreateTimerController();
+        createTimerDialog.show(this.activity,activity.findViewById(R.id.toolbar),session, new CreateTimerController.CreateTimerDialogListener() {
             @Override
             public void onNewItemSelected(HappyTimer timer) {
-                createTimerDialog.dismiss();
                 manager.addTimerToSession(session, timer);
                 adapter.setData(manager.getTimerActivities(session));
                 adapter.notifyDataSetChanged();

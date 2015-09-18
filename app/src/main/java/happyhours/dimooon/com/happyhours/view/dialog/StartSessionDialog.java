@@ -1,4 +1,4 @@
-package happyhours.dimooon.com.happyhours.view.fragments.dialog;
+package happyhours.dimooon.com.happyhours.view.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;

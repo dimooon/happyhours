@@ -107,7 +107,7 @@ public class HappyTimer {
 
     @Override
     public String toString() {
-        return "HappyTimer{" +
+        return "\nHappyTimer{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", happy=" + happy +

@@ -6,14 +6,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.tools.animation.DropDownAnim;
+import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 import happyhours.dimooon.com.happyhours.tools.animation.ZoomTranslateAnimation;
-import happyhours.dimooon.com.happyhours.view.fragments.dialog.StartSessionDialog;
+import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
+import happyhours.dimooon.com.happyhours.view.dialog.StartSessionDialog;
 import happyhours.dimooon.com.happyhours.view.session.SessionView;
 
 public class MainFragment extends Fragment {
@@ -49,7 +53,30 @@ public class MainFragment extends Fragment {
         addNewTimerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                HeightAnimation anim = new HeightAnimation(toolbar,toolbar.getHeight(),toolbar.getHeight() + toolbar.getHeight()*4);
+                anim.setDuration(400);
+
                 sessionView.showAddTimerDialog();
+
+                anim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                        toolbar.findViewById(R.id.toolbar_add_another_layout).setVisibility(View.VISIBLE);
+                        
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+                toolbar.startAnimation(anim);
             }
         });
 
@@ -105,7 +132,7 @@ public class MainFragment extends Fragment {
     }
 
     private void animateAndStartSession() {
-        animation.zoomImageFromThumb(getActivity().findViewById(R.id.container), startButton, stopButton );
+        animation.zoomImageFromThumb(getActivity().findViewById(R.id.container), startButton, stopButton);
 
         sessionView.startSession();
     }

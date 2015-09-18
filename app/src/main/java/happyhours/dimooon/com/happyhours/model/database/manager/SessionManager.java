@@ -1,6 +1,7 @@
 package happyhours.dimooon.com.happyhours.model.database.manager;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
@@ -13,4 +14,5 @@ public interface SessionManager {
     long addTimerToSession(HappySession session, HappyTimer timer);
     HappyTimerActivity getTimerActivity(long id);
     HappyFacade getDaoFacade();
+    ArrayList<HappyTimer> getTimersNotAssignedToSession(HappySession session);
 }

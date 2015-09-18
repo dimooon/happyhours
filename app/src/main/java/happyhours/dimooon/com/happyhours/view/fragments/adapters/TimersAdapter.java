@@ -10,12 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.view.fragments.dialog.CreateTimerDialog;
+import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
 
 public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder> {
 
     private static List<HappyTimer> timers;
-    private static CreateTimerDialog.CreateTimerDialogListener listener;
+    private static CreateTimerController.CreateTimerDialogListener listener;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
@@ -40,7 +40,7 @@ public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder
         this.timers = timers;
     }
 
-    public void setListener(CreateTimerDialog.CreateTimerDialogListener listener){
+    public void setListener(CreateTimerController.CreateTimerDialogListener listener){
         this.listener = listener;
     }
 

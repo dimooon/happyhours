@@ -5,6 +5,7 @@ import android.test.RenamingDelegatingContext;
 import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
@@ -80,15 +81,15 @@ public class TestFlowManager extends AndroidTestCase{
         HappyTimerActivity mainTimerActivity = timerActivities.get(0);
 
         HappyTimer timerCoding = manager.createTimer("Coding",false);
-        HappyTimer timerDebugging = manager.createTimer("Debugging",false);
+        HappyTimer timerDebugging = manager.createTimer("Debugging", false);
         HappyTimer timerFixing = manager.createTimer("Fixing",false);
 
         assertNotNull(timerCoding);
         assertNotNull(timerDebugging);
         assertNotNull(timerFixing);
 
-        long willBeHappy1 = manager.addTimerToSession(session,timerCoding);
-        long willBeHappy2 = manager.addTimerToSession(session,timerDebugging);
+        long willBeHappy1 = manager.addTimerToSession(session, timerCoding);
+        long willBeHappy2 = manager.addTimerToSession(session, timerDebugging);
         long willBeHappy3 = manager.addTimerToSession(session, timerFixing);
 
         timerActivities = manager.getTimerActivities(session);
@@ -96,9 +97,9 @@ public class TestFlowManager extends AndroidTestCase{
 
         assertTrue(timerActivities.size() == 4);
 
-        manager.getDaoFacade().updateTimerActivity(willBeHappy1,timerCoding.getId(),0,34);
-        manager.getDaoFacade().updateTimerActivity(willBeHappy2,timerDebugging.getId(), 0, 33);
-        manager.getDaoFacade().updateTimerActivity(willBeHappy3,timerFixing.getId(),0, 544);
+        manager.getDaoFacade().updateTimerActivity(willBeHappy1, timerCoding.getId(), 0, 34);
+        manager.getDaoFacade().updateTimerActivity(willBeHappy2, timerDebugging.getId(), 0, 33);
+        manager.getDaoFacade().updateTimerActivity(willBeHappy3, timerFixing.getId(), 0, 544);
 
         long sessionTime = manager.getFullTimeForSession(session);
 
@@ -147,7 +148,7 @@ public class TestFlowManager extends AndroidTestCase{
         assertTrue(timerActivities.size() == 6);
 
         manager.getDaoFacade().updateTimerActivity(willBeHappy1, timerCoding.getId(), 0, 34);
-        manager.getDaoFacade().updateTimerActivity(willBeHappy2,timerDebugging.getId(), 0, 33);
+        manager.getDaoFacade().updateTimerActivity(willBeHappy2, timerDebugging.getId(), 0, 33);
         manager.getDaoFacade().updateTimerActivity(willBeHappy3, timerFixing.getId(), 0, 544);
         manager.getDaoFacade().updateTimerActivity(willBeHappy4, timerRest.getId(), 0, 524);
         manager.getDaoFacade().updateTimerActivity(willBeHappy5, timerRest.getId(), 0, 234);
@@ -211,4 +212,57 @@ public class TestFlowManager extends AndroidTestCase{
         assertFalse(happyTimeForSession.getActivityValue() == 0);
         assertTrue(happyTimeForSession.getActivityValue() == 524);
     }
+
+    public void testGetAllTimersNotAssignedToCurrentSession(){
+
+        HappySession session = manager.startNewSession("NEW_SESSION");
+
+        assertNotNull(session);
+
+        ArrayList<HappyTimerActivity> timerActivities;
+
+        timerActivities = manager.getTimerActivities(session);
+        assertNotNull(timerActivities);
+
+        assertTrue(timerActivities.size() == 1);
+
+        HappyTimerActivity mainTimerActivity = timerActivities.get(0);
+
+        HappyTimer timerCoding = manager.createTimer("Coding",false);
+        HappyTimer timerDebugging = manager.createTimer("Debugging",false);
+        HappyTimer timerFixing = manager.createTimer("Fixing",false);
+        HappyTimer timerRest = manager.createTimer("Rest",true);
+        HappyTimer timerDiner = manager.createTimer("Diner",true);
+
+        assertNotNull(timerCoding);
+        assertNotNull(timerDebugging);
+        assertNotNull(timerFixing);
+        assertNotNull(timerRest);
+        assertNotNull(timerDiner);
+
+        long willBeHappy1 = manager.addTimerToSession(session, timerCoding);
+        long willBeHappy2 = manager.addTimerToSession(session, timerDebugging);
+        long willBeHappy3 = manager.addTimerToSession(session, timerFixing);
+        long willBeHappy4 = manager.addTimerToSession(session, timerRest);
+        long willBeHappy5 = manager.addTimerToSession(session, timerDiner);
+
+        timerActivities = manager.getTimerActivities(session);
+        assertNotNull(timerActivities);
+
+        assertTrue(timerActivities.size() == 6);
+
+        ArrayList<HappyTimer> allTimers = manager.getDaoFacade().getTimers();
+
+        assertTrue(allTimers != null);
+        assertTrue(allTimers.size() > 0);
+        assertTrue(allTimers.size() == HappyTimer.defaultTimers.size() + 5);
+
+        ArrayList<HappyTimer> notAssignedTimers =  manager.getTimersNotAssignedToSession(session);
+
+        assertTrue(notAssignedTimers != null);
+        assertTrue(notAssignedTimers.size() > 0);
+
+        assertTrue(notAssignedTimers.size() == allTimers.size() - timerActivities.size());
+    }
+
 }

@@ -5,6 +5,7 @@ import android.content.Context;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
@@ -109,4 +110,25 @@ public class DatabaseSessionManager implements SessionManager {
         return activities.get(0);
     };
 
+    @Override
+    public ArrayList<HappyTimer> getTimersNotAssignedToSession(HappySession session) {
+        ArrayList<HappyTimer> allTimers = daoFacade.getTimers();
+        ArrayList<HappyTimerActivity> timerActivities = getTimerActivities(session);
+
+        Iterator<HappyTimer> timerIterator = allTimers.iterator();
+
+        while (timerIterator.hasNext()){
+            HappyTimer timer = timerIterator.next();
+
+            for(HappyTimerActivity timerActivity: timerActivities){
+                if(timerActivity.getTimerId() == timer.getId()){
+                    timerIterator.remove();
+                    break;
+                }
+            }
+
+        }
+
+        return allTimers;
+    }
 }
