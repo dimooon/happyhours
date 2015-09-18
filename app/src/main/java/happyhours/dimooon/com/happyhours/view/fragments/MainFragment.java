@@ -13,10 +13,9 @@ import android.widget.TextView;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
-import happyhours.dimooon.com.happyhours.tools.animation.DropDownAnim;
 import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 import happyhours.dimooon.com.happyhours.tools.animation.ZoomTranslateAnimation;
-import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
+import happyhours.dimooon.com.happyhours.view.custom.toolbar.ActionToolBar;
 import happyhours.dimooon.com.happyhours.view.dialog.StartSessionDialog;
 import happyhours.dimooon.com.happyhours.view.session.SessionView;
 
@@ -62,8 +61,8 @@ public class MainFragment extends Fragment {
                 anim.setAnimationListener(new Animation.AnimationListener() {
                     @Override
                     public void onAnimationStart(Animation animation) {
-                        toolbar.findViewById(R.id.toolbar_add_another_layout).setVisibility(View.VISIBLE);
-                        
+                        ((ActionToolBar)toolbar).showAddTimerBar(true);
+
                     }
 
                     @Override
