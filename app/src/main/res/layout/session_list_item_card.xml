@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    style="@style/FullScreen">
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/sessions_rad_view"
+        style="@style/FullScreen"
+        android:layout_gravity="center"
+        card_view:cardCornerRadius="4dp"
+        android:elevation="100dp"
+        android:layout_margin="2dip"
+        card_view:contentPadding="4dip"
+        android:background="@null"
+        card_view:cardPreventCornerOverlap="false"
+        card_view:cardUseCompatPadding="true">
+
+        <LinearLayout
+            style="@style/Wide"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/session_list_item_caption"
+                style="@style/Text.Small"
+                android:layout_marginTop="@dimen/standard_margin"
+                android:layout_marginBottom="@dimen/standard_margin"
+                android:text="Default action"/>
+
+            <LinearLayout
+                style="@style/Wide"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dip"
+                    android:layout_height="40dip"
+                    android:src="@drawable/plus"
+                    android:layout_marginRight="@dimen/standard_margin"
+                    android:visibility="gone"/>
+
+                <happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar
+                    android:layout_width="match_parent"
+                    android:id="@+id/session_list_item_value"
+                    android:background="@drawable/progress_bar_background"
+                    android:progressDrawable="@drawable/progress_bar_layer"
+                    android:padding="1dip"
+                    android:thumb="@android:color/transparent"
+                    android:layout_height="30dip"
+                    android:indeterminate="false"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

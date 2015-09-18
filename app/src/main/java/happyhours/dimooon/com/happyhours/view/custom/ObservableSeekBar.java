@@ -10,8 +10,8 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerAc
 import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
 
 public class ObservableSeekBar extends SeekBar implements TimerUpdatedListener,ProgressBar {
-    private static final String TAG = ObservableSeekBar.class.getCanonicalName();
 
+    private static final String TAG = ObservableSeekBar.class.getSimpleName();
     private HappyTimerActivity timerActivity;
     private HappyFacade facade;
     private boolean active;
@@ -42,7 +42,7 @@ public class ObservableSeekBar extends SeekBar implements TimerUpdatedListener,P
         int progress = getProgress() + (int) value;
 
         if(!active){
-            return !active || progress > 100;
+            return (!active && progress > 100);
         }
 
         if(timerActivity!=null&&facade!=null){
@@ -57,5 +57,10 @@ public class ObservableSeekBar extends SeekBar implements TimerUpdatedListener,P
     @Override
     public void active(boolean active) {
         this.active = active;
+    }
+
+    @Override
+    public String getName() {
+        return timerActivity == null ? "Main Progress" : timerActivity.getTimerName();
     }
 }

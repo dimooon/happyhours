@@ -36,6 +36,7 @@ public class SessionView extends LinearLayout implements ISessionView{
     private Activity activity;
 
     private CreateTimerDialog createTimerDialog;
+    private SessionManager manager;
 
     public SessionView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -69,9 +70,7 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     @Override
     public void startSession(){
-        if(sessionTimer!=null){
-            sessionTimer.startTimerCount();
-        }
+        sessionTimer.startTimerCount();
     }
 
     @Override
@@ -89,10 +88,9 @@ public class SessionView extends LinearLayout implements ISessionView{
 
         sessionTimer = initSessionTimer();
 
-        SessionManager manager = initSessionManager();
+        manager = initSessionManager();
 
         initSessionActivityList(manager);
-        initAddTimerButton(manager);
 
     }
 
@@ -132,25 +130,15 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     }
 
-    private void initAddTimerButton(final SessionManager manager) {
-        sessionListAddNewTimerView = findViewById(R.id.sessionListAddNewTimerView);
-        sessionListAddNewTimerView.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showAddTimerDialog(manager);
-            }
-        });
-    }
-
-    private void showAddTimerDialog(final SessionManager sessionManager){
+    public void showAddTimerDialog(){
 
         createTimerDialog = new CreateTimerDialog();
         createTimerDialog.show(this.activity, new CreateTimerDialog.CreateTimerDialogListener() {
             @Override
             public void onNewItemSelected(HappyTimer timer) {
                 createTimerDialog.dismiss();
-                sessionManager.addTimerToSession(session,timer);
-                adapter.setData(sessionManager.getTimerActivities(session));
+                manager.addTimerToSession(session, timer);
+                adapter.setData(manager.getTimerActivities(session));
                 adapter.notifyDataSetChanged();
             }
         });

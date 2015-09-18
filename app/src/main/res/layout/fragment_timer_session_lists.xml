@@ -5,13 +5,6 @@
     android:layout_height="match_parent"
     style="@style/FullScreen.MainAppPadding">
 
-    <TextView
-        style="@style/Wide.Text"
-        android:text="@string/timer_session_list_title"
-        android:layout_marginTop="@dimen/standard_margin"
-        android:layout_marginBottom="@dimen/standard_margin"
-        android:layout_marginLeft="@dimen/standard_margin"/>
-
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sessions"
         android:scrollbars="none"

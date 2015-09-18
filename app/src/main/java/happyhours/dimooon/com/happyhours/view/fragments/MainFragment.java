@@ -2,10 +2,12 @@ package happyhours.dimooon.com.happyhours.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
@@ -17,11 +19,12 @@ import happyhours.dimooon.com.happyhours.view.session.SessionView;
 public class MainFragment extends Fragment {
 
     private SessionView sessionView;
-    private StartSessionDialog.CreateSessionDialogListener listener;
     private ZoomTranslateAnimation animation;
+    private Toolbar toolbar;
 
     private View startButton;
     private View stopButton;
+    private View addNewTimerButton;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -38,8 +41,20 @@ public class MainFragment extends Fragment {
     }
 
     private void initView(){
+
+        toolbar = ((Toolbar) getActivity().findViewById(R.id.toolbar));
+        ((TextView)toolbar.findViewById(R.id.custom_toolbar_title)).setText("< ------------ back log -");
+
+        addNewTimerButton = ((Button)toolbar.findViewById(R.id.timersListButton));
+        addNewTimerButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                sessionView.showAddTimerDialog();
+            }
+        });
+
         startButton = getView().findViewById(R.id.startSessionButton);
-        stopButton = getView().findViewById(R.id.stopSessionButton);
+        stopButton = toolbar.findViewById(R.id.stopSessionButton);
 
         sessionView = (SessionView) getView().findViewById(R.id.sessionView);
 
@@ -73,6 +88,7 @@ public class MainFragment extends Fragment {
             handleStopSession(startButton);
         }
 
+        addNewTimerButton.setVisibility(start ? View.VISIBLE : View.INVISIBLE);
         sessionView.setVisibility(start ? View.VISIBLE : View.INVISIBLE);
     }
 
@@ -89,7 +105,7 @@ public class MainFragment extends Fragment {
     }
 
     private void animateAndStartSession() {
-        animation.zoomImageFromThumb(getActivity().findViewById(R.id.container),getView().findViewById(R.id.startSessionButton), getView().findViewById(R.id.stopSessionButton) );
+        animation.zoomImageFromThumb(getActivity().findViewById(R.id.container), startButton, stopButton );
 
         sessionView.startSession();
     }
@@ -102,6 +118,5 @@ public class MainFragment extends Fragment {
         }
 
         startButton.setVisibility(View.VISIBLE);
-
     }
 }

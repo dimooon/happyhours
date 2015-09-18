@@ -74,8 +74,8 @@ public class ZoomTranslateAnimation {
 
         AnimatorSet set = new AnimatorSet();
         set
-                .play(ObjectAnimator.ofFloat(finish, View.X, startBounds.left, finalBounds.right - finish.getWidth()))
-                .with(ObjectAnimator.ofFloat(finish, View.Y, startBounds.top, finalBounds.top))
+                .play(ObjectAnimator.ofFloat(finish, View.X, startBounds.left, finish.getLeft()))
+                .with(ObjectAnimator.ofFloat(finish, View.Y, startBounds.top, finish.getTop()))
                 .with(ObjectAnimator.ofFloat(finish, View.SCALE_X, startScale, 1f))
                 .with(ObjectAnimator.ofFloat(finish, View.SCALE_Y, startScale, 1f));
 

@@ -36,10 +36,8 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         public TextView session_card_happy_task;
         public TextView caption;
         public SeekBar sessionMainProgress;
-        public View sessionListAddNewTimerView;
         public RecyclerView sessionTimersList;
         public CardView sessions_rad_view;
-        public View session_list_item_last;
         public View sessionIncludeLayout;
         public View session_list_item_value;
         public ViewHolder(View v) {
@@ -52,10 +50,10 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
             session_card_happy_task = (TextView) v.findViewById(R.id.session_card_happy_task);
             caption = (TextView) v.findViewById(R.id.caption);
             sessionMainProgress = (SeekBar) v.findViewById(R.id.sessionMainProgress);
-            sessionListAddNewTimerView = (View) v.findViewById(R.id.sessionListAddNewTimerView);
+
             sessionTimersList = (RecyclerView) v.findViewById(R.id.sessionTimersList);
             sessions_rad_view = (CardView) v.findViewById(R.id.sessions_rad_view);
-            session_list_item_last = v.findViewById(R.id.sessionListAddNewTimerView);
+
             sessionIncludeLayout = v.findViewById(R.id.sessionIncludeLayout);
             session_list_item_value = v.findViewById(R.id.session_list_item_value);
         }
@@ -92,7 +90,6 @@ public class SessionsAdapter extends RecyclerView.Adapter<SessionsAdapter.ViewHo
         holder.sessionCardDate.setText(DateUtils.getDate(sessions.get(position).getTimestamp()));
 
         holder.caption.setVisibility(View.GONE);
-        holder.session_list_item_last.setVisibility(View.GONE);
 
         long fullSessionTime = manager.getFullTimeForSession(sessions.get(position));
         String fullSessionTimeString =  String.valueOf(fullSessionTime);

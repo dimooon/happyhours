@@ -1,5 +1,7 @@
 package happyhours.dimooon.com.happyhours.model.timer;
 
+import android.util.Log;
+
 import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -8,6 +10,7 @@ import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
 
 public class SessionTimer{
 
+    private static final String TAG = SessionTimer.class.getSimpleName();
     private HashSet<TimerUpdatedListener> listeners = new HashSet<>();
     private Timer timerCountTask = null;
     private TimerUpdatedListener mainSessionTimer;
@@ -23,8 +26,14 @@ public class SessionTimer{
     }
 
     public void start(ObservableSeekBar listener){
-        for(TimerUpdatedListener observers : listeners){
-            observers.active(observers.equals(listener)||observers.equals(mainSessionTimer));
+
+        for(TimerUpdatedListener currentUpdateListener : listeners){
+
+            boolean activate = currentUpdateListener.equals(listener)||currentUpdateListener.equals(mainSessionTimer);
+
+            Log.e(TAG,"activate: "+activate);
+
+            currentUpdateListener.active(activate);
         }
     }
 
@@ -33,8 +42,12 @@ public class SessionTimer{
     }
 
     public void update(long value) {
+
         for(TimerUpdatedListener observers : listeners){
             boolean timeIsOver = observers.publishValue(value);
+
+            Log.e(TAG,"update: "+value+" listener: "+observers.getName()+" timeIsOver "+timeIsOver);
+
             if (timeIsOver){
                 stopTimerCount();
                 return;

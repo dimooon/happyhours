@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/FullScreen.MainAppPadding.MainActivityBackground"
     app:theme="@style/Theme.AppCompat"
+    android:id="@+id/container"
     tools:context=".MainActivity">
 
     <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
@@ -10,8 +11,47 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?android:attr/actionBarSize"
-        android:background="?android:attr/colorPrimary" />
+        android:background="@color/enterprise_blue">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/custom_toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/kapp2_white"
+                android:text=""
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="8pt"/>
+
+            <Button
+                android:visibility="invisible"
+                android:id="@+id/stopSessionButton"
+                android:text="Make \na\n Brake"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                style="@style/Button.MakeABreak"
+                android:textSize="5pt"
+                android:layout_alignParentEnd="true"
+                android:layout_margin="3dip"/>
+
+            <Button
+                android:visibility="invisible"
+                android:id="@+id/timersListButton"
+                android:text="Add \nnew\n Timer"
+                style="@style/Button.MakeABreak"
+                android:textSize="5pt"
+                android:layout_margin="3dip"
+                android:layout_toLeftOf="@id/stopSessionButton"/>
+
+
+
+        </RelativeLayout>
+
+</android.support.v7.widget.Toolbar>
     <android.support.v4.view.ViewPager
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/pager"

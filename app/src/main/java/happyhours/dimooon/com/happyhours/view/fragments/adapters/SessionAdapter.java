@@ -53,7 +53,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     @Override
     public SessionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.session_list_item, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.session_list_item_card, parent, false);
 
         v.setOnClickListener(new View.OnClickListener() {
             @Override

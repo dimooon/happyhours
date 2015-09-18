@@ -4,4 +4,5 @@ public interface TimerUpdatedListener {
 
     boolean publishValue(long value);
     void active(boolean active);
+    String getName();
 }
