@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import happyhours.dimooon.com.happyhours.model.pager.MainPager;
+import happyhours.dimooon.com.happyhours.view.custom.toolbar.ActionToolBar;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        ((ActionToolBar)toolbar).initView(this);
     }
 
     @Override

@@ -2,6 +2,7 @@ package happyhours.dimooon.com.happyhours.view.dialog;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.support.v7.internal.view.ContextThemeWrapper;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -36,11 +37,9 @@ public class CreateTimerController {
 
         private CreateTimerDialogListener listener;
 
-        public void show(final Activity activity, final View content, final HappySession session, CreateTimerDialogListener listener){
+        public void show(final Context activity, final View content, final HappySession session, CreateTimerDialogListener listener){
 
             this.listener = listener;
-
-            LayoutInflater inflater = activity.getLayoutInflater();
 
             listContainer = content.findViewById(R.id.createNewTimerDialogListView);
             createContainer = content.findViewById(R.id.createNewTimerDialogCreateView);
@@ -96,7 +95,7 @@ public class CreateTimerController {
         listContainer.setVisibility(showCreateTimerView ? View.GONE : View.VISIBLE);
     }
 
-    private void initTimersList(Activity activity,HappySession session){
+    private void initTimersList(Context activity,HappySession session){
 
         timersList.setHasFixedSize(true);
         timersList.setLayoutManager(new LinearLayoutManager(activity));

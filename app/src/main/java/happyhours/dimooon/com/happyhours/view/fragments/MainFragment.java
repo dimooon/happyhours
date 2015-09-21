@@ -48,41 +48,16 @@ public class MainFragment extends Fragment {
         toolbar = ((Toolbar) getActivity().findViewById(R.id.toolbar));
         ((TextView)toolbar.findViewById(R.id.custom_toolbar_title)).setText("< ------------ back log -");
 
-        addNewTimerButton = ((Button)toolbar.findViewById(R.id.timersListButton));
-        addNewTimerButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                HeightAnimation anim = new HeightAnimation(toolbar,toolbar.getHeight(),toolbar.getHeight() + toolbar.getHeight()*4);
-                anim.setDuration(400);
-
-                sessionView.showAddTimerDialog();
-
-                anim.setAnimationListener(new Animation.AnimationListener() {
-                    @Override
-                    public void onAnimationStart(Animation animation) {
-                        ((ActionToolBar)toolbar).showAddTimerBar(true);
-
-                    }
-
-                    @Override
-                    public void onAnimationEnd(Animation animation) {
-
-                    }
-
-                    @Override
-                    public void onAnimationRepeat(Animation animation) {
-
-                    }
-                });
-                toolbar.startAnimation(anim);
-            }
-        });
 
         startButton = getView().findViewById(R.id.startSessionButton);
         stopButton = toolbar.findViewById(R.id.stopSessionButton);
 
+        addNewTimerButton = ((Button)toolbar.findViewById(R.id.timersListButton));
+
         sessionView = (SessionView) getView().findViewById(R.id.sessionView);
+
+        ((ActionToolBar)toolbar).setSessionView(sessionView);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override

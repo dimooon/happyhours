@@ -12,13 +12,13 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
-import happyhours.dimooon.com.happyhours.tools.DateUtils;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
+import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
 import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
 import happyhours.dimooon.com.happyhours.view.fragments.adapters.SessionAdapter;
@@ -26,7 +26,6 @@ import happyhours.dimooon.com.happyhours.view.fragments.adapters.SessionAdapter;
 public class SessionView extends LinearLayout implements ISessionView{
 
     private RecyclerView sessionTimersList;
-    private View sessionListAddNewTimerView;
     private SessionAdapter adapter;
 
     private HappySession session;
@@ -34,7 +33,7 @@ public class SessionView extends LinearLayout implements ISessionView{
 
     private Activity activity;
 
-    private CreateTimerController createTimerDialog;
+    private CreateTimerController createTimerController;
     private SessionManager manager;
 
     public SessionView(Context context, AttributeSet attrs) {
@@ -127,11 +126,10 @@ public class SessionView extends LinearLayout implements ISessionView{
         sessionTimersList.setAdapter(adapter);
 
     }
+    public void showTimersView(){
 
-    public void showAddTimerDialog(){
-
-        createTimerDialog = new CreateTimerController();
-        createTimerDialog.show(this.activity,activity.findViewById(R.id.toolbar),session, new CreateTimerController.CreateTimerDialogListener() {
+        createTimerController = new CreateTimerController();
+        createTimerController.show(this.activity, activity.findViewById(R.id.toolbar), session, new CreateTimerController.CreateTimerDialogListener() {
             @Override
             public void onNewItemSelected(HappyTimer timer) {
                 manager.addTimerToSession(session, timer);
