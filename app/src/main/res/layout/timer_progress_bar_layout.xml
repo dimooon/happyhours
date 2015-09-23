@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:showIn="@layout/session_list_item">
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:id="@+id/progressInBar"
+        android:background="@drawable/progress_bar_background"
+        android:progressDrawable="@drawable/progress_bar_layer"
+        android:padding="1dip"
+        android:thumb="@android:color/transparent"
+        android:layout_height="30dip"
+        android:indeterminate="false"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true" />
+
+    <TextView
+        android:id="@+id/progressInTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="1h 12m 23s"
+        android:gravity="center" />
+
+</RelativeLayout>

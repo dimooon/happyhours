@@ -4,7 +4,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,7 +12,7 @@ import java.util.List;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
-import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 
@@ -27,12 +26,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static TextView name;
-        public static SeekBar value;
+        public static TimeProgressBar value;
 
         public ViewHolder(View v) {
             super(v);
             name = (TextView) v.findViewById(R.id.session_list_item_caption);
-            value = (SeekBar) v.findViewById(R.id.session_list_item_value);
+            value = (TimeProgressBar) v.findViewById(R.id.timeProgressItem);
         }
     }
 
@@ -70,10 +69,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(timers.get(position).getTimerName());
-        holder.value.setProgress((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue());
+        holder.value.restoreProgress(((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue()));
         holder.value.setEnabled(false);
-        ((ObservableSeekBar)holder.value).assignDAO(manager.getDaoFacade());
-        ((ObservableSeekBar)holder.value).assignTimerActivity(timers.get(position));
+        ((TimeProgressBar)holder.value).assignDAO(manager.getDaoFacade());
+        ((TimeProgressBar)holder.value).assignTimerActivity(timers.get(position));
 
     }
     @Override

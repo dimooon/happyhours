@@ -1,12 +1,9 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
 import android.app.Activity;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -14,11 +11,10 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
-import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
 
 public class SessionViewPresenter {
@@ -112,8 +108,8 @@ public class SessionViewPresenter {
         adapter = new SessionAdapter(timers, new SessionAdapter.SessionListItemClickListener() {
             @Override
             public void onItemClick(View itemView) {
-                sessionTimer.attach((ObservableSeekBar) itemView.findViewById(R.id.session_list_item_value));
-                sessionTimer.start((ObservableSeekBar) itemView.findViewById(R.id.session_list_item_value));
+                sessionTimer.attach((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
+                sessionTimer.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
             }
         }, manager);
 

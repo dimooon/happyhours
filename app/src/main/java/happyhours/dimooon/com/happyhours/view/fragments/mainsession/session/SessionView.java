@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar;
+import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
 
 public class SessionView extends LinearLayout implements ISessionView{
 
@@ -35,8 +35,8 @@ public class SessionView extends LinearLayout implements ISessionView{
     }
 
     @Override
-    public ObservableSeekBar getMainProgressBar(){
-        return (ObservableSeekBar) findViewById(R.id.sessionMainProgress);
+    public TimeProgressBar getMainProgressBar(){
+        return (TimeProgressBar) findViewById(R.id.sessionMainProgress);
     }
 
     @Override

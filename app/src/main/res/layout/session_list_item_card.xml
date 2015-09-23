@@ -37,16 +37,10 @@
                     android:layout_marginRight="@dimen/standard_margin"
                     android:visibility="gone"/>
 
-                <happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar
+                <happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar
                     android:layout_width="match_parent"
-                    android:id="@+id/session_list_item_value"
-                    android:background="@drawable/progress_bar_background"
-                    android:progressDrawable="@drawable/progress_bar_layer"
-                    android:padding="1dip"
-                    android:thumb="@android:color/transparent"
-                    android:layout_height="30dip"
-                    android:indeterminate="false"
-                    android:layout_gravity="center"/>
+                    android:layout_height="wrap_content"
+                    android:id="@+id/timeProgressItem"/>
 
             </LinearLayout>
         </LinearLayout>

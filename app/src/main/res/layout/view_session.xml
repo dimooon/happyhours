@@ -16,16 +16,10 @@
         style="@style/Text.Small"
         android:text="Overall"/>
 
-    <happyhours.dimooon.com.happyhours.view.custom.ObservableSeekBar
+    <happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar
         android:layout_width="match_parent"
-        android:layout_marginBottom="10dip"
-        android:id="@+id/sessionMainProgress"
-        android:background="@drawable/progress_bar_background"
-        android:progressDrawable="@drawable/progress_bar_layer"
-        android:padding="1dip"
-        android:thumb="@android:color/transparent"
-        android:layout_height="30dip"
-        android:indeterminate="false"/>
+        android:layout_height="wrap_content"
+        android:id="@+id/sessionMainProgress"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/sessionTimersList"

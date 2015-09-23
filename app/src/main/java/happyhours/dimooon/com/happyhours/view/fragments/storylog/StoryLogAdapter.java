@@ -9,7 +9,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.util.List;
@@ -19,6 +18,7 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
+import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionAdapter;
 
 public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHolder> {
@@ -35,7 +35,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         public TextView session_card_happy_time;
         public TextView session_card_happy_task;
         public TextView caption;
-        public SeekBar sessionMainProgress;
+        public TimeProgressBar sessionMainProgress;
         public RecyclerView sessionTimersList;
         public CardView sessions_rad_view;
         public View sessionIncludeLayout;
@@ -49,13 +49,13 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
             session_card_happy_time = (TextView) v.findViewById(R.id.session_card_happy_time);
             session_card_happy_task = (TextView) v.findViewById(R.id.session_card_happy_task);
             caption = (TextView) v.findViewById(R.id.caption);
-            sessionMainProgress = (SeekBar) v.findViewById(R.id.sessionMainProgress);
+            sessionMainProgress = (TimeProgressBar) v.findViewById(R.id.sessionMainProgress);
 
             sessionTimersList = (RecyclerView) v.findViewById(R.id.sessionTimersList);
             sessions_rad_view = (CardView) v.findViewById(R.id.sessions_rad_view);
 
             sessionIncludeLayout = v.findViewById(R.id.sessionIncludeLayout);
-            session_list_item_value = v.findViewById(R.id.session_list_item_value);
+            session_list_item_value = v.findViewById(R.id.progressInBar);
         }
     }
 
@@ -94,7 +94,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         long fullSessionTime = manager.getFullTimeForSession(sessions.get(position));
         String fullSessionTimeString =  String.valueOf(fullSessionTime);
 
-        holder.sessionMainProgress.setProgress((int) fullSessionTime);
+        holder.sessionMainProgress.restoreProgress((int) fullSessionTime);
         holder.sessionMainProgress.setEnabled(false);
 
         holder.session_card_full_time.setText(fullSessionTimeString);
