@@ -34,8 +34,7 @@ public class HappyToolbar extends Toolbar implements ActionToolBar{
         this.presenter = presenter;
     }
 
-    @Override
-    public void initView(Activity activity){
+    public void initView(){
 
         titleBar = findViewById(R.id.toolbar_action_bar);
         addTimerBar = findViewById(R.id.toolbar_add_create_timer);
@@ -48,8 +47,7 @@ public class HappyToolbar extends Toolbar implements ActionToolBar{
             public void onClick(View view) {
                 if (presenter != null) {
                     presenter.collapse();
-                }
-                ;
+                };
             }
         });
 

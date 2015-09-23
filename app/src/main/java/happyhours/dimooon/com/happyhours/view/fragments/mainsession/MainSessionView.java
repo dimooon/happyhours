@@ -4,6 +4,7 @@ import android.view.View;
 
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
 
 public interface MainSessionView {
 
@@ -12,4 +13,6 @@ public interface MainSessionView {
     View getStartSessionButton();
     View getAddNewTimerButton();
     ISessionView getSessionView();
+
+    ActionToolBar getToolbar();
 }

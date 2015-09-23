@@ -1,5 +1,6 @@
 package happyhours.dimooon.com.happyhours.view.fragments;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,10 +18,19 @@ import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresente
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryLogAdapter;
 
+@SuppressLint("ValidFragment")
 public class MyStoryFragment extends Fragment implements MyStoryView {
 
     private MyStoryPresenter presenter;
     private RecyclerView sessionsView;
+
+    private SessionManager manager;
+
+    @SuppressLint("ValidFragment")
+    public MyStoryFragment(SessionManager manager) {
+        super();
+        this.manager = manager;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -30,29 +40,35 @@ public class MyStoryFragment extends Fragment implements MyStoryView {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        init();
+        initPresenter();
+
         if(presenter!=null){
-            presenter.initView();
             presenter.showStoryLogs();
         }
+
     }
 
-    @Override
-    public void init(){
-
+    private void init(){
         sessionsView = (RecyclerView) getView().findViewById(R.id.sessions);
         sessionsView.setHasFixedSize(true);
         sessionsView.setLayoutManager(new LinearLayoutManager(getActivity()));
-
     }
 
-    @Override
-    public void showStoryLog(List<HappySession> sessions,SessionManager manager){
-        StoryLogAdapter adapter = new StoryLogAdapter(sessions, getActivity(), manager);
-        sessionsView.setAdapter(adapter);
+    private void initPresenter(){
+        MyStoryPresenter storyPresenter = new MyStoryPresenter(getActivity(),this,manager);
+        this.setPresenter(storyPresenter);
     }
 
     @Override
     public void setPresenter(MyStoryPresenter presenter) {
         this.presenter = presenter;
     }
+
+    @Override
+    public RecyclerView getStoryList() {
+        return sessionsView;
+    }
+
 }

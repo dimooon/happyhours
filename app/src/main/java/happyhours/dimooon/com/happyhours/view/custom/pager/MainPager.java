@@ -14,6 +14,8 @@ import happyhours.dimooon.com.happyhours.view.fragments.MainSessionFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.MyStoryFragment;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ToolbarPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
 
@@ -31,26 +33,27 @@ public class MainPager implements Pager{
         public int id;
     }
 
-    public MainPager(FragmentActivity activity,ViewPager pager) {
+    public MainPager(FragmentActivity activity,ViewPager pager,SessionManager manager) {
 
         this.pager = pager;
 
-        initPagerAdapter(activity);
+        initPagerAdapter(activity,manager);
     }
 
     @Override
     public boolean handleBackPressed() {
-        if (Page.MAIN.id != this.pager.getCurrentItem()) {
+
+        boolean overrideBackButton = Page.MAIN.id != this.pager.getCurrentItem();
+
+        if(overrideBackButton){
             this.pager.setCurrentItem(Page.MAIN.id);
-            return true;
         }
-        return false;
+
+        return overrideBackButton;
     }
 
-    private void initPagerAdapter(FragmentActivity activity){
+    private void initPagerAdapter(FragmentActivity activity, SessionManager manager){
         List<Fragment> fragments = new ArrayList<>();
-
-        SessionManager manager = new DatabaseSessionManager(activity);
 
         fragments.add(getStoryLogFragment(manager));
         fragments.add(getSessionViewFragment(activity, manager));
@@ -61,17 +64,14 @@ public class MainPager implements Pager{
 
     private Fragment getStoryLogFragment(SessionManager manager){
 
-        MyStoryView storyLog = new MyStoryFragment();
-        MyStoryPresenter storyPresenter = new MyStoryPresenter(storyLog,manager);
-
-        storyLog.setPresenter(storyPresenter);
+        MyStoryView storyLog = new MyStoryFragment(manager);
 
         return (Fragment) storyLog;
     }
 
     private Fragment getSessionViewFragment(Activity activity,SessionManager manager){
 
-        MainSessionView sessionFragmentView = new MainSessionFragment();
+        MainSessionView sessionFragmentView = new MainSessionFragment(activity,manager);
 
      return (Fragment) sessionFragmentView;
     }

@@ -1,5 +1,7 @@
 package happyhours.dimooon.com.happyhours.view.fragments;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -8,6 +10,7 @@ import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
@@ -16,6 +19,7 @@ import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionP
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
 
+@SuppressLint("ValidFragment")
 public class MainSessionFragment extends Fragment implements MainSessionView {
 
     private View startButton;
@@ -27,6 +31,17 @@ public class MainSessionFragment extends Fragment implements MainSessionView {
     private MainSessionPresenter presenter;
     private ISessionView sessionView;
 
+    private Activity activity;
+    private SessionManager manager;
+
+    @SuppressLint("ValidFragment")
+    public MainSessionFragment(Activity activity, SessionManager manager) {
+        super();
+
+        this.activity = activity;
+        this.manager = manager;
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_main, container, false);
@@ -35,7 +50,9 @@ public class MainSessionFragment extends Fragment implements MainSessionView {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         initView();
+        initPresenter();
     }
 
     private void initView(){
@@ -57,15 +74,17 @@ public class MainSessionFragment extends Fragment implements MainSessionView {
 
         toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
         sessionView = (SessionView) getView().findViewById(R.id.sessionView);
+    }
 
-        SessionViewPresenter sessionViewPresenter = new SessionViewPresenter(getActivity(),sessionView,new DatabaseSessionManager(getActivity()));
-        sessionView.setPresenter(sessionViewPresenter);
+    private void initPresenter(){
+        SessionViewPresenter sessionViewPresenter = new SessionViewPresenter(activity,getSessionView(),manager);
+        getSessionView().setPresenter(sessionViewPresenter);
 
-        ToolbarPresenter toolbarPresenter = new ToolbarPresenter(toolbar,sessionViewPresenter);
-        toolbar.setPresenter(toolbarPresenter);
+        ToolbarPresenter toolbarPresenter = new ToolbarPresenter(getToolbar(),sessionViewPresenter);
+        getToolbar().setPresenter(toolbarPresenter);
 
-        MainSessionPresenter presenter = new MainSessionPresenter(getActivity(),this, sessionViewPresenter,new DatabaseSessionManager(getActivity()));
-        this.setPresenter(presenter);
+        MainSessionPresenter presenter = new MainSessionPresenter(activity,this, sessionViewPresenter,manager);
+        setPresenter(presenter);
     }
 
     @Override
@@ -90,4 +109,7 @@ public class MainSessionFragment extends Fragment implements MainSessionView {
 
     @Override
     public ISessionView getSessionView() { return sessionView;  }
+
+    @Override
+    public ActionToolBar getToolbar(){ return toolbar;  }
 }
