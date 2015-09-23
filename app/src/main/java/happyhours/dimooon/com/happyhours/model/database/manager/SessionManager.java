@@ -15,4 +15,8 @@ public interface SessionManager {
     HappyTimerActivity getTimerActivity(long id);
     HappyFacade getDaoFacade();
     ArrayList<HappyTimer> getTimersNotAssignedToSession(HappySession session);
+    long getFullTimeForSession(HappySession session);
+    long getHappyTimeForSession(HappySession session);
+    HappyTimerActivity getMostHappyTask(HappySession session);
+    HappySession startNewSession(String s);
 }

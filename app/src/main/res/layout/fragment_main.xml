@@ -4,11 +4,11 @@
     style="@style/FullScreen.MainAppPadding"
     android:background="@null">
 
-    <happyhours.dimooon.com.happyhours.view.session.SessionView
+    <happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView
         android:id="@+id/sessionView"
         style="@style/FullScreen"
         android:layout_centerInParent="true"
-        android:visibility="visible"/>
+        android:visibility="invisible"/>
 
     <Button
         android:id="@+id/startSessionButton"

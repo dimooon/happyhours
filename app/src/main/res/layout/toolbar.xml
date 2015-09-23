@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<happyhours.dimooon.com.happyhours.view.custom.toolbar.HappyToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+<happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.HappyToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
@@ -35,4 +35,4 @@
 
 
 
-</happyhours.dimooon.com.happyhours.view.custom.toolbar.HappyToolbar>
+</happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.HappyToolbar>

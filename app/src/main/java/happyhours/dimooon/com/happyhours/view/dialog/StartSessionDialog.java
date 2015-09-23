@@ -12,14 +12,14 @@ import android.widget.EditText;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 
 public class StartSessionDialog {
 
     private AlertDialog alertDialog;
     private EditText create_session_name;
 
-    public void show(final Activity activity, final DatabaseSessionManager manager, final CreateSessionDialogListener listener) {
-        // layout and inflater
+    public void show(final Activity activity, final SessionManager manager, final CreateSessionDialogListener listener) {
 
         LayoutInflater inflater = activity.getLayoutInflater();
         final View content = inflater.inflate(R.layout.session_create_dialog, null);
