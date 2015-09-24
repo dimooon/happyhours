@@ -2,6 +2,7 @@ package happyhours.dimooon.com.happyhours.view.custom;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -10,12 +11,15 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
+import happyhours.dimooon.com.happyhours.tools.DateUtils;
 
 public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListener,ProgressBar {
 
     private HappyTimerActivity timerActivity;
     private HappyFacade facade;
     private boolean active;
+
+    private static final int PROGRESS_MAX = 60 * 60 * 8;
 
     private SeekBar progressBar;
     private TextView timeProgress;
@@ -41,14 +45,19 @@ public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListe
         progressBar = (SeekBar)findViewById(R.id.progressInBar);
         timeProgress = (TextView) findViewById(R.id.progressInTime);
 
+        progressBar.setMax(PROGRESS_MAX);
+        progressBar.setEnabled(false);
     }
     @Override
     public boolean publishValue(long value) {
 
         int progress = progressBar.getProgress() + (int) value;
 
+        Log.e(TimeProgressBar.class.getSimpleName(),getName()+"progress: "+progress);
+
+
         if(!active){
-            return (!active && progress > 100);
+            return (!active && progress > PROGRESS_MAX);
         }
 
         if(timerActivity!=null&&facade!=null){
@@ -58,7 +67,7 @@ public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListe
         progressBar.setProgress(progress);
         updateTime(progress);
 
-        return progress > 100;
+        return progress > PROGRESS_MAX;
     }
 
     @Override
@@ -91,12 +100,7 @@ public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListe
         post(new Runnable() {
             @Override
             public void run() {
-                int passedSeconds = progress * 60 / 100;
-
-                int seconds = passedSeconds % 60;
-                int minutes = (passedSeconds / 60) % 60;
-                int hours = (passedSeconds / 3600);
-                timeProgress.setText(String.format("%02dh:%02dm:%02ds", hours, minutes, seconds));
+                timeProgress.setText(DateUtils.getTimeProgress(progress));
             }
         });
     }
