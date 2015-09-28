@@ -14,17 +14,19 @@ import java.util.List;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryLogAdapter;
 
 @SuppressLint("ValidFragment")
-public class MyStoryFragment extends Fragment implements MyStoryView {
+public class MyStoryFragment extends Fragment implements MyStoryView,SelectableFragment {
 
     private MyStoryPresenter presenter;
     private RecyclerView sessionsView;
 
     private SessionManager manager;
+    private ActionToolBar toolbar;
 
     @SuppressLint("ValidFragment")
     public MyStoryFragment(SessionManager manager) {
@@ -54,6 +56,8 @@ public class MyStoryFragment extends Fragment implements MyStoryView {
         sessionsView = (RecyclerView) getView().findViewById(R.id.sessions);
         sessionsView.setHasFixedSize(true);
         sessionsView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
     }
 
     private void initPresenter(){
@@ -71,4 +75,8 @@ public class MyStoryFragment extends Fragment implements MyStoryView {
         return sessionsView;
     }
 
+    @Override
+    public void onSelected() {
+
+    }
 }

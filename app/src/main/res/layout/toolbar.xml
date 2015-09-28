@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.HappyToolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="60dip"
+    android:layout_height="0dip"
     android:minHeight="?android:attr/actionBarSize"
-    android:background="@color/enterprise_blue"
     tools:showIn="@layout/activity_main"
     android:paddingRight="15dip"
     android:paddingTop="5dip"
-    android:paddingBottom="5dip">
+    android:paddingBottom="5dip"
+    android:background="@drawable/toolbar_gradient_drawable"
+    android:elevation="4dip"
+    android:clipToPadding="false">
 
     <RelativeLayout
         android:id="@+id/toolbar_root"

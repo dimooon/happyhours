@@ -7,6 +7,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import happyhours.dimooon.com.happyhours.R;
+import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 
 public class HappyToolbar extends Toolbar implements ActionToolBar{
 
@@ -73,6 +74,20 @@ public class HappyToolbar extends Toolbar implements ActionToolBar{
 
     @Override
     public void showAddTimerBar(boolean show) {
-        addTimerBar.setVisibility(show ? View.VISIBLE: View.GONE);
+        addTimerBar.setVisibility(show ? View.VISIBLE : View.GONE);
      }
+
+    @Override
+    public void hide() {
+        HeightAnimation expandAnimation =  new HeightAnimation(this,HeightAnimation.COLLAPSED_HEIGHT,HeightAnimation.HIDDEN_HEIGHT);
+        expandAnimation.setDuration(400);
+        this.startAnimation(expandAnimation);
+    }
+
+    @Override
+    public void show() {
+        HeightAnimation expandAnimation =  new HeightAnimation(this,HeightAnimation.HIDDEN_HEIGHT,HeightAnimation.COLLAPSED_HEIGHT);
+        expandAnimation.setDuration(400);
+        this.startAnimation(expandAnimation);
+    }
 }

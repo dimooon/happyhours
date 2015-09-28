@@ -7,6 +7,7 @@ import android.widget.Button;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 import happyhours.dimooon.com.happyhours.tools.animation.ZoomTranslateAnimation;
 import happyhours.dimooon.com.happyhours.view.dialog.StartSessionDialog;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
@@ -38,14 +39,19 @@ public class MainSessionPresenter {
                 showCreateSessionDialog();
                 return;
             }
-
+            mainSessionView.getToolbar().show();
             animateAndStartSession();
         }else{
             handleStopSession(startButton);
+            mainSessionView.getToolbar().hide();
         }
 
         mainSessionView.getAddNewTimerButton().setVisibility(start ? View.VISIBLE : View.INVISIBLE);
         sessionViewPresenter.getSessionView().getRootView().setVisibility(start ? View.VISIBLE : View.INVISIBLE);
+    }
+
+    public boolean sessionStarted(){
+        return sessionViewPresenter.isSessionStarted();
     }
 
     private void showCreateSessionDialog(){

@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.tools.FormatUtils;
 import happyhours.dimooon.com.happyhours.view.custom.pager.MainPager;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.HappyToolbar;
 

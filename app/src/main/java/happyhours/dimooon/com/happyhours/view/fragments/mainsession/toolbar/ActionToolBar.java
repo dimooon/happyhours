@@ -9,4 +9,6 @@ public interface ActionToolBar {
     void changeVisibilityForAddButton(boolean show);
     void showAddTimerBar(boolean show);
     int getHeight();
+    void hide();
+    void show();
 }

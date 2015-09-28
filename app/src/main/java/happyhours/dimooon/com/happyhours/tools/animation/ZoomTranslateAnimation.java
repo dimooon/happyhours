@@ -28,6 +28,8 @@ public class ZoomTranslateAnimation {
 
     public void zoomImageFromThumb(final View container,final View start,final View finish) {
 
+        start.bringToFront();
+
         if (mCurrentAnimator != null) {
             mCurrentAnimator.cancel();
         }

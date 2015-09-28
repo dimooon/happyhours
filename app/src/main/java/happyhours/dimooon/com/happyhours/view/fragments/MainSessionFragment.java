@@ -9,18 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionPresenter;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
+import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ToolbarPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
 
 @SuppressLint("ValidFragment")
-public class MainSessionFragment extends Fragment implements MainSessionView {
+public class MainSessionFragment extends Fragment implements MainSessionView, SelectableFragment{
 
     private View startButton;
     private View stopButton;
@@ -112,4 +111,8 @@ public class MainSessionFragment extends Fragment implements MainSessionView {
 
     @Override
     public ActionToolBar getToolbar(){ return toolbar;  }
+
+    @Override
+    public void onSelected() {
+    }
 }
