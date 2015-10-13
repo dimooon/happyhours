@@ -77,6 +77,6 @@ public class MyStoryFragment extends Fragment implements MyStoryView,SelectableF
 
     @Override
     public void onSelected() {
-
+        toolbar.updateTitle("Main Story");
     }
 }

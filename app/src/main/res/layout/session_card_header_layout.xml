@@ -30,7 +30,7 @@
         android:id="@+id/separator"
         android:layout_width="match_parent"
         android:layout_height="1dip"
-        android:background="@color/kapp2_blue_light"
+        android:background="@color/blue_light"
         android:layout_marginRight="5dip"
         android:layout_marginLeft="5dip"
         android:orientation="horizontal"

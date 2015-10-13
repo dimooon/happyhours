@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +17,7 @@ public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder
 
     private static List<HappyTimer> timers;
     private static CreateTimerController.CreateTimerDialogListener listener;
+    private static TimersAdapter instance;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
@@ -29,6 +31,8 @@ public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder
                 public void onClick(View view) {
                     if(listener != null){
                         listener.onNewItemSelected(timers.get(position));
+                        timers.remove(timers.get(position));
+                        instance.notifyDataSetChanged();
                     }
                 }
             });
@@ -38,6 +42,7 @@ public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder
 
     public TimersAdapter(ArrayList<HappyTimer> timers) {
         this.timers = timers;
+        instance = this;
     }
 
     public void setListener(CreateTimerController.CreateTimerDialogListener listener){

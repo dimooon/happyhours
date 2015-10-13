@@ -4,7 +4,7 @@
     style="@style/FullScreen">
 
     <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/sessions_rad_view"
+        android:id="@+id/sessions_card_view"
         style="@style/FullScreen"
         android:layout_gravity="center"
         card_view:cardCornerRadius="4dp"
@@ -24,7 +24,8 @@
                 style="@style/Text.Small"
                 android:layout_marginTop="@dimen/standard_margin"
                 android:layout_marginBottom="@dimen/standard_margin"
-                android:text="Default action"/>
+                android:text="Default action"
+                android:background="@drawable/timer_text_background_gradient"/>
 
             <LinearLayout
                 style="@style/Wide"

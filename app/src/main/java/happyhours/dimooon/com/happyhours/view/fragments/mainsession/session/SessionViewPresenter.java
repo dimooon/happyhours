@@ -111,7 +111,7 @@ public class SessionViewPresenter {
                 sessionTimer.attach((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
                 sessionTimer.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
             }
-        }, manager);
+        }, manager,true);
 
         sessionView.getSessionTimersList().setAdapter(adapter);
 

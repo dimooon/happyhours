@@ -23,7 +23,7 @@ public class ToolbarPresenter {
 
     public void expand(){
 
-        HeightAnimation anim = new HeightAnimation((View) toolBar,toolBar.getHeight(),toolBar.getHeight() + toolBar.getHeight()*4);
+        HeightAnimation anim = new HeightAnimation((View) toolBar,toolBar.getHeight(),HeightAnimation.EXPANDED_HEIGHT);
         anim.setDuration(400);
 
         anim.setAnimationListener(new Animation.AnimationListener() {
@@ -50,7 +50,7 @@ public class ToolbarPresenter {
 
     public void collapse(){
 
-        HeightAnimation anim = new HeightAnimation((View) toolBar,toolBar.getHeight(),toolBar.getHeight()/4);
+        HeightAnimation anim = new HeightAnimation((View) toolBar,HeightAnimation.EXPANDED_HEIGHT,HeightAnimation.COLLAPSED_HEIGHT);
         anim.setDuration(400);
 
         anim.setAnimationListener(new Animation.AnimationListener() {

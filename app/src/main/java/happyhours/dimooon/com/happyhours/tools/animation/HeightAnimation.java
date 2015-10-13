@@ -12,8 +12,8 @@ public class HeightAnimation extends Animation {
     protected float perValue;
 
     public static int HIDDEN_HEIGHT = 0;
-    public static int COLLAPSED_HEIGHT = 240;
-    public static int EXPANDED_HEIGHT = 620;
+    public static int COLLAPSED_HEIGHT = 130;
+    public static int EXPANDED_HEIGHT = COLLAPSED_HEIGHT * 4;
 
     public HeightAnimation(View view, int fromHeight, int toHeight) {
         this.view = view;

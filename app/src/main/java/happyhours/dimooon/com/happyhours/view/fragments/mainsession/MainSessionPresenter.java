@@ -31,6 +31,8 @@ public class MainSessionPresenter {
         this.mainSessionView = mainSessionView;
 
         createStartButtonAnimation();
+
+        mainSessionView.getToolbar().show();
     }
 
     public void changeSessionState(boolean start, final View startButton, final View stopButton){
@@ -39,11 +41,9 @@ public class MainSessionPresenter {
                 showCreateSessionDialog();
                 return;
             }
-            mainSessionView.getToolbar().show();
             animateAndStartSession();
         }else{
             handleStopSession(startButton);
-            mainSessionView.getToolbar().hide();
         }
 
         mainSessionView.getAddNewTimerButton().setVisibility(start ? View.VISIBLE : View.INVISIBLE);

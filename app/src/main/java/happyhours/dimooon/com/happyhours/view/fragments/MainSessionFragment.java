@@ -52,6 +52,7 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
 
         initView();
         initPresenter();
+        onSelected();
     }
 
     private void initView(){
@@ -114,5 +115,6 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
 
     @Override
     public void onSelected() {
+        toolbar.updateTitle("Main Session");
     }
 }

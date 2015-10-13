@@ -5,6 +5,7 @@ import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -27,6 +28,11 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     private List<HappySession> sessions;
     private Context context;
     private SessionManager manager;
+
+    public static final int DEFAULT_HEIGHT = 180;
+    public static final int DEFAULT_TIMER_HEIGHT = 80;
+
+
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
         public TextView sessionCardName;
@@ -40,6 +46,8 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         public CardView sessions_rad_view;
         public View sessionIncludeLayout;
         public View session_list_item_value;
+        public View sessions_crad_view_root_card;
+
         public ViewHolder(View v) {
             super(v);
 
@@ -52,10 +60,11 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
             sessionMainProgress = (TimeProgressBar) v.findViewById(R.id.sessionMainProgress);
 
             sessionTimersList = (RecyclerView) v.findViewById(R.id.sessionTimersList);
-            sessions_rad_view = (CardView) v.findViewById(R.id.sessions_rad_view);
+            sessions_rad_view = (CardView) v.findViewById(R.id.sessions_card_view);
 
             sessionIncludeLayout = v.findViewById(R.id.sessionIncludeLayout);
             session_list_item_value = v.findViewById(R.id.progressInBar);
+
         }
     }
 
@@ -81,7 +90,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
 
         Resources resource = context.getResources();
-        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 180 + 70 * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
+        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
 
         params.height = (int)dp;
 
@@ -104,6 +113,9 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
             holder.session_card_happy_task.setVisibility(View.GONE);
         }else{
             holder.session_card_happy_task.setText(String.valueOf(mostHappy.getTimerName()));
+        }
+        if(holder.sessionIncludeLayout!=null){
+            holder.sessionIncludeLayout.setBackgroundResource(R.color.cool_grey_translucent);
         }
 
     }

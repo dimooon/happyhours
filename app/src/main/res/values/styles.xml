@@ -35,7 +35,7 @@
     </style>
 
     <style name="FullScreen.MainAppPadding.MainActivityBackground">
-        <item name="android:background">@color/kapp2_blue_light</item>
+        <item name="android:background">@color/blue_light</item>
     </style>
 
     <style name="FullScreen.MainPagerBackground">
@@ -46,8 +46,8 @@
 
     <style name="Button">
         <item name="android:textSize">@dimen/text_size_standard</item>
-        <item name="android:background">@color/kapp2_amber</item>
-        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:background">@color/amber</item>
+        <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="Button.Wide">
@@ -74,21 +74,21 @@
 
     <style name="Text">
         <item name="android:textSize">@dimen/text_size_standard</item>
-        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="Text.Small">
         <item name="android:textSize">@dimen/text_size_small</item>
-        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_width">match_parent</item>
     </style>
 
     <style name="Wide.Text">
         <item name="android:textSize">@dimen/text_size_standard</item>
-        <item name="android:textColor">@color/kapp2_black</item>
+        <item name="android:textColor">@android:color/black</item>
 
     </style>
 

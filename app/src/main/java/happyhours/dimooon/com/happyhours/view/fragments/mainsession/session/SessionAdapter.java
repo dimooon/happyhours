@@ -12,6 +12,7 @@ import java.util.List;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
 import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
@@ -19,7 +20,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     private List<HappyTimerActivity> timers;
     private SessionListItemClickListener itemClickListener;
     private SessionManager manager;
-
+    private boolean colorize;
     public interface SessionListItemClickListener{
         void onItemClick(View itemView);
     }
@@ -27,18 +28,25 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public static TextView name;
         public static TimeProgressBar value;
+        public static View root;
 
         public ViewHolder(View v) {
             super(v);
             name = (TextView) v.findViewById(R.id.session_list_item_caption);
             value = (TimeProgressBar) v.findViewById(R.id.timeProgressItem);
+            root = v.findViewById(R.id.sessions_card_view);
         }
     }
 
     public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionManager manager) {
+        this(timers,itemClickListener,manager,false);
+    }
+
+    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionManager manager, boolean colorize) {
         this.itemClickListener = itemClickListener;
         setData(timers);
         this.manager = manager;
+        this.colorize = colorize;
     }
 
     public void setData(ArrayList<HappyTimerActivity> timers){
@@ -71,9 +79,11 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         holder.name.setText(timers.get(position).getTimerName());
         holder.value.restoreProgress(((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue()));
         holder.value.setEnabled(false);
+        if(this.colorize){
+            holder.root.setBackgroundColor(ColorUtils.getRandomColor());
+        }
         ((TimeProgressBar)holder.value).assignDAO(manager.getDaoFacade());
         ((TimeProgressBar)holder.value).assignTimerActivity(timers.get(position));
-
     }
     @Override
     public int getItemCount() {

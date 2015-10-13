@@ -5,6 +5,7 @@ import android.content.Context;
 import android.support.v7.widget.Toolbar;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
@@ -64,7 +65,7 @@ public class HappyToolbar extends Toolbar implements ActionToolBar{
 
     @Override
     public void updateTitle(String title) {
-        setTitle(title);
+        ((TextView)titleBar.findViewById(R.id.custom_toolbar_title)).setText(title);
     }
 
     @Override

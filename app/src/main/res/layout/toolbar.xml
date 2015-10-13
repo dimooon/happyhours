@@ -27,7 +27,6 @@
             android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="20dip"
-            android:background="@color/kapp2_black"
             android:id="@+id/toolbar_action_bar_close"
             android:orientation="horizontal"
             android:layout_alignParentBottom="true"/>
