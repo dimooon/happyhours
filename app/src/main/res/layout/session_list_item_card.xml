@@ -8,8 +8,7 @@
         style="@style/FullScreen"
         android:layout_gravity="center"
         card_view:cardCornerRadius="4dp"
-        android:elevation="100dp"
-        android:layout_margin="2dip"
+        android:elevation="8dp"
         card_view:contentPadding="4dip"
         android:background="@null"
         card_view:cardPreventCornerOverlap="false"
@@ -38,7 +37,7 @@
                     android:layout_marginRight="@dimen/standard_margin"
                     android:visibility="gone"/>
 
-                <happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar
+                <happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/timeProgressItem"/>

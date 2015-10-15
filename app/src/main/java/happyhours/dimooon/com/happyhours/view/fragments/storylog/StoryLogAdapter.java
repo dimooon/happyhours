@@ -1,12 +1,9 @@
 package happyhours.dimooon.com.happyhours.view.fragments.storylog;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +16,8 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
-import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.tools.FormatUtils;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionAdapter;
 
 public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHolder> {
@@ -29,8 +27,8 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     private Context context;
     private SessionManager manager;
 
-    public static final int DEFAULT_HEIGHT = 180;
-    public static final int DEFAULT_TIMER_HEIGHT = 80;
+    public static final int DEFAULT_HEIGHT = 173;
+    public static final int DEFAULT_TIMER_HEIGHT = 87;
 
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
@@ -89,10 +87,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
 
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
 
-        Resources resource = context.getResources();
-        float dp = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * manager.getTimerActivities(sessions.get(position)).size(), resource.getDisplayMetrics());
-
-        params.height = (int)dp;
+        params.height = FormatUtils.toDip(context,(DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * manager.getTimerActivities(sessions.get(position)).size()));
 
         holder.sessions_rad_view.setLayoutParams(params);
         holder.sessionCardName.setText(sessions.get(position).getName());

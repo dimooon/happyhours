@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
 public class SessionTimer{
 

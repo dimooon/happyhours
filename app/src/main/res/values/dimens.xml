@@ -10,4 +10,6 @@
     <dimen name="text_size_small">8pt</dimen>
     <dimen name="text_size_big">12pt</dimen>
 
+    <dimen name="text_keyboard_size_normal">6pt</dimen>
+
 </resources>

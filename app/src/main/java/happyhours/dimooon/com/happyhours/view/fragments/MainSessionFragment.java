@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.view.custom.HappyKeyboardView;
+import happyhours.dimooon.com.happyhours.view.custom.KeyboardView;
+import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
@@ -32,6 +35,10 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
 
     private Activity activity;
     private SessionManager manager;
+
+    private View startSessionLayout;
+
+    private KeyboardViewPresenter keyboardViewPresenter;
 
     @SuppressLint("ValidFragment")
     public MainSessionFragment(Activity activity, SessionManager manager) {
@@ -74,16 +81,21 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
 
         toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
         sessionView = (SessionView) getView().findViewById(R.id.sessionView);
+
+        KeyboardView keyboardView = new HappyKeyboardView(getActivity().findViewById(R.id.keyboardViewLayout));
+        keyboardViewPresenter = new KeyboardViewPresenter(keyboardView);
+
+        startSessionLayout = getActivity().findViewById(R.id.startSessionLayout);
     }
 
     private void initPresenter(){
-        SessionViewPresenter sessionViewPresenter = new SessionViewPresenter(activity,getSessionView(),manager);
+        SessionViewPresenter sessionViewPresenter = new SessionViewPresenter(activity,getSessionView(),manager,keyboardViewPresenter);
         getSessionView().setPresenter(sessionViewPresenter);
 
         ToolbarPresenter toolbarPresenter = new ToolbarPresenter(getToolbar(),sessionViewPresenter);
         getToolbar().setPresenter(toolbarPresenter);
 
-        MainSessionPresenter presenter = new MainSessionPresenter(activity,this, sessionViewPresenter,manager);
+        MainSessionPresenter presenter = new MainSessionPresenter(activity,this, sessionViewPresenter,manager,keyboardViewPresenter);
         setPresenter(presenter);
     }
 
@@ -109,6 +121,11 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
 
     @Override
     public ISessionView getSessionView() { return sessionView;  }
+
+    @Override
+    public View getStartSessionLayout() {
+        return startSessionLayout;
+    }
 
     @Override
     public ActionToolBar getToolbar(){ return toolbar;  }

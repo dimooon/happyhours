@@ -1,9 +1,12 @@
 package happyhours.dimooon.com.happyhours;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 
 import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;

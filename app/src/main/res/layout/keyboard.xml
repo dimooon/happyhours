@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/hebrwKeyboardView"
+    android:layout_width="fill_parent"
+    android:layout_height="180sp"
+    android:layout_alignParentBottom="true"
+    android:layout_below="@+id/xsubLayout"
+    android:background="@color/background_floating_material_light"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="0sp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:padding="0sp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45sp">
+
+                    <Button
+                        android:id="@+id/xQ"
+                        style="@style/KeyboardButton"
+                        android:tag="Q"
+                        android:text="Q"
+                        />
+
+                    <Button
+                        android:id="@+id/xW"
+                        style="@style/KeyboardButton"
+                        android:tag="W"
+                        android:text="W" />
+
+                    <Button
+                        android:id="@+id/xE"
+                        android:tag="E"
+                        android:text="E"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xR"
+                        android:tag="R"
+                        android:text="R"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xT"
+                        android:tag="T"
+                        android:text="T"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xY"
+                        android:tag="y"
+                        android:text="Y"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xU"
+                        android:tag="U"
+                        android:text="U"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xI"
+                        android:tag="I"
+                        android:text="I"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xO"
+                        android:tag="O"
+                        android:text="O"
+                        style="@style/KeyboardButton"
+                        />
+
+                    <Button
+                        android:id="@+id/xP"
+                        android:tag="P"
+                        android:text="P"
+                        style="@style/KeyboardButton"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45sp">
+
+                    <Button
+                        android:id="@+id/xA"
+                        android:tag="A"
+                        android:text="A"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xS"
+                        android:tag="S"
+                        android:text="S"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xD"
+                        android:tag="D"
+                        android:text="D"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xF"
+                        android:tag="F"
+                        android:text="F"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xG"
+                        android:tag="G"
+                        android:text="G"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xH"
+                        android:tag="H"
+                        android:text="H"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xJ"
+                        android:tag="J"
+                        android:text="J"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xK"
+                        android:tag="K"
+                        android:text="K"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xL"
+                        android:tag="L"
+                        android:text="L"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xS1"
+                        android:tag="ç"
+                        android:text="ç"
+                        style="@style/KeyboardButton"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="fill_vertical"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45sp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/xS2"
+                        android:tag="à"
+                        android:text="à"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xZ"
+                        android:tag="Z"
+                        android:text="Z"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xX"
+                        android:tag="X"
+                        android:text="X"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xC"
+                        android:tag="C"
+                        android:text="C"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xV"
+                        android:tag="V"
+                        android:text="V"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xB"
+                        android:tag="B"
+                        android:text="B"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xN"
+                        android:tag="N"
+                        android:text="N"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xM"
+                        android:tag="M"
+                        android:text="M"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xS3"
+                        android:tag="é"
+                        android:text="é"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xBack"
+                        android:text="--"
+                        android:tag="back"
+                        style="@style/KeyboardButton"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:fitsSystemWindows="true"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="45sp"
+                    android:gravity="bottom"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/xChange"
+                        android:tag="upper"
+                        android:text="Shift"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xSpace"
+                        android:tag=" "
+                        android:text="|_____|"
+                        android:layout_width="200dip"
+                        style="@style/KeyboardButton"/>
+
+                    <Button
+                        android:id="@+id/xNum"
+                        android:tag="num"
+                        android:text="12#"
+                        style="@style/KeyboardButton"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -4,7 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
 public interface ISessionView {
 

@@ -12,13 +12,13 @@ public class HeightAnimation extends Animation {
     protected float perValue;
 
     public static int HIDDEN_HEIGHT = 0;
-    public static int COLLAPSED_HEIGHT = 130;
+    public static int COLLAPSED_HEIGHT = 60;
     public static int EXPANDED_HEIGHT = COLLAPSED_HEIGHT * 4;
 
     public HeightAnimation(View view, int fromHeight, int toHeight) {
         this.view = view;
-        this.originalHeight = fromHeight;
-        this.perValue = (toHeight - fromHeight);
+        this.originalHeight = FormatUtils.toDip(view.getContext(),fromHeight);
+        this.perValue = (FormatUtils.toDip(view.getContext(),toHeight) - FormatUtils.toDip(view.getContext(),fromHeight));
     }
 
     @Override

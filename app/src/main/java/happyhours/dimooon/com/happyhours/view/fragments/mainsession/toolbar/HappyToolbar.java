@@ -39,8 +39,8 @@ public class HappyToolbar extends Toolbar implements ActionToolBar{
     public void initView(){
 
         titleBar = findViewById(R.id.toolbar_action_bar);
-        addTimerBar = findViewById(R.id.toolbar_add_create_timer);
 
+        addTimerBar = findViewById(R.id.toolbar_add_create_timer);
         addNewTimerButton = findViewById(R.id.timersListButton);
 
         toolbarActionBarClose = findViewById(R.id.toolbar_action_bar_close);

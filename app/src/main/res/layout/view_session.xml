@@ -31,7 +31,7 @@
             style="@style/Text.Small"
             android:text="Overall"/>
 
-        <happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar
+        <happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/sessionMainProgress"/>
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:layout_weight="1"
-            android:layout_margin="1dip"/>
+            android:layout_marginTop="5dip"/>
 
     </LinearLayout>
 

@@ -6,12 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.view.dialog.CreateTimerController;
 
 public class TimersAdapter extends RecyclerView.Adapter<TimersAdapter.ViewHolder> {
 

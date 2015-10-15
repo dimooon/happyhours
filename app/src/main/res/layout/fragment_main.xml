@@ -4,6 +4,24 @@
     style="@style/FullScreen.MainAppPadding"
     android:background="@null">
 
+    <LinearLayout
+        android:visibility="gone"
+        android:id="@+id/keyboardViewLayout"
+        android:layout_width="match_parent"
+        android:layout_height="180dip"
+        android:background="@drawable/toolbar_gradient_drawable"
+        android:layout_alignParentBottom="true"
+        android:layout_centerInParent="true"
+        android:elevation="30dip">
+
+        <include layout="@layout/keyboard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/xKeyBoard"/>
+
+        </LinearLayout>
+
+
     <happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView
         android:id="@+id/sessionView"
         style="@style/FullScreen"
@@ -15,5 +33,12 @@
         style="@style/Button.StartBack"
         android:text="Start New Story"
         android:layout_centerInParent="true" />
+
+    <include layout="@layout/session_create_layout"
+        android:id="@+id/startSessionLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
 
 </RelativeLayout>

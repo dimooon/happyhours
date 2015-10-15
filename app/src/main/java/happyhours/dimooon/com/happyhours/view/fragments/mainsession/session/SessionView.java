@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
 public class SessionView extends LinearLayout implements ISessionView{
 

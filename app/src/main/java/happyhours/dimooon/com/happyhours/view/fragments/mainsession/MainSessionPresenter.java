@@ -1,15 +1,16 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession;
 
 import android.app.Activity;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
-import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 import happyhours.dimooon.com.happyhours.tools.animation.ZoomTranslateAnimation;
-import happyhours.dimooon.com.happyhours.view.dialog.StartSessionDialog;
+import happyhours.dimooon.com.happyhours.view.custom.HappyEditText;
+import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
 
 public class MainSessionPresenter {
@@ -19,16 +20,19 @@ public class MainSessionPresenter {
     private ZoomTranslateAnimation animation;
     private Activity activity;
     private MainSessionView mainSessionView;
+    private KeyboardViewPresenter keyboardViewPresenter;
 
     public MainSessionPresenter(Activity activity,
                                 MainSessionView mainSessionView,
                                 SessionViewPresenter sessionViewPresenter,
-                                SessionManager manager) {
+                                SessionManager manager,
+                                KeyboardViewPresenter keyboardViewPresenter) {
 
         this.sessionViewPresenter = sessionViewPresenter;
         this.manager = manager;
         this.activity = activity;
         this.mainSessionView = mainSessionView;
+        this.keyboardViewPresenter = keyboardViewPresenter;
 
         createStartButtonAnimation();
 
@@ -55,15 +59,41 @@ public class MainSessionPresenter {
     }
 
     private void showCreateSessionDialog(){
-        new StartSessionDialog().show(activity, manager, new StartSessionDialog.CreateSessionDialogListener() {
 
+        mainSessionView.getStartSessionButton().setVisibility(View.GONE);
+        mainSessionView.getStartSessionLayout().setVisibility(View.VISIBLE);
+
+        final HappyEditText create_session_name;
+        create_session_name = (HappyEditText) mainSessionView.getStartSessionLayout().findViewById(R.id.create_session_name);
+
+        create_session_name.bindToKeyboard(keyboardViewPresenter);
+
+        mainSessionView.getStartSessionLayout().findViewById(R.id.startSessionOkButton).setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onSessionCreated(HappySession session) {
+            public void onClick(View view) {
+                if (TextUtils.isEmpty(create_session_name.getText())) {
+                    create_session_name.setError("No way to go without session name!");
+                    return;
+                }
+                HappySession session = manager.startNewSession(create_session_name.getText().toString());
+                create_session_name.unbindFromKeyboard();
                 sessionViewPresenter.showSession(session);
                 changeSessionState(true, mainSessionView.getStartSessionButton(), mainSessionView.getStopSessionButton());
+
+                mainSessionView.getStartSessionButton().setVisibility(View.VISIBLE);
+                mainSessionView.getStartSessionLayout().setVisibility(View.GONE);
             }
         });
-        return;
+
+        mainSessionView.getStartSessionLayout().findViewById(R.id.startSessionCancelButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mainSessionView.getStartSessionButton().setVisibility(View.VISIBLE);
+                mainSessionView.getStartSessionLayout().setVisibility(View.GONE);
+                create_session_name.unbindFromKeyboard();
+            }
+        });
+
     }
 
     private void animateAndStartSession() {

@@ -3,18 +3,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/createNewTimerDialogCreateView"
     style="@style/FullScreen"
-    android:visibility="gone"
+    android:visibility="visible"
     tools:showIn="@layout/create_timer_layout">
 
     <CheckBox
         android:id="@+id/happy_task_check_box"
         style="@style/WrapContent"
+        android:layout_height="50dip"
         android:checked="true" />
 
-    <EditText
+    <happyhours.dimooon.com.happyhours.view.custom.HappyEditText
         style="@style/Wide"
+        android:layout_height="50dip"
         android:id="@+id/createNewTimerDialogName"
-        android:layout_toRightOf="@id/happy_task_check_box" />
+        android:gravity="center_vertical"
+        android:layout_toRightOf="@id/happy_task_check_box"
+        android:layout_marginBottom="10dip"/>
 
     <Button
         style="@style/Button.WrapContent"

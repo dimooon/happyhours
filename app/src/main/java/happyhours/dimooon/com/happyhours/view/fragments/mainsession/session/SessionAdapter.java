@@ -13,7 +13,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
-import happyhours.dimooon.com.happyhours.view.custom.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 

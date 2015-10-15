@@ -13,6 +13,6 @@ public interface MainSessionView {
     View getStartSessionButton();
     View getAddNewTimerButton();
     ISessionView getSessionView();
-
+    View getStartSessionLayout();
     ActionToolBar getToolbar();
 }
