@@ -2,11 +2,9 @@ package happyhours.dimooon.com.happyhours.view.custom;
 
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.tools.FormatUtils;
 
 /**
  * Created by dmytro on 10/15/15.
@@ -39,7 +37,7 @@ public class HappyKeyboardView  implements KeyboardView, View.OnClickListener {
 
         mKLayout = (RelativeLayout) keyboardView.findViewById(R.id.xKeyBoard);
 
-            setKeys();
+        setKeys();
     }
 
     @Override
@@ -51,6 +49,7 @@ public class HappyKeyboardView  implements KeyboardView, View.OnClickListener {
     public void bindEditText(HappyEditText editText) {
         this.editText = editText;
     }
+
 
     @Override
     public void onClick(View v) {

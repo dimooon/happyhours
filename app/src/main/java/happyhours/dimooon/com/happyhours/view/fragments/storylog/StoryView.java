@@ -6,4 +6,5 @@ public interface StoryView {
     void setPresenter(MyStoryPresenter presenter);
     MyStoryPresenter getPresenter();
     RecyclerView getStoryList();
+    void showStoryLogs();
 }

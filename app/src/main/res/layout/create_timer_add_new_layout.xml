@@ -23,10 +23,11 @@
     <Button
         style="@style/Button.WrapContent"
         android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
+        android:layout_width="200dip"
         android:text="@string/create_timer_layout_back"
         android:id="@+id/createNewTimerDialogGoBackButton"
-        android:layout_below="@+id/createNewTimerDialogName" />
+        android:layout_below="@+id/createNewTimerDialogName"
+        android:layout_marginRight="10dip"/>
 
     <Button
         style="@style/Button.Wide"

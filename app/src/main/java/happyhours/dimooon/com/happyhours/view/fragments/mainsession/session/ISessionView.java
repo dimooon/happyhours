@@ -13,5 +13,5 @@ public interface ISessionView {
     TimeProgressBar getMainProgressBar();
     RecyclerView getSessionTimersList();
     View getRootView();
-
+    SessionViewPresenter getPresenter();
 }

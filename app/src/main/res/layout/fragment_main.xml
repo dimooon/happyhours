@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/xKeyBoard"/>
 
-        </LinearLayout>
+    </LinearLayout>
 
 
     <happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView

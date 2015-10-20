@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryView;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ActionToolBar;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
@@ -34,20 +35,17 @@ public class StoryFragment extends Fragment implements SelectableFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        MyStoryView myStoryView = new MyStoryView(getActivity());
+        StoryView myStoryView = new MyStoryView(getActivity());
         MyStoryPresenter storyPresenter = new MyStoryPresenter(getActivity(),myStoryView,manager);
         myStoryView.setPresenter(storyPresenter);
 
-        if(storyPresenter!=null){
-            storyPresenter.showStoryLogs();
-        }
+        myStoryView.showStoryLogs();
 
         toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
     }
 
     @Override
     public void onSelected() {
-
         toolbar.updateTitle("Main Story");
         toolbar.showMyStoryTool();
     }

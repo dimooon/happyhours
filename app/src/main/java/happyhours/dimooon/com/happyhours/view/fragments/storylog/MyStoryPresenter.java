@@ -10,7 +10,7 @@ public class MyStoryPresenter {
     private SessionManager manager;
     private Context context;
 
-    public MyStoryPresenter(Context context,StoryView view, SessionManager manager) {
+    public MyStoryPresenter(Context context, StoryView view, SessionManager manager) {
         this.storyView = view;
         this.manager = manager;
         this.context = context;

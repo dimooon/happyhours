@@ -48,4 +48,9 @@ public class SessionView extends LinearLayout implements ISessionView{
     public View getRootView(){
         return this;
     }
+
+    @Override
+    public SessionViewPresenter getPresenter() {
+        return this.presenter;
+    }
 }

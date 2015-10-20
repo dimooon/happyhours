@@ -46,7 +46,7 @@
 
     <style name="Button">
         <item name="android:textSize">@dimen/text_size_standard</item>
-        <item name="android:background">@color/amber</item>
+        <item name="android:background">@drawable/button_background_drawable</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 

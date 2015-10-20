@@ -6,7 +6,6 @@ import android.support.v7.widget.RecyclerView;
 
 import happyhours.dimooon.com.happyhours.R;
 
-
 /**
  * Created by dmytro on 10/16/15.
  */
@@ -34,6 +33,13 @@ public class MyStoryView implements StoryView {
     @Override
     public RecyclerView getStoryList() {
         return sessionsView;
+    }
+
+    @Override
+    public void showStoryLogs() {
+        if(this.presenter!=null){
+            this.presenter.showStoryLogs();
+        }
     }
 
 }

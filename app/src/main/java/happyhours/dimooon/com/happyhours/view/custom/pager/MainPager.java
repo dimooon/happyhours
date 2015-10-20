@@ -1,6 +1,5 @@
 package happyhours.dimooon.com.happyhours.view.custom.pager;
 
-import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.ViewPager;
@@ -50,7 +49,7 @@ public class MainPager implements Pager{
         final List<Fragment> fragments = new ArrayList<>();
 
         fragments.add(getStoryLogFragment(manager));
-        fragments.add(getSessionViewFragment(activity, manager));
+        fragments.add(getSessionViewFragment(manager));
 
         pager.setAdapter(new ScreenSlidePagerAdapter(activity.getSupportFragmentManager(), fragments));
         pager.setCurrentItem(Page.MAIN.id);
@@ -79,7 +78,7 @@ public class MainPager implements Pager{
         return new StoryFragment(manager);
     }
 
-    private Fragment getSessionViewFragment(Activity activity,SessionManager manager){
-     return new MainSessionFragment(activity,manager);
+    private Fragment getSessionViewFragment(SessionManager manager){
+     return new MainSessionFragment(manager);
     }
 }
