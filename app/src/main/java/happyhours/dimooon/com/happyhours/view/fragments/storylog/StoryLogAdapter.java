@@ -27,9 +27,8 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     private Context context;
     private SessionManager manager;
 
-    public static final int DEFAULT_HEIGHT = 243;
-    public static final int DEFAULT_TIMER_HEIGHT = 87;
-
+    public static final int DEFAULT_HEIGHT = 335;
+    public static final int DEFAULT_TIMER_HEIGHT = 90;
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView name;
@@ -86,7 +85,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
 
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
 
-        params.height = FormatUtils.toDip(context,(DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * manager.getTimerActivities(sessions.get(position)).size()));
+        params.height = FormatUtils.toDip(context,(DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * (manager.getTimerActivities(sessions.get(position)).size()-1)));
 
         holder.sessions_rad_view.setLayoutParams(params);
         holder.sessionCardName.setText(sessions.get(position).getName());

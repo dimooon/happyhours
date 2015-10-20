@@ -1,5 +1,6 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,6 +32,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         public static TimeProgressBar value;
         public static View root;
         public static View isHappy;
+        public static View happyTaskTextLabel;
 
         public ViewHolder(View v) {
             super(v);
@@ -38,6 +40,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
             value = (TimeProgressBar) v.findViewById(R.id.timeProgressItem);
             root = v.findViewById(R.id.sessions_card_view);
             isHappy = v.findViewById(R.id.isHappy);
+            happyTaskTextLabel = v.findViewById(R.id.happyTaskTextLabel);
         }
     }
 
@@ -84,6 +87,11 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         holder.value.setEnabled(false);
         if(this.colorize){
             holder.root.setBackgroundColor(ColorUtils.getRandomColor());
+            holder.happyTaskTextLabel.setVisibility(View.GONE);
+            holder.isHappy.setVisibility(View.GONE);
+        }else{
+            holder.name.setBackgroundColor(Color.TRANSPARENT);
+            holder.happyTaskTextLabel.setBackgroundColor(Color.TRANSPARENT);
         }
         holder.value.assignDAO(manager.getDaoFacade());
         holder.value.assignTimerActivity(timers.get(position));
