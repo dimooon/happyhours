@@ -3,8 +3,7 @@ package happyhours.dimooon.com.happyhours.view.fragments.mainsession;
 import android.view.View;
 
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
+import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ActionToolBar;
 
 public interface MainSessionView {
 

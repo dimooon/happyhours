@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -29,12 +30,14 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         public static TextView name;
         public static TimeProgressBar value;
         public static View root;
+        public static View isHappy;
 
         public ViewHolder(View v) {
             super(v);
             name = (TextView) v.findViewById(R.id.session_list_item_caption);
             value = (TimeProgressBar) v.findViewById(R.id.timeProgressItem);
             root = v.findViewById(R.id.sessions_card_view);
+            isHappy = v.findViewById(R.id.isHappy);
         }
     }
 
@@ -82,8 +85,9 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         if(this.colorize){
             holder.root.setBackgroundColor(ColorUtils.getRandomColor());
         }
-        ((TimeProgressBar)holder.value).assignDAO(manager.getDaoFacade());
-        ((TimeProgressBar)holder.value).assignTimerActivity(timers.get(position));
+        holder.value.assignDAO(manager.getDaoFacade());
+        holder.value.assignTimerActivity(timers.get(position));
+        ((CheckBox)holder.isHappy).setChecked(manager.getDaoFacade().getTimer(timers.get(position).getTimerId()).getHappy() == 1);
     }
     @Override
     public int getItemCount() {

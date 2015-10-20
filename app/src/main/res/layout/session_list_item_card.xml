@@ -18,13 +18,38 @@
             style="@style/Wide"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/session_list_item_caption"
-                style="@style/Text.Small"
-                android:layout_marginTop="@dimen/standard_margin"
-                android:layout_marginBottom="@dimen/standard_margin"
-                android:text="Default action"
-                android:background="@drawable/timer_text_background_gradient"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/session_list_item_caption"
+                    style="@style/Text.Small"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:text="Default action"
+                    android:background="@drawable/timer_text_background_gradient"
+                    android:layout_width="0dip"
+                    android:layout_weight="1"/>
+
+                <TextView
+                    style="@style/Text.Small"
+                    android:layout_marginTop="@dimen/standard_margin"
+                    android:layout_marginBottom="@dimen/standard_margin"
+                    android:text="Task happy ?"
+                    android:background="@drawable/timer_text_background_gradient"
+                    android:layout_width="wrap_content"
+                    android:gravity="right"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dip" />
+
+                <CheckBox
+                    android:id="@+id/isHappy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:enabled="false"/>
+
+            </LinearLayout>
 
             <LinearLayout
                 style="@style/Wide"

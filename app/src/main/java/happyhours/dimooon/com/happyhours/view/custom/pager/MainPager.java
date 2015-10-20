@@ -8,17 +8,10 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
 import happyhours.dimooon.com.happyhours.view.fragments.MainSessionFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.SelectableFragment;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionView;
-import happyhours.dimooon.com.happyhours.view.fragments.MyStoryFragment;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ToolbarPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
+import happyhours.dimooon.com.happyhours.view.fragments.StoryFragment;
 
 public class MainPager implements Pager{
 
@@ -83,16 +76,10 @@ public class MainPager implements Pager{
     }
 
     private Fragment getStoryLogFragment(SessionManager manager){
-
-        MyStoryView storyLog = new MyStoryFragment(manager);
-
-        return (Fragment) storyLog;
+        return new StoryFragment(manager);
     }
 
     private Fragment getSessionViewFragment(Activity activity,SessionManager manager){
-
-        MainSessionView sessionFragmentView = new MainSessionFragment(activity,manager);
-
-     return (Fragment) sessionFragmentView;
+     return new MainSessionFragment(activity,manager);
     }
 }

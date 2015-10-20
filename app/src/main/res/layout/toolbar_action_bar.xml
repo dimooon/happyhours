@@ -16,6 +16,8 @@
         android:layout_alignParentLeft="true"
         android:textSize="8pt" />
 
+
+
     <Button
         android:visibility="invisible"
         android:id="@+id/stopSessionButton"

@@ -18,8 +18,8 @@ import happyhours.dimooon.com.happyhours.view.fragments.mainsession.MainSessionV
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ActionToolBar;
-import happyhours.dimooon.com.happyhours.view.fragments.mainsession.toolbar.ToolbarPresenter;
+import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ActionToolBar;
+import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolbarPresenter;
 
 @SuppressLint("ValidFragment")
 public class MainSessionFragment extends Fragment implements MainSessionView, SelectableFragment{
@@ -133,5 +133,8 @@ public class MainSessionFragment extends Fragment implements MainSessionView, Se
     @Override
     public void onSelected() {
         toolbar.updateTitle("Main Session");
+        if(presenter.sessionStarted()){
+            toolbar.showMainSessionTool();
+        }
     }
 }

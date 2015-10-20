@@ -27,7 +27,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     private Context context;
     private SessionManager manager;
 
-    public static final int DEFAULT_HEIGHT = 173;
+    public static final int DEFAULT_HEIGHT = 243;
     public static final int DEFAULT_TIMER_HEIGHT = 87;
 
 
@@ -44,7 +44,6 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         public CardView sessions_rad_view;
         public View sessionIncludeLayout;
         public View session_list_item_value;
-        public View sessions_crad_view_root_card;
 
         public ViewHolder(View v) {
             super(v);
@@ -96,13 +95,13 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         holder.caption.setVisibility(View.GONE);
 
         long fullSessionTime = manager.getFullTimeForSession(sessions.get(position));
-        String fullSessionTimeString =  String.valueOf(fullSessionTime);
 
         holder.sessionMainProgress.restoreProgress((int) fullSessionTime);
         holder.sessionMainProgress.setEnabled(false);
 
-        holder.session_card_full_time.setText(fullSessionTimeString);
-        holder.session_card_happy_time.setText(String.valueOf(manager.getHappyTimeForSession(sessions.get(position))));
+        holder.session_card_full_time.setText(DateUtils.getTimeProgress((int) fullSessionTime));
+        holder.session_card_happy_time.setText(String.valueOf(DateUtils.getTimeProgress((int) manager.getHappyTimeForSession(sessions.get(position)))));
+
         HappyTimerActivity mostHappy = manager.getMostHappyTask(sessions.get(position));
         if(mostHappy == null){
             holder.session_card_happy_task.setVisibility(View.GONE);

@@ -11,19 +11,23 @@
         <TextView
             android:id="@+id/session_card_name"
             style="@style/Wide.Text"
+            android:paddingLeft="3dip"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:gravity="center_vertical|left"
-            android:singleLine="true" />
+            android:singleLine="true"
+            android:text="Card Name"/>
         <TextView
             android:id="@+id/session_card_date"
             style="@style/Wide.Text"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|left"
-            android:singleLine="true"/>
+            android:layout_weight="0.8"
+            android:gravity="center_vertical|right"
+            android:singleLine="true"
+            android:text="10/15/2015"
+            android:paddingRight="3dip"/>
     </LinearLayout>
 
     <LinearLayout
@@ -33,7 +37,7 @@
         android:background="@color/blue_light"
         android:layout_marginRight="5dip"
         android:layout_marginLeft="5dip"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_marginTop="35dip" />
 
     <LinearLayout
@@ -43,30 +47,79 @@
         android:layout_marginTop="40dip">
 
         <TextView
+            style="@style/Wide.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical|left"
+            android:singleLine="true"
+            android:text="Overall time: "/>
+
+        <TextView
             android:id="@+id/session_card_full_time"
             style="@style/Wide.Text"
-            android:layout_width="0dip"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:gravity="center_vertical|right"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:singleLine="true"
+            android:text="1h : 2m : 34s"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dip">
+
+        <TextView
+            style="@style/Wide.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:text="Most happy time: "/>
 
         <TextView
             android:id="@+id/session_card_happy_time"
             style="@style/Wide.Text"
-            android:layout_width="0dip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:gravity="center_vertical|right"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:singleLine="true"
+            android:text="1h : 2m : 34s"/>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="100dip">
+
+        <TextView
+            style="@style/Wide.Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical|left"
-            android:singleLine="true"/>
+            android:singleLine="true"
+            android:text="Most happy Task: "/>
 
         <TextView
             android:id="@+id/session_card_happy_task"
             style="@style/Wide.Text"
-            android:layout_width="0dip"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center_vertical|left"
-            android:singleLine="true"/>
+            android:gravity="center_vertical|right"
+            android:singleLine="true"
+            android:paddingLeft="2dip"
+            android:paddingRight="2dip"
+            android:text="I'm writing this application"/>
     </LinearLayout>
+
+
 </merge>
