@@ -11,7 +11,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
@@ -23,12 +23,12 @@ public class SessionViewPresenter {
     private ISessionView sessionView;
     private HappySession session;
     private Activity activity;
-    private SessionManager manager;
+    private SessionModel manager;
     private SessionTimer sessionTimer;
     private SessionAdapter adapter;
     private KeyboardViewPresenter keyboardViewPresenter;
 
-    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionManager manager,KeyboardViewPresenter keyboardViewPresenter) {
+    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionModel manager,KeyboardViewPresenter keyboardViewPresenter) {
         this.sessionView = sessionView;
         this.activity = activity;
         this.manager = manager;
@@ -101,7 +101,7 @@ public class SessionViewPresenter {
         return new SessionTimer(sessionView.getMainProgressBar());
     }
 
-    private void initSessionActivityList(SessionManager manager) {
+    private void initSessionActivityList(SessionModel manager) {
 
         ArrayList<HappyTimerActivity> timers = manager.getTimerActivities(session);
 

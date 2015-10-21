@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.view.custom.HappyKeyboardView;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardView;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
@@ -17,7 +17,7 @@ import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.Sess
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.startsession.StartNewSessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.startsession.StartSessionViewPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ActionToolBar;
+import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolBarView;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolbarPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.mainsessionaction.MainSessionToolPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.mainsessionaction.MainSessionTools;
@@ -25,13 +25,13 @@ import happyhours.dimooon.com.happyhours.view.fragments.toolbar.mainsessionactio
 @SuppressLint("ValidFragment")
 public class MainSessionFragment extends Fragment implements SelectableFragment{
 
-    private SessionManager manager;
+    private SessionModel manager;
 
-    private ActionToolBar toolbar;
+    private ToolBarView toolbar;
     private ISessionView sessionView;
 
     @SuppressLint("ValidFragment")
-    public MainSessionFragment(SessionManager manager) {
+    public MainSessionFragment(SessionModel manager) {
         super();
 
         this.manager = manager;
@@ -52,7 +52,7 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
 
     private void initView(){
 
-        toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
+        toolbar = ((ToolBarView) getActivity().findViewById(R.id.toolbar));
 
         MainSessionTools mainSessionToolsView = new MainSessionTools(getActivity().findViewById(R.id.toolbar_action_bar));
         MainSessionToolPresenter mainSessionToolPresenter = new MainSessionToolPresenter(mainSessionToolsView);

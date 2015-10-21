@@ -13,7 +13,7 @@ import java.util.List;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
@@ -21,7 +21,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     private List<HappyTimerActivity> timers;
     private SessionListItemClickListener itemClickListener;
-    private SessionManager manager;
+    private SessionModel manager;
     private boolean colorize;
     public interface SessionListItemClickListener{
         void onItemClick(View itemView);
@@ -44,11 +44,11 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         }
     }
 
-    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionManager manager) {
+    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionModel manager) {
         this(timers,itemClickListener,manager,false);
     }
 
-    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionManager manager, boolean colorize) {
+    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionModel manager, boolean colorize) {
         this.itemClickListener = itemClickListener;
         setData(timers);
         this.manager = manager;

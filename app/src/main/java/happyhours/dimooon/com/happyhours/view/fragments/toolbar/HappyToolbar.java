@@ -9,7 +9,7 @@ import android.widget.TextView;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.tools.animation.HeightAnimation;
 
-public class HappyToolbar extends Toolbar implements ActionToolBar{
+public class HappyToolbar extends Toolbar implements ToolBarView {
 
     private View titleBar;
     private View addTimerBar;

@@ -7,16 +7,14 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionModel;
 import happyhours.dimooon.com.happyhours.view.custom.HappyEditText;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
-import happyhours.dimooon.com.happyhours.view.fragments.adapters.TimersAdapter;
 
 public class CreateTimerController {
 
@@ -103,7 +101,7 @@ public class CreateTimerController {
 
         timersList.setHasFixedSize(true);
         timersList.setLayoutManager(new LinearLayoutManager(activity));
-        TimersAdapter adapter = new TimersAdapter(new DatabaseSessionManager(activity).getTimersNotAssignedToSession(session));
+        TimersAdapter adapter = new TimersAdapter(new DatabaseSessionModel(activity).getTimersNotAssignedToSession(session));
         adapter.setListener(this.listener);
         timersList.setAdapter(adapter);
     }

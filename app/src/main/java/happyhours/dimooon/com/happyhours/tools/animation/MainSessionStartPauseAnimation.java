@@ -10,7 +10,7 @@ import android.graphics.Rect;
 import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 
-public class ZoomTranslateAnimation {
+public class MainSessionStartPauseAnimation {
 
     private Animator mCurrentAnimator;
     private final int shortAnimationDuration;
@@ -21,12 +21,12 @@ public class ZoomTranslateAnimation {
         void handleAnimatedViewClick();
     }
 
-    public ZoomTranslateAnimation(Context context,AnimatedViewActionListener listener){
+    public MainSessionStartPauseAnimation(Context context, AnimatedViewActionListener listener){
         this.listener = listener;
         shortAnimationDuration = context.getResources().getInteger(android.R.integer.config_shortAnimTime);
     }
 
-    public void zoomImageFromThumb(final View container,final View start,final View finish) {
+    public void animateStartPauseButton(final View container, final View start, final View finish) {
 
         start.bringToFront();
 
@@ -88,6 +88,7 @@ public class ZoomTranslateAnimation {
             @Override
             public void onAnimationEnd(Animator animation) {
                 mCurrentAnimator = null;
+                start.setVisibility(View.GONE);
             }
 
             @Override

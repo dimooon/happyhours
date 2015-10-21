@@ -12,11 +12,11 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 
-public class DatabaseSessionManager implements SessionManager {
+public class DatabaseSessionModel implements SessionModel {
 
     private HappyFacade daoFacade;
 
-    public DatabaseSessionManager(Context context) {
+    public DatabaseSessionModel(Context context) {
         daoFacade = new HappyFacade(context);
     }
 

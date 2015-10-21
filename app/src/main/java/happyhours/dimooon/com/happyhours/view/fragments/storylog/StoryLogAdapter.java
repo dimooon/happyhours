@@ -14,7 +14,7 @@ import java.util.List;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.tools.FormatUtils;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
@@ -25,7 +25,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     private static final String TAG = StoryLogAdapter.class.getSimpleName();
     private List<HappySession> sessions;
     private Context context;
-    private SessionManager manager;
+    private SessionModel manager;
 
     public static final int DEFAULT_HEIGHT = 335;
     public static final int DEFAULT_TIMER_HEIGHT = 90;
@@ -64,7 +64,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         }
     }
 
-    public StoryLogAdapter(List<HappySession> sessions, Context context, SessionManager manager) {
+    public StoryLogAdapter(List<HappySession> sessions, Context context, SessionModel manager) {
         this.sessions = sessions;
         this.context = context;
         this.manager = manager;

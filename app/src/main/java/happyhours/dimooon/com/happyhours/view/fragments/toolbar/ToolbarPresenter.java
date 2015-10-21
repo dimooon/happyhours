@@ -8,10 +8,10 @@ import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.Sess
 
 public class ToolbarPresenter {
 
-    private ActionToolBar toolBar;
+    private ToolBarView toolBar;
     private SessionViewPresenter sessionViewPresenter;
 
-    public ToolbarPresenter(ActionToolBar toolBar,SessionViewPresenter sessionViewPresenter) {
+    public ToolbarPresenter(ToolBarView toolBar,SessionViewPresenter sessionViewPresenter) {
         this.toolBar = toolBar;
         this.sessionViewPresenter = sessionViewPresenter;
 

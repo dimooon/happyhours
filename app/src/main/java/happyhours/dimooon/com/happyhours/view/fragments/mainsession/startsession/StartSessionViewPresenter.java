@@ -8,8 +8,8 @@ import android.widget.Button;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
-import happyhours.dimooon.com.happyhours.tools.animation.ZoomTranslateAnimation;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.tools.animation.MainSessionStartPauseAnimation;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.mainsessionaction.MainSessionToolsView;
@@ -22,12 +22,12 @@ public class StartSessionViewPresenter {
     private Activity activity;
     private StartSessionView startSessionView;
     private ISessionView sessionView;
-    private ZoomTranslateAnimation animation;
+    private MainSessionStartPauseAnimation animation;
     private MainSessionToolsView mainSessionToolsView;
     private KeyboardViewPresenter keyboardViewPresenter;
-    private SessionManager manager;
+    private SessionModel manager;
 
-    public StartSessionViewPresenter(Activity activity,StartSessionView startSessionView, ISessionView sessionView,MainSessionToolsView mainSessionTools,KeyboardViewPresenter keyboardViewPresenter,SessionManager manager) {
+    public StartSessionViewPresenter(Activity activity,StartSessionView startSessionView, ISessionView sessionView,MainSessionToolsView mainSessionTools,KeyboardViewPresenter keyboardViewPresenter,SessionModel manager) {
         this.startSessionView = startSessionView;
         this.sessionView = sessionView;
         this.mainSessionToolsView = mainSessionTools;
@@ -82,7 +82,7 @@ public class StartSessionViewPresenter {
         }
 
         mainSessionToolsView.getAddNewTimerButton().setVisibility(start ? View.VISIBLE : View.INVISIBLE);
-        sessionView.getRootView().setVisibility(start ? View.VISIBLE : View.INVISIBLE);
+        sessionView.getRootView().setVisibility(start ? View.VISIBLE : View.GONE);
     }
 
     private void showCreateSessionDialog(){
@@ -94,7 +94,7 @@ public class StartSessionViewPresenter {
     }
 
     private void animateAndStartSession() {
-        animation.zoomImageFromThumb(
+        animation.animateStartPauseButton(
                 activity.findViewById(R.id.container),
                 startSessionView.getStartButton(),
                 mainSessionToolsView.getStopButton());
@@ -113,7 +113,7 @@ public class StartSessionViewPresenter {
     }
 
     private void createStartButtonAnimation() {
-        animation = new ZoomTranslateAnimation(startSessionView.getRoot().getContext(), new ZoomTranslateAnimation.AnimatedViewActionListener() {
+        animation = new MainSessionStartPauseAnimation(startSessionView.getRoot().getContext(), new MainSessionStartPauseAnimation.AnimatedViewActionListener() {
             @Override
             public void handleAnimatedViewClick() {
                 resumeMainSession();

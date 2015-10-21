@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.view.fragments.MainSessionFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.SelectableFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.StoryFragment;
@@ -26,7 +26,7 @@ public class MainPager implements Pager{
         public int id;
     }
 
-    public MainPager(FragmentActivity activity,ViewPager pager,SessionManager manager) {
+    public MainPager(FragmentActivity activity,ViewPager pager,SessionModel manager) {
 
         this.pager = pager;
 
@@ -45,7 +45,7 @@ public class MainPager implements Pager{
         return overrideBackButton;
     }
 
-    private void initPagerAdapter(FragmentActivity activity, SessionManager manager){
+    private void initPagerAdapter(FragmentActivity activity, SessionModel manager){
         final List<Fragment> fragments = new ArrayList<>();
 
         fragments.add(getStoryLogFragment(manager));
@@ -74,11 +74,11 @@ public class MainPager implements Pager{
         });
     }
 
-    private Fragment getStoryLogFragment(SessionManager manager){
+    private Fragment getStoryLogFragment(SessionModel manager){
         return new StoryFragment(manager);
     }
 
-    private Fragment getSessionViewFragment(SessionManager manager){
+    private Fragment getSessionViewFragment(SessionModel manager){
      return new MainSessionFragment(manager);
     }
 }

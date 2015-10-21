@@ -5,9 +5,8 @@ import android.test.RenamingDelegatingContext;
 import android.util.Log;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionModel;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
@@ -19,11 +18,11 @@ public class TestFlowManager extends AndroidTestCase{
 
     public static final String CODDING = "Codding";
 
-    private DatabaseSessionManager manager;
+    private DatabaseSessionModel manager;
 
     public void setUp() throws Exception {
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
-        manager = new DatabaseSessionManager(context);
+        manager = new DatabaseSessionModel(context);
         assertNotNull(manager);
     }
 

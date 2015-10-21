@@ -8,7 +8,7 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 
-public interface SessionManager {
+public interface SessionModel {
 
     ArrayList<HappyTimerActivity> getTimerActivities(HappySession session);
     long addTimerToSession(HappySession session, HappyTimer timer);

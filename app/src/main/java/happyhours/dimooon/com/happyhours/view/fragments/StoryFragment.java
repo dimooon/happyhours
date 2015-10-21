@@ -8,20 +8,20 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionManager;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryView;
-import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ActionToolBar;
+import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolBarView;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
 
 @SuppressLint("ValidFragment")
 public class StoryFragment extends Fragment implements SelectableFragment {
 
-    private SessionManager manager;
-    private ActionToolBar toolbar;
+    private SessionModel manager;
+    private ToolBarView toolbar;
 
     @SuppressLint("ValidFragment")
-    public StoryFragment(SessionManager manager) {
+    public StoryFragment(SessionModel manager) {
         super();
         this.manager = manager;
     }
@@ -41,7 +41,7 @@ public class StoryFragment extends Fragment implements SelectableFragment {
 
         myStoryView.showStoryLogs();
 
-        toolbar = ((ActionToolBar) getActivity().findViewById(R.id.toolbar));
+        toolbar = ((ToolBarView) getActivity().findViewById(R.id.toolbar));
     }
 
     @Override

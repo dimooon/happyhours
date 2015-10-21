@@ -1,6 +1,6 @@
 package happyhours.dimooon.com.happyhours.view.fragments.toolbar;
 
-public interface ActionToolBar {
+public interface ToolBarView {
 
     void setPresenter(ToolbarPresenter presenter);
     void updateTitle(String title);
