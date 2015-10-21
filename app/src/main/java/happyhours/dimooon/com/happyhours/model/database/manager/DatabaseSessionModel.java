@@ -14,7 +14,7 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerAc
 
 public class DatabaseSessionModel implements SessionModel {
 
-    private HappyFacade daoFacade;
+    protected HappyFacade daoFacade;
 
     public DatabaseSessionModel(Context context) {
         daoFacade = new HappyFacade(context);
@@ -27,7 +27,7 @@ public class DatabaseSessionModel implements SessionModel {
       return daoFacade.getSession(sessionId);
     };
 
-    public ArrayList<HappyTimerActivity> getTimerActivities(HappySession session){
+    public synchronized ArrayList<HappyTimerActivity> getTimerActivities(HappySession session){
 
         ArrayList<HappyTimerActivity> timerActivities = daoFacade.getTimerActivities(session.getId());
 
@@ -39,27 +39,27 @@ public class DatabaseSessionModel implements SessionModel {
         return timerActivities;
     }
 
-    public HappyTimer createTimer(String name,boolean happy){
+    public synchronized HappyTimer createTimer(String name,boolean happy){
         return daoFacade.getTimer(daoFacade.createTimer(name,happy));
     }
 
-    public long addTimerToSession(HappySession session,HappyTimer timer){
+    public synchronized long addTimerToSession(HappySession session,HappyTimer timer){
         return daoFacade.createTimerActivity(timer.getId(), 0, 0, session.getId());
     }
 
-    public HappyTimerActivity getTimerActivity(long id){
+    public synchronized HappyTimerActivity getTimerActivity(long id){
         return daoFacade.getTimerActivity(id);
     }
 
-    public HappyFacade getDaoFacade(){
+    public synchronized HappyFacade getDaoFacade(){
         return daoFacade;
     }
 
-    public long getFullTimeForSession(HappySession session){
+    public synchronized long getFullTimeForSession(HappySession session){
         return daoFacade.getFullTime(session.getId());
     }
 
-    public long getHappyTimeForSession(HappySession session){
+    public synchronized long getHappyTimeForSession(HappySession session){
 
         long happyTime = 0;
 
@@ -75,7 +75,7 @@ public class DatabaseSessionModel implements SessionModel {
         return happyTime;
     }
 
-    public HappyTimerActivity getMostHappyTask(HappySession session){
+    public synchronized HappyTimerActivity getMostHappyTask(HappySession session){
 
         ArrayList<HappyTimerActivity> activities =  new ArrayList<>();
 
@@ -111,7 +111,7 @@ public class DatabaseSessionModel implements SessionModel {
     };
 
     @Override
-    public ArrayList<HappyTimer> getTimersNotAssignedToSession(HappySession session) {
+    public synchronized ArrayList<HappyTimer> getTimersNotAssignedToSession(HappySession session) {
         ArrayList<HappyTimer> allTimers = daoFacade.getTimers();
         ArrayList<HappyTimerActivity> timerActivities = getTimerActivities(session);
 
@@ -128,7 +128,6 @@ public class DatabaseSessionModel implements SessionModel {
             }
 
         }
-
         return allTimers;
     }
 }

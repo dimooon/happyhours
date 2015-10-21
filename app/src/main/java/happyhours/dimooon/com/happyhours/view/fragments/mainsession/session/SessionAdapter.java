@@ -1,6 +1,7 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -83,7 +84,7 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         holder.name.setText(timers.get(position).getTimerName());
-        holder.value.restoreProgress(((int) manager.getTimerActivity(timers.get(position).getId()).getActivityValue()));
+
         holder.value.setEnabled(false);
         if(this.colorize){
             holder.root.setBackgroundColor(ColorUtils.getRandomColor());
@@ -96,9 +97,31 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         holder.value.assignDAO(manager.getDaoFacade());
         holder.value.assignTimerActivity(timers.get(position));
         ((CheckBox)holder.isHappy).setChecked(manager.getDaoFacade().getTimer(timers.get(position).getTimerId()).getHappy() == 1);
+
+        holder.value.restoreProgress(new Long(manager.getTimerActivity(timers.get(position).getId()).getActivityValue()).intValue());
     }
     @Override
     public int getItemCount() {
         return timers.size();
     }
+
+    private class SessionsAsyncTask extends AsyncTask<Integer,Void,Integer>{
+        private ViewHolder holder;
+
+        public SessionsAsyncTask(ViewHolder holder) {
+            this.holder = holder;
+        }
+
+        @Override
+        protected Integer doInBackground(Integer... position) {
+            return new Long(manager.getTimerActivity(timers.get(position[0]).getId()).getActivityValue()).intValue();
+        }
+
+        @Override
+        protected void onPostExecute(Integer value) {
+            super.onPostExecute(value);
+            holder.value.restoreProgress(value);
+        }
+    }
+
 }
