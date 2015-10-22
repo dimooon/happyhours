@@ -97,5 +97,4 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         Log.e(TAG,"get item count:"+sessionModel.getTimerActivities().size());
         return sessionModel.getTimerActivities().size();
     }
-
 }

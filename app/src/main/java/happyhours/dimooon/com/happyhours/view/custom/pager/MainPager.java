@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.service.ActivityService;
 import happyhours.dimooon.com.happyhours.view.fragments.MainSessionFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.SelectableFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.StoryFragment;
@@ -15,6 +16,7 @@ import happyhours.dimooon.com.happyhours.view.fragments.StoryFragment;
 public class MainPager implements Pager{
 
     private ViewPager pager;
+    private ActivityService service;
 
     public enum Page{
         MAIN(1),STORY(2);
@@ -26,9 +28,10 @@ public class MainPager implements Pager{
         public int id;
     }
 
-    public MainPager(FragmentActivity activity,ViewPager pager,SessionDataProvider manager) {
+    public MainPager(FragmentActivity activity,ViewPager pager,SessionDataProvider manager,ActivityService service) {
 
         this.pager = pager;
+        this.service = service;
 
         initPagerAdapter(activity,manager);
     }
@@ -79,6 +82,6 @@ public class MainPager implements Pager{
     }
 
     private Fragment getSessionViewFragment(SessionDataProvider manager){
-     return new MainSessionFragment(manager);
+     return new MainSessionFragment(manager,service);
     }
 }

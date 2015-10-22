@@ -9,7 +9,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
-import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
+import happyhours.dimooon.com.happyhours.service.ActivityService;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
@@ -22,15 +22,17 @@ public class SessionViewPresenter {
     private HappySession session;
     private Activity activity;
     private SessionDataProvider manager;
-    private SessionTimer sessionTimer;
     private SessionAdapter adapter;
     private KeyboardViewPresenter keyboardViewPresenter;
 
-    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionDataProvider manager,KeyboardViewPresenter keyboardViewPresenter) {
+    private ActivityService activityService;
+
+    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionDataProvider manager,KeyboardViewPresenter keyboardViewPresenter,ActivityService service) {
         this.sessionView = sessionView;
         this.activity = activity;
         this.manager = manager;
         this.keyboardViewPresenter = keyboardViewPresenter;
+        this.activityService = service;
     }
 
     public void showSession(HappySession session){
@@ -52,13 +54,11 @@ public class SessionViewPresenter {
     }
 
     public void startSession(){
-        sessionTimer.startTimerCount();
+        activityService.startTimerCount();
     }
 
     public void stopSession(){
-        if(sessionTimer!=null){
-            sessionTimer.stopTimerCount();
-        }
+        activityService.stopTimerCount();
     }
 
 
@@ -83,7 +83,7 @@ public class SessionViewPresenter {
 
         initDateView();
 
-        sessionTimer = initSessionTimer();
+        initSessionTimer();
 
         initSessionActivityList(manager);
     }
@@ -95,8 +95,8 @@ public class SessionViewPresenter {
                         session.getName(), DateUtils.getDate(session.getTimestamp())));
     }
 
-    private SessionTimer initSessionTimer() {
-        return new SessionTimer(sessionView.getMainProgressBar());
+    private void initSessionTimer() {
+        activityService.initSession(sessionView.getMainProgressBar());
     }
 
     private void initSessionActivityList(SessionDataProvider sessionDataProvider) {
@@ -110,8 +110,8 @@ public class SessionViewPresenter {
         adapter = new SessionAdapter(new SessionAdapter.SessionListItemClickListener() {
             @Override
             public void onItemClick(View itemView) {
-                sessionTimer.attach((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
-                sessionTimer.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
+                activityService.attach((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
+                activityService.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
             }
         }, model);
 
