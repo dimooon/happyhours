@@ -1,23 +1,24 @@
 package happyhours.dimooon.com.happyhours.view.fragments.storylog;
 
 import android.content.Context;
-
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import android.support.v7.widget.LinearLayoutManager;
 
 public class MyStoryPresenter {
 
     private StoryView storyView;
-    private SessionModel manager;
-    private Context context;
 
-    public MyStoryPresenter(Context context, StoryView view, SessionModel manager) {
+    private Context context;
+    private StoryLogModel model;
+
+    public MyStoryPresenter(Context context, StoryView view, StoryLogModel model) {
         this.storyView = view;
-        this.manager = manager;
         this.context = context;
+        this.model = model;
     }
 
     public void showStoryLogs(){
-        StoryLogAdapter adapter = new StoryLogAdapter(manager.getDaoFacade().getSessions(), context, manager);
+        StoryLogAdapter adapter = new StoryLogAdapter(context, model);
+        storyView.getStoryList().setLayoutManager(new LinearLayoutManager(context));
         storyView.getStoryList().setAdapter(adapter);
     }
 }

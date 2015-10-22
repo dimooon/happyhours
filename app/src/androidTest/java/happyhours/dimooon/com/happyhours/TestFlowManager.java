@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
@@ -18,11 +18,11 @@ public class TestFlowManager extends AndroidTestCase{
 
     public static final String CODDING = "Codding";
 
-    private DatabaseSessionModel manager;
+    private DatabaseSessionDataProvider manager;
 
     public void setUp() throws Exception {
         RenamingDelegatingContext context = new RenamingDelegatingContext(getContext(), TEST_FILE_PREFIX);
-        manager = new DatabaseSessionModel(context);
+        manager = new DatabaseSessionDataProvider(context);
         assertNotNull(manager);
     }
 

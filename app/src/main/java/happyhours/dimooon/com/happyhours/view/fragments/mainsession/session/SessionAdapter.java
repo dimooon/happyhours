@@ -1,29 +1,26 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
 import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
+import happyhours.dimooon.com.happyhours.view.fragments.storylog.SessionModel;
 
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 
-    private List<HappyTimerActivity> timers;
+    private static final String TAG = SessionAdapter.class.getSimpleName();
     private SessionListItemClickListener itemClickListener;
-    private SessionModel manager;
-    private boolean colorize;
+    private SessionModel sessionModel;
+
     public interface SessionListItemClickListener{
         void onItemClick(View itemView);
     }
@@ -45,23 +42,13 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         }
     }
 
-    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionModel manager) {
-        this(timers,itemClickListener,manager,false);
-    }
-
-    public SessionAdapter(ArrayList<HappyTimerActivity> timers,SessionListItemClickListener itemClickListener,SessionModel manager, boolean colorize) {
+    public SessionAdapter(SessionListItemClickListener itemClickListener,SessionModel sessionModel) {
         this.itemClickListener = itemClickListener;
-        setData(timers);
-        this.manager = manager;
-        this.colorize = colorize;
+        this.sessionModel = sessionModel;
     }
 
-    public void setData(ArrayList<HappyTimerActivity> timers){
-        this.timers = timers;
-    }
-
-    public void addData(HappyTimerActivity timer){
-        this.timers.add(timer);
+    public void update(){
+        sessionModel.update();
     }
 
     @Override
@@ -83,10 +70,15 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.name.setText(timers.get(position).getTimerName());
+
+        HappyTimerActivity timerActivity = sessionModel.getTimerActivity(position);
+
+        Log.e(TAG,"bind data to vuew: "+timerActivity);
+
+        holder.name.setText(timerActivity.getTimerName());
 
         holder.value.setEnabled(false);
-        if(this.colorize){
+        if(!sessionModel.sessionFromLog()){
             holder.root.setBackgroundColor(ColorUtils.getRandomColor());
             holder.happyTaskTextLabel.setVisibility(View.GONE);
             holder.isHappy.setVisibility(View.GONE);
@@ -94,34 +86,16 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
             holder.name.setBackgroundColor(Color.TRANSPARENT);
             holder.happyTaskTextLabel.setBackgroundColor(Color.TRANSPARENT);
         }
-        holder.value.assignDAO(manager.getDaoFacade());
-        holder.value.assignTimerActivity(timers.get(position));
-        ((CheckBox)holder.isHappy).setChecked(manager.getDaoFacade().getTimer(timers.get(position).getTimerId()).getHappy() == 1);
+        holder.value.assignDAO(sessionModel.getDaoFacade());
+        holder.value.assignTimerActivity(timerActivity);
+        ((CheckBox)holder.isHappy).setChecked(sessionModel.isHappy(timerActivity));
 
-        holder.value.restoreProgress(new Long(manager.getTimerActivity(timers.get(position).getId()).getActivityValue()).intValue());
+        holder.value.restoreProgress(sessionModel.getActivityValue(timerActivity));
     }
     @Override
     public int getItemCount() {
-        return timers.size();
-    }
-
-    private class SessionsAsyncTask extends AsyncTask<Integer,Void,Integer>{
-        private ViewHolder holder;
-
-        public SessionsAsyncTask(ViewHolder holder) {
-            this.holder = holder;
-        }
-
-        @Override
-        protected Integer doInBackground(Integer... position) {
-            return new Long(manager.getTimerActivity(timers.get(position[0]).getId()).getActivityValue()).intValue();
-        }
-
-        @Override
-        protected void onPostExecute(Integer value) {
-            super.onPostExecute(value);
-            holder.value.restoreProgress(value);
-        }
+        Log.e(TAG,"get item count:"+sessionModel.getTimerActivities().size());
+        return sessionModel.getTimerActivities().size();
     }
 
 }

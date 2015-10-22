@@ -8,7 +8,7 @@ import android.widget.Button;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.tools.animation.MainSessionStartPauseAnimation;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
@@ -25,9 +25,9 @@ public class StartSessionViewPresenter {
     private MainSessionStartPauseAnimation animation;
     private MainSessionToolsView mainSessionToolsView;
     private KeyboardViewPresenter keyboardViewPresenter;
-    private SessionModel manager;
+    private SessionDataProvider manager;
 
-    public StartSessionViewPresenter(Activity activity,StartSessionView startSessionView, ISessionView sessionView,MainSessionToolsView mainSessionTools,KeyboardViewPresenter keyboardViewPresenter,SessionModel manager) {
+    public StartSessionViewPresenter(Activity activity,StartSessionView startSessionView, ISessionView sessionView,MainSessionToolsView mainSessionTools,KeyboardViewPresenter keyboardViewPresenter,SessionDataProvider manager) {
         this.startSessionView = startSessionView;
         this.sessionView = sessionView;
         this.mainSessionToolsView = mainSessionTools;

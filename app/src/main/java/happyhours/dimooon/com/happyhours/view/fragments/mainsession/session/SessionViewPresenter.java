@@ -5,30 +5,28 @@ import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.LinearLayout;
 
-import java.util.ArrayList;
-
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.fragments.adapters.CreateTimerController;
+import happyhours.dimooon.com.happyhours.view.fragments.storylog.SessionModel;
 
 public class SessionViewPresenter {
 
     private ISessionView sessionView;
     private HappySession session;
     private Activity activity;
-    private SessionModel manager;
+    private SessionDataProvider manager;
     private SessionTimer sessionTimer;
     private SessionAdapter adapter;
     private KeyboardViewPresenter keyboardViewPresenter;
 
-    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionModel manager,KeyboardViewPresenter keyboardViewPresenter) {
+    public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionDataProvider manager,KeyboardViewPresenter keyboardViewPresenter) {
         this.sessionView = sessionView;
         this.activity = activity;
         this.manager = manager;
@@ -71,7 +69,7 @@ public class SessionViewPresenter {
             @Override
             public void onNewItemSelected(HappyTimer timer) {
                 manager.addTimerToSession(session, timer);
-                adapter.setData(manager.getTimerActivities(session));
+                adapter.update();
                 adapter.notifyDataSetChanged();
             }
         },keyboardViewPresenter);
@@ -101,20 +99,21 @@ public class SessionViewPresenter {
         return new SessionTimer(sessionView.getMainProgressBar());
     }
 
-    private void initSessionActivityList(SessionModel manager) {
-
-        ArrayList<HappyTimerActivity> timers = manager.getTimerActivities(session);
+    private void initSessionActivityList(SessionDataProvider sessionDataProvider) {
 
         sessionView.getSessionTimersList().setHasFixedSize(true);
         sessionView.getSessionTimersList().setLayoutManager(new StaggeredGridLayoutManager(3, ((LinearLayout) sessionView).SHOW_DIVIDER_BEGINNING));
 
-        adapter = new SessionAdapter(timers, new SessionAdapter.SessionListItemClickListener() {
+        SessionModel model = new SessionModel(session,sessionDataProvider,false);
+        model.init();
+
+        adapter = new SessionAdapter(new SessionAdapter.SessionListItemClickListener() {
             @Override
             public void onItemClick(View itemView) {
                 sessionTimer.attach((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
                 sessionTimer.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
             }
-        }, manager,true);
+        }, model);
 
         sessionView.getSessionTimersList().setAdapter(adapter);
 

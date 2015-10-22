@@ -12,7 +12,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
 import happyhours.dimooon.com.happyhours.view.custom.HappyEditText;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 
@@ -101,7 +101,7 @@ public class CreateTimerController {
 
         timersList.setHasFixedSize(true);
         timersList.setLayoutManager(new LinearLayoutManager(activity));
-        TimersAdapter adapter = new TimersAdapter(new DatabaseSessionModel(activity).getTimersNotAssignedToSession(session));
+        TimersAdapter adapter = new TimersAdapter(new DatabaseSessionDataProvider(activity).getTimersNotAssignedToSession(session));
         adapter.setListener(this.listener);
         timersList.setAdapter(adapter);
     }

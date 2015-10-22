@@ -8,7 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryLogModel;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryView;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolBarView;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryPresenter;
@@ -17,13 +18,13 @@ import happyhours.dimooon.com.happyhours.view.fragments.storylog.MyStoryView;
 @SuppressLint("ValidFragment")
 public class StoryFragment extends Fragment implements SelectableFragment {
 
-    private SessionModel manager;
+    private SessionDataProvider sessionDataProvider;
     private ToolBarView toolbar;
 
     @SuppressLint("ValidFragment")
-    public StoryFragment(SessionModel manager) {
+    public StoryFragment(SessionDataProvider sessionDataProvider) {
         super();
-        this.manager = manager;
+        this.sessionDataProvider = sessionDataProvider;
     }
 
     @Override
@@ -35,8 +36,10 @@ public class StoryFragment extends Fragment implements SelectableFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        StoryLogModel model = new StoryLogModel(sessionDataProvider);
+        model.init();
         StoryView myStoryView = new MyStoryView(getActivity());
-        MyStoryPresenter storyPresenter = new MyStoryPresenter(getActivity(),myStoryView,manager);
+        MyStoryPresenter storyPresenter = new MyStoryPresenter(getActivity(),myStoryView,model);
         myStoryView.setPresenter(storyPresenter);
 
         myStoryView.showStoryLogs();

@@ -9,7 +9,7 @@
         style="@style/FullScreen"
         android:layout_gravity="center"
         card_view:cardCornerRadius="4dp"
-        android:elevation="100dp"
+        android:elevation="10dp"
         android:layout_margin="2dip"
         card_view:contentPadding="4dip"
         android:background="@null"

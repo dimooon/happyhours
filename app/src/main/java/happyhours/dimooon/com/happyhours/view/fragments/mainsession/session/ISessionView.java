@@ -9,9 +9,9 @@ import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar
 public interface ISessionView {
 
     void setPresenter(SessionViewPresenter presenter);
-    TextView getCaption();
     TimeProgressBar getMainProgressBar();
     RecyclerView getSessionTimersList();
     View getRootView();
     SessionViewPresenter getPresenter();
+    TextView getCaption();
 }

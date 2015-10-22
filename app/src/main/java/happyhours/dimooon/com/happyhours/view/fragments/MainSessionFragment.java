@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.view.custom.HappyKeyboardView;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardView;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
@@ -25,13 +25,13 @@ import happyhours.dimooon.com.happyhours.view.fragments.toolbar.mainsessionactio
 @SuppressLint("ValidFragment")
 public class MainSessionFragment extends Fragment implements SelectableFragment{
 
-    private SessionModel manager;
+    private SessionDataProvider manager;
 
     private ToolBarView toolbar;
     private ISessionView sessionView;
 
     @SuppressLint("ValidFragment")
-    public MainSessionFragment(SessionModel manager) {
+    public MainSessionFragment(SessionDataProvider manager) {
         super();
 
         this.manager = manager;

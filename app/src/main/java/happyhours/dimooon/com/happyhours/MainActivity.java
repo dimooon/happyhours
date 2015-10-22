@@ -4,22 +4,22 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionModel;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionModel;
+import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.view.custom.pager.MainPager;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.HappyToolbar;
 
 public class MainActivity extends AppCompatActivity {
 
     private MainPager pager;
-    private SessionModel manager;
+    private SessionDataProvider manager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        manager = new DatabaseSessionModel(this);
+        manager = new DatabaseSessionDataProvider(this);
 
         createPageNavigation(manager);
 
@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private void createPageNavigation(SessionModel manager){
+    private void createPageNavigation(SessionDataProvider manager){
         pager = new MainPager(this, (ViewPager) findViewById(R.id.pager),manager);
     }
 
