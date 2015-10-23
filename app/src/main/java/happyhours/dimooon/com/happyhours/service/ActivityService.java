@@ -54,12 +54,20 @@ public class ActivityService extends Service {
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
+        Toast.makeText(this, "service bind", Toast.LENGTH_SHORT).show();
         return binder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Toast.makeText(this, "service unbind", Toast.LENGTH_SHORT).show();
+        return super.onUnbind(intent);
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        Toast.makeText(this, "service destroy", Toast.LENGTH_SHORT).show();
         session = null;
     }
 
@@ -92,7 +100,7 @@ public class ActivityService extends Service {
         sessionTimer = new SessionTimer(timerUpdatedListener);
     }
 
-    public boolean restoreSession(){
+    public boolean sessionExists(){
         return session!=null;
     }
 

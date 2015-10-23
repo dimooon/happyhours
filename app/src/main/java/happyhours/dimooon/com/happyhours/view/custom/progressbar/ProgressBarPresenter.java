@@ -17,10 +17,10 @@ public class ProgressBarPresenter implements TimerUpdatedListener{
     @Override
     public void publishValue(long value) {
 
-        model.storeProgress((int) value);
-
         if(progressBarView!=null){
             progressBarView.publishValue((int) value);
+        }else{
+            model.storeProgress(model.getTwinProgress()+(int)value);
         }
     }
 }

@@ -14,6 +14,7 @@ public class ProgressBarModel {
 
     private HappyTimerActivity timerActivity;
     private HappyFacade facade;
+    private int twinProgressWhenNoView = 0;
 
     public ProgressBarModel(HappyTimerActivity timerActivity, HappyFacade facade) {
         this.timerActivity = timerActivity;
@@ -25,14 +26,20 @@ public class ProgressBarModel {
     }
 
     public void storeProgress(int progress) {
-        if(timerActivity!=null&&facade!=null){
-            Log.e(ProgressBarModel.class.getSimpleName(), getName() + "store progress: " + progress);
 
+        twinProgressWhenNoView = progress;
+
+        if(timerActivity!=null&&facade!=null){
+            Log.e(ProgressBarModel.class.getSimpleName(), getName() + "store progress: " + progress+" twin: "+twinProgressWhenNoView);
             facade.updateTimerActivity(timerActivity.getId(),timerActivity.getTimerId(),timerActivity.getActivityId(),progress);
         }
     }
 
     public String getName() {
         return timerActivity == null ? "Main Progress" : timerActivity.getTimerName();
+    }
+
+    public int getTwinProgress(){
+        return twinProgressWhenNoView;
     }
 }

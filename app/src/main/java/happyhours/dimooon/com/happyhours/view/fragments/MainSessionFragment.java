@@ -31,6 +31,7 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
 
     private ToolBarView toolbar;
     private ISessionView sessionView;
+    private StartSessionViewPresenter startSessionViewPresenter;
 
     @SuppressLint("ValidFragment")
     public MainSessionFragment(SessionDataProvider manager,ActivityService service) {
@@ -51,6 +52,10 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
 
         initView();
         onSelected();
+
+        if(service.sessionExists()){
+            startSessionViewPresenter.resumeMainSession();
+        }
     }
 
     private void initView(){
@@ -69,19 +74,20 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
         sessionView.setPresenter(sessionViewPresenter);
 
         StartNewSessionView startSessionView = new StartNewSessionView(getView());
-        StartSessionViewPresenter startSessionViewPresenter = new StartSessionViewPresenter(getActivity(),startSessionView,sessionView,mainSessionToolsView,keyboardViewPresenter,manager);
+        startSessionViewPresenter = new StartSessionViewPresenter(getActivity(),startSessionView,sessionView,mainSessionToolsView,keyboardViewPresenter,manager);
         startSessionView.setPresenter(startSessionViewPresenter);
 
         ToolbarPresenter toolbarPresenter = new ToolbarPresenter(toolbar,sessionViewPresenter);
         toolbar.setPresenter(toolbarPresenter);
 
         toolbar.show();
+
     }
 
     @Override
     public void onSelected() {
         toolbar.updateTitle("Main Session");
-        if(sessionView.getPresenter().isSessionStarted()){
+        if(service.sessionExists()){
             toolbar.showMainSessionTool();
         }
     }

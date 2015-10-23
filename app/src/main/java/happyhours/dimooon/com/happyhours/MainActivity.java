@@ -56,7 +56,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStop() {
         super.onStop();
+    }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
         if (bound) {
             unbindService(ActivityServuceConnection);
             bound = false;
@@ -80,7 +84,6 @@ public class MainActivity extends AppCompatActivity {
             ActivityService.ActivityServiceBinder binder = (ActivityService.ActivityServiceBinder) service;
             activityService = binder.getService();
             bound = true;
-
             createPageNavigation();
         }
 

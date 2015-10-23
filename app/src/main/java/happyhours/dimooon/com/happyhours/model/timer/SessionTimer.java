@@ -10,6 +10,7 @@ public class SessionTimer{
     private HashSet<TimerUpdatedListener> listeners = new HashSet<>();
     private Timer timerCountTask = null;
     private TimerUpdatedListener mainSessionTimer;
+    private TimerUpdatedListener lastTimerUpdateListener;
 
     public SessionTimer(TimerUpdatedListener mainSessionTimer){
         this.mainSessionTimer = mainSessionTimer;
@@ -17,7 +18,11 @@ public class SessionTimer{
     }
 
     public void attach(TimerUpdatedListener activityTimer){
+        if(activityTimer == null){
+            return;
+        }
         this.listeners.add(activityTimer);
+        this.lastTimerUpdateListener = activityTimer;
     }
 
     public void stop(TimerUpdatedListener activityTimer){
@@ -27,7 +32,12 @@ public class SessionTimer{
     public void update(long value) {
 
         for(TimerUpdatedListener observers : listeners){
-            observers.publishValue(value);
+
+            boolean activate = lastTimerUpdateListener.equals(observers)||observers.equals(mainSessionTimer);
+
+            if(activate){
+                observers.publishValue(value);
+            }
         }
     }
 

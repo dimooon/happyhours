@@ -20,6 +20,7 @@ public class StartNewSessionView implements StartSessionView {
     private View startSessionCancelButton;
 
     public StartNewSessionView(View root) {
+
         this.root = root;
 
         startButton = root.findViewById(R.id.startSessionButton);

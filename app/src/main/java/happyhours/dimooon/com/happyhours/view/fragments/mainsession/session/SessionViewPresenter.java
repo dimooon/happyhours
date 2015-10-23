@@ -40,6 +40,7 @@ public class SessionViewPresenter {
     public void showSession(HappySession session){
 
         if(isSessionStarted()){
+
             return;
         }
 
@@ -47,7 +48,7 @@ public class SessionViewPresenter {
     }
 
     public boolean isSessionStarted(){
-        return activityService.restoreSession();
+        return activityService.sessionExists();
     }
 
     public void startSession(){
@@ -62,6 +63,10 @@ public class SessionViewPresenter {
     public void showTimersView(){
 
         final HappySession session = activityService.getSession();
+
+        if(session == null){
+            return;
+        }
 
         final CreateTimerController createTimerController = new CreateTimerController();
         createTimerController.show(this.activity, activity.findViewById(R.id.toolbar), session, new CreateTimerController.CreateTimerDialogListener() {

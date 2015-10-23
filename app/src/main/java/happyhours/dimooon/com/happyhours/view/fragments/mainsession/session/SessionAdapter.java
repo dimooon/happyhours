@@ -2,7 +2,6 @@ package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
 import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,8 +74,6 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
 
         HappyTimerActivity timerActivity = sessionModel.getTimerActivity(position);
 
-        Log.e(TAG,"bind data to vuew: "+timerActivity);
-
         holder.name.setText(timerActivity.getTimerName());
 
         holder.value.setEnabled(false);
@@ -100,7 +97,6 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
     }
     @Override
     public int getItemCount() {
-        Log.e(TAG,"get item count:"+sessionModel.getTimerActivities().size());
         return sessionModel.getTimerActivities().size();
     }
 }

@@ -1,7 +1,5 @@
 package happyhours.dimooon.com.happyhours.view.fragments.storylog;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -29,8 +27,6 @@ public class StoryLogModel {
     public void init(){
 
         sessions.addAll(sessionDataProvider.getDaoFacade().getSessions());
-
-        Log.e(TAG, "init story log model for sessions: " + this.sessions);
 
         for(HappySession session : sessions){
             fullTimePerSession.put(session, (int) sessionDataProvider.getFullTimeForSession(session));

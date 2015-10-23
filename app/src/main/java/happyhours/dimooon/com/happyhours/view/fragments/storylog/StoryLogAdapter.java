@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,17 +77,12 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        Log.e(TAG, "bind to view:");
-
         holder.caption.setVisibility(View.GONE);
         HappySession session = model.getSession(position);
 
         holder.sessionCardName.setText(session.getName());
 
-        Log.e(TAG, "bind to view: Session: " + session);
         int fullTime = model.getFullTimeForSession(session);
-
-        Log.e(TAG, "bind to view: Session:fullTime " + fullTime);
 
         ProgressBarModel progressBarModel = new ProgressBarModel(null,model.getSessionDataProvider().getDaoFacade());
         ProgressBarPresenter presenter = new ProgressBarPresenter(progressBarModel,holder.sessionMainProgress);
@@ -100,8 +94,6 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         holder.session_card_full_time.setText(DateUtils.getTimeProgress(fullTime));
 
         ArrayList<HappyTimerActivity> activities = model.getTimerActivities(session);
-
-        Log.e(TAG, "bind to view: Session:activities " + activities);
 
         SessionModel sessionModel = new SessionModel(session,model.getSessionDataProvider(),true);
         sessionModel.init();
@@ -116,8 +108,6 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         holder.session_card_happy_time.setText(DateUtils.getTimeProgress(model.getHappyTimeForSession(session)));
 
         HappyTimerActivity mostHappy = model.getMostHappyTask(session);
-
-        Log.e(TAG,"bind to view: Session:mostHappy "+mostHappy);
 
         if(mostHappy == null){
             holder.session_card_happy_task.setVisibility(View.GONE);

@@ -1,7 +1,5 @@
 package happyhours.dimooon.com.happyhours.view.fragments.storylog;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -32,14 +30,10 @@ public class SessionModel {
 
     public void init(){
 
-        Log.e(TAG,"init model for session: "+this.session);
-
         timerActivities.clear();
         happyTimerActivity.clear();
 
         timerActivities.addAll(sessionDataProvider.getTimerActivities(session));
-
-        Log.e(TAG, "init model related timer activities: " + this.timerActivities);
 
         for (HappyTimerActivity timerActivity : timerActivities) {
             happyTimerActivity.put(timerActivity,getTimer(timerActivity).getHappy() == 1);
