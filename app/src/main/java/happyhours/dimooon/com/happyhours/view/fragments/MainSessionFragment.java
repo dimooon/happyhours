@@ -87,7 +87,7 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
     @Override
     public void onSelected() {
         toolbar.updateTitle("Main Session");
-        if(service.sessionExists()){
+        if(service.sessionExists()&&service.sessionActive()){
             toolbar.showMainSessionTool();
         }
     }

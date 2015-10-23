@@ -1,14 +1,14 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.startsession;
 
 import android.app.Activity;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.tools.animation.MainSessionStartPauseAnimation;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.ISessionView;
@@ -42,9 +42,6 @@ public class StartSessionViewPresenter {
         changeSessionState(true);
     }
     public void resumeMainSession(){
-
-        Log.e(StartSessionViewPresenter.class.getSimpleName(), "resume");
-
         changeSessionState(false);
     }
 
@@ -53,8 +50,6 @@ public class StartSessionViewPresenter {
         HappySession session = null;
 
         if(derivedSession == null){
-            Log.e(StartSessionViewPresenter.class.getSimpleName(),"start session with name: "+startSessionView.getCreateSessionName().getText());
-
             if (TextUtils.isEmpty(startSessionView.getCreateSessionName().getText())) {
                 startSessionView.getCreateSessionName().setError("No way to go without session name!");
                 return;
@@ -125,6 +120,7 @@ public class StartSessionViewPresenter {
             @Override
             public void handleAnimatedViewClick() {
                 resumeMainSession();
+                PreferenceManager.getDefaultSharedPreferences(activity).edit().putLong(activity.getString(R.string.active_task_id),-1).commit();
             }
         });
     }

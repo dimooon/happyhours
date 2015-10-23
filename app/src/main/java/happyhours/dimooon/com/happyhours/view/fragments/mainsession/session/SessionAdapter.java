@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
+import happyhours.dimooon.com.happyhours.service.ActivityService;
 import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarModel;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarPresenter;
@@ -19,6 +20,8 @@ import happyhours.dimooon.com.happyhours.view.fragments.storylog.SessionModel;
 public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHolder> {
 
     private static final String TAG = SessionAdapter.class.getSimpleName();
+    private final long activeTaskId;
+    private ActivityService service;
     private SessionListItemClickListener itemClickListener;
     private SessionModel sessionModel;
 
@@ -43,9 +46,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         }
     }
 
-    public SessionAdapter(SessionListItemClickListener itemClickListener,SessionModel sessionModel) {
+    public SessionAdapter(long lastActiveTaskId,ActivityService service,SessionListItemClickListener itemClickListener,SessionModel sessionModel) {
+        this.service = service;
         this.itemClickListener = itemClickListener;
         this.sessionModel = sessionModel;
+        activeTaskId = lastActiveTaskId;
+
     }
 
     public void update(){
@@ -90,6 +96,10 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
         ProgressBarPresenter presenter = new ProgressBarPresenter(model,holder.value);
         holder.value.setPresenter(presenter);
         holder.value.setModel(model);
+
+        if(timerActivity.getId() == activeTaskId){
+            service.attach(presenter);
+        }
 
         ((CheckBox)holder.isHappy).setChecked(sessionModel.isHappy(timerActivity));
 

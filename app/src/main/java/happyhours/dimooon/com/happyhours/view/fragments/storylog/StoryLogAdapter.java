@@ -99,7 +99,7 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
         sessionModel.init();
 
         holder.sessionTimersList.setLayoutManager(new LinearLayoutManager(context));
-        holder.sessionTimersList.setAdapter(new SessionAdapter(null, sessionModel));
+        holder.sessionTimersList.setAdapter(new SessionAdapter(-1,null,null, sessionModel));
 
         ViewGroup.LayoutParams params = holder.sessions_rad_view.getLayoutParams();
         params.height = FormatUtils.toDip(context, (DEFAULT_HEIGHT + DEFAULT_TIMER_HEIGHT * (activities.size() - 1)));

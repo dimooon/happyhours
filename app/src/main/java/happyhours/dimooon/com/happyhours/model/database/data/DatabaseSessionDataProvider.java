@@ -1,12 +1,14 @@
 package happyhours.dimooon.com.happyhours.model.database.data;
 
 import android.content.Context;
+import android.preference.PreferenceManager;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
+import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
@@ -15,16 +17,21 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerAc
 public class DatabaseSessionDataProvider implements SessionDataProvider {
 
     protected HappyFacade daoFacade;
+    private Context context;
 
     public DatabaseSessionDataProvider(Context context) {
         daoFacade = new HappyFacade(context);
+        this.context = context;
     }
 
     public HappySession startNewSession(String name){
         long sessionId = daoFacade.createSession(name);
-        daoFacade.createTimerActivity(HappyTimer.DEFAULT_TIMER_ID,0l,0l,sessionId);
+        long defaultTimerActivity = daoFacade.createTimerActivity(HappyTimer.DEFAULT_TIMER_ID, 0l, 0l, sessionId);
 
-      return daoFacade.getSession(sessionId);
+        PreferenceManager.getDefaultSharedPreferences(context).edit().putLong(context.getString(R.string.default_task_id),defaultTimerActivity).commit();
+
+
+        return daoFacade.getSession(sessionId);
     };
 
     public synchronized ArrayList<HappyTimerActivity> getTimerActivities(HappySession session){

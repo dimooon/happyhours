@@ -18,6 +18,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.data.DatabaseSessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarModel;
@@ -74,6 +75,7 @@ public class ActivityService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(this, "service destroy", Toast.LENGTH_SHORT).show();
+        stopTimerCount();
         session = null;
     }
 
@@ -110,6 +112,8 @@ public class ActivityService extends Service {
         return session!=null;
     }
 
+    public boolean sessionActive(){ return sessionTimer!=null && sessionTimer.isActive();}
+
     private final class ActivityServiceHandler extends Handler {
 
         public ActivityServiceHandler(Looper looper) {
@@ -122,31 +126,32 @@ public class ActivityService extends Service {
 
             if(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).contains(getApplicationContext().getString(R.string.stored_session_id))){
 
-                long sessionId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getApplicationContext().getString(R.string.stored_session_id), 0l);
-                long activeTaskId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getString(R.string.active_task_id), 0l);
+                long sessionId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getApplicationContext().getString(R.string.stored_session_id), -1l);
+                long activeTaskId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getString(R.string.active_task_id), -1l);
 
                 PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().remove(getApplicationContext().getString(R.string.stored_session_id));
 
                 SessionDataProvider provider = new DatabaseSessionDataProvider(getApplicationContext());
                 session = provider.getDaoFacade().getSession(sessionId);
 
-                Log.e(TAG,"active task: "+provider.getTimerActivity(activeTaskId));
-
-                ProgressBarModel mainProgressModel = new ProgressBarModel(provider.getTimerActivity(activeTaskId),provider.getDaoFacade());
-                ProgressBarPresenter mainProgressPresenter = new ProgressBarPresenter(mainProgressModel,null);
-
-                sessionTimer = new SessionTimer(mainProgressPresenter);
-
-            }
-
-            while (true){
-
-                Log.e(TAG,"booom "+(session!=null)+"  "+(sessionTimer!=null));
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
+                if(activeTaskId == -1){
+                    return;
                 }
+
+                HappyTimerActivity activeActivity = provider.getTimerActivity(activeTaskId);
+
+                Log.e(TAG,"active task: "+activeActivity);
+
+                ProgressBarModel activeProgressModel = new ProgressBarModel(activeActivity,provider.getDaoFacade());
+                ProgressBarPresenter activeProgressPresenter = new ProgressBarPresenter(activeProgressModel,null);
+
+                if(sessionTimer!=null){
+                    sessionTimer.stopTimerCount();
+                }
+
+                sessionTimer = new SessionTimer(activeProgressPresenter);
+                sessionTimer.startTimerCount();
+
             }
         }
     }

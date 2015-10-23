@@ -46,10 +46,15 @@ public class SessionViewPresenter {
         }
 
         initView(session);
+
     }
 
     public boolean isSessionStarted(){
         return activityService.sessionExists();
+    }
+
+    public boolean isSessionActive(){
+        return activityService.sessionActive();
     }
 
     public void startSession(){
@@ -107,6 +112,8 @@ public class SessionViewPresenter {
         progressBarView.setModel(model);
         progressBarView.setPresenter(mainProgressBarPresenter);
 
+        progressBarView.publishValue(manager.getFullTimeForSession(session));
+
         PreferenceManager.getDefaultSharedPreferences(activity).edit().putLong(activity.getString(R.string.stored_session_id),session.getId()).commit();
 
         activityService.initSession(session, mainProgressBarPresenter);
@@ -120,7 +127,9 @@ public class SessionViewPresenter {
         SessionModel model = new SessionModel(session,sessionDataProvider,false);
         model.init();
 
-        adapter = new SessionAdapter(new SessionAdapter.SessionListItemClickListener() {
+        long lastActiveTaskId = PreferenceManager.getDefaultSharedPreferences(activity).getLong(activity.getString(R.string.active_task_id), -1l);
+
+        adapter = new SessionAdapter(lastActiveTaskId,activityService,new SessionAdapter.SessionListItemClickListener() {
             @Override
             public void onItemClick(View itemView) {
                 activityService.attach(((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem)).getPresenter());

@@ -19,6 +19,9 @@ public class ProgressBarModel {
     public ProgressBarModel(HappyTimerActivity timerActivity, HappyFacade facade) {
         this.timerActivity = timerActivity;
         this.facade = facade;
+        if(timerActivity!=null){
+            this.twinProgressWhenNoView = (int) timerActivity.getActivityValue();
+        }
     }
 
     public int getMaxProgress(){
@@ -46,4 +49,5 @@ public class ProgressBarModel {
     public HappyTimerActivity getTask(){
         return timerActivity;
     }
+
 }
