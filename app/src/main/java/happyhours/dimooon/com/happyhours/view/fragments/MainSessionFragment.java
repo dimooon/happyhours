@@ -54,7 +54,7 @@ public class MainSessionFragment extends Fragment implements SelectableFragment{
         onSelected();
 
         if(service.sessionExists()){
-            startSessionViewPresenter.resumeMainSession();
+            startSessionViewPresenter.startSessionWithName(service.getSession());
         }
     }
 

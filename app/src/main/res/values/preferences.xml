@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="stored_session_id">restore</string>
+    <string name="active_task_id">active_task_id</string>
+</resources>

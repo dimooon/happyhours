@@ -42,20 +42,28 @@ public class StartSessionViewPresenter {
         changeSessionState(true);
     }
     public void resumeMainSession(){
+
+        Log.e(StartSessionViewPresenter.class.getSimpleName(), "resume");
+
         changeSessionState(false);
     }
 
-    public void startSessionWithName(){
+    public void startSessionWithName(HappySession derivedSession){
 
-        Log.e(StartSessionViewPresenter.class.getSimpleName(),"start session with name: "+startSessionView.getCreateSessionName().getText());
+        HappySession session = null;
 
-        if (TextUtils.isEmpty(startSessionView.getCreateSessionName().getText())) {
-            startSessionView.getCreateSessionName().setError("No way to go without session name!");
-            return;
+        if(derivedSession == null){
+            Log.e(StartSessionViewPresenter.class.getSimpleName(),"start session with name: "+startSessionView.getCreateSessionName().getText());
+
+            if (TextUtils.isEmpty(startSessionView.getCreateSessionName().getText())) {
+                startSessionView.getCreateSessionName().setError("No way to go without session name!");
+                return;
+            }
+            session = manager.startNewSession(startSessionView.getCreateSessionName().getText().toString());
+            startSessionView.getCreateSessionName().unbindFromKeyboard();
+        }else{
+            session = derivedSession;
         }
-
-        HappySession session = manager.startNewSession(startSessionView.getCreateSessionName().getText().toString());
-        startSessionView.getCreateSessionName().unbindFromKeyboard();
 
         sessionView.getPresenter().showSession(session);
         changeSessionState(true);

@@ -42,4 +42,8 @@ public class ProgressBarModel {
     public int getTwinProgress(){
         return twinProgressWhenNoView;
     }
+
+    public HappyTimerActivity getTask(){
+        return timerActivity;
+    }
 }

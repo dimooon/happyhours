@@ -40,7 +40,7 @@ public class StartNewSessionView implements StartSessionView {
         startSessionOkButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                presenter.startSessionWithName();
+                presenter.startSessionWithName(null);
             }
         });
 

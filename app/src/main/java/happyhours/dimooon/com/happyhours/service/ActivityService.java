@@ -9,13 +9,19 @@ import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
 import android.os.Process;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
+import happyhours.dimooon.com.happyhours.R;
+import happyhours.dimooon.com.happyhours.model.database.data.DatabaseSessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarModel;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarPresenter;
 
 /**
  * Created by dmytro on 10/22/15.
@@ -114,9 +120,28 @@ public class ActivityService extends Service {
         public void handleMessage(Message msg) {
             Log.e(TAG,"Started");
 
+            if(PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).contains(getApplicationContext().getString(R.string.stored_session_id))){
+
+                long sessionId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getApplicationContext().getString(R.string.stored_session_id), 0l);
+                long activeTaskId = PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getLong(getString(R.string.active_task_id), 0l);
+
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().remove(getApplicationContext().getString(R.string.stored_session_id));
+
+                SessionDataProvider provider = new DatabaseSessionDataProvider(getApplicationContext());
+                session = provider.getDaoFacade().getSession(sessionId);
+
+                Log.e(TAG,"active task: "+provider.getTimerActivity(activeTaskId));
+
+                ProgressBarModel mainProgressModel = new ProgressBarModel(provider.getTimerActivity(activeTaskId),provider.getDaoFacade());
+                ProgressBarPresenter mainProgressPresenter = new ProgressBarPresenter(mainProgressModel,null);
+
+                sessionTimer = new SessionTimer(mainProgressPresenter);
+
+            }
+
             while (true){
 
-                Log.e(TAG,"booom");
+                Log.e(TAG,"booom "+(session!=null)+"  "+(sessionTimer!=null));
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {

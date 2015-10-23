@@ -1,6 +1,7 @@
 package happyhours.dimooon.com.happyhours.view.fragments.mainsession.session;
 
 import android.app.Activity;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -28,6 +29,7 @@ public class SessionViewPresenter {
     private KeyboardViewPresenter keyboardViewPresenter;
 
     private ActivityService activityService;
+    private boolean inited = false;
 
     public SessionViewPresenter(Activity activity,ISessionView sessionView,SessionDataProvider manager,KeyboardViewPresenter keyboardViewPresenter,ActivityService service) {
         this.sessionView = sessionView;
@@ -39,8 +41,7 @@ public class SessionViewPresenter {
 
     public void showSession(HappySession session){
 
-        if(isSessionStarted()){
-
+        if(isSessionStarted()&&inited){
             return;
         }
 
@@ -85,7 +86,9 @@ public class SessionViewPresenter {
 
         initSessionTimer(session);
 
-        initSessionActivityList(session,manager);
+        initSessionActivityList(session, manager);
+
+        inited = true;
     }
 
     private void initDateView(HappySession session){
@@ -104,10 +107,12 @@ public class SessionViewPresenter {
         progressBarView.setModel(model);
         progressBarView.setPresenter(mainProgressBarPresenter);
 
+        PreferenceManager.getDefaultSharedPreferences(activity).edit().putLong(activity.getString(R.string.stored_session_id),session.getId()).commit();
+
         activityService.initSession(session, mainProgressBarPresenter);
     }
 
-    private void initSessionActivityList(HappySession session,SessionDataProvider sessionDataProvider) {
+    private void initSessionActivityList(final HappySession session,SessionDataProvider sessionDataProvider) {
 
         sessionView.getSessionTimersList().setHasFixedSize(true);
         sessionView.getSessionTimersList().setLayoutManager(new StaggeredGridLayoutManager(3, ((LinearLayout) sessionView).SHOW_DIVIDER_BEGINNING));
@@ -119,6 +124,8 @@ public class SessionViewPresenter {
             @Override
             public void onItemClick(View itemView) {
                 activityService.attach(((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem)).getPresenter());
+                        PreferenceManager.getDefaultSharedPreferences(activity).edit().putLong(activity.getString(R.string.active_task_id),
+                                ((ProgressBar) itemView.findViewById(R.id.timeProgressItem)).getModel().getTask().getId()).commit();
             }
         }, model);
 

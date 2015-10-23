@@ -2,7 +2,6 @@ package happyhours.dimooon.com.happyhours.view.custom.progressbar;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -53,6 +52,11 @@ public class TimeProgressBar extends RelativeLayout implements ProgressBar {
 
     public ProgressBarPresenter getPresenter(){
         return presenter;
+    }
+
+    @Override
+    public ProgressBarModel getModel() {
+        return this.model;
     }
 
     public void publishValue(long value) {

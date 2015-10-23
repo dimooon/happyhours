@@ -29,6 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
         manager = new DatabaseSessionDataProvider(this);
         addActionBar();
+
+        startService(new Intent(this, ActivityService.class));
     }
 
     @Override

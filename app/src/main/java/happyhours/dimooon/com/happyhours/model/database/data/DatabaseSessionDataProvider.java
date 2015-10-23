@@ -48,7 +48,9 @@ public class DatabaseSessionDataProvider implements SessionDataProvider {
     }
 
     public synchronized HappyTimerActivity getTimerActivity(long id){
-        return daoFacade.getTimerActivity(id);
+        HappyTimerActivity timerActivity = daoFacade.getTimerActivity(id);
+        timerActivity.setTimerName(daoFacade.getTimer(timerActivity.getTimerId()).getName());
+        return timerActivity;
     }
 
     public synchronized HappyFacade getDaoFacade(){
