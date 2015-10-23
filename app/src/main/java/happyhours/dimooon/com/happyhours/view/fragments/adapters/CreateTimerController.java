@@ -12,7 +12,7 @@ import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.DatabaseSessionDataProvider;
 import happyhours.dimooon.com.happyhours.view.custom.HappyEditText;
 import happyhours.dimooon.com.happyhours.view.custom.KeyboardViewPresenter;
 

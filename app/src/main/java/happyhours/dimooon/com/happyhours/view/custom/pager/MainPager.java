@@ -7,7 +7,7 @@ import android.support.v4.view.ViewPager;
 import java.util.ArrayList;
 import java.util.List;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.service.ActivityService;
 import happyhours.dimooon.com.happyhours.view.fragments.MainSessionFragment;
 import happyhours.dimooon.com.happyhours.view.fragments.SelectableFragment;

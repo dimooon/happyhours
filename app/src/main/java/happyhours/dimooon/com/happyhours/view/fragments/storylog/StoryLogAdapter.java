@@ -17,6 +17,8 @@ import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 import happyhours.dimooon.com.happyhours.tools.FormatUtils;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarModel;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarPresenter;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.fragments.mainsession.session.SessionAdapter;
 
@@ -76,17 +78,23 @@ public class StoryLogAdapter extends RecyclerView.Adapter<StoryLogAdapter.ViewHo
     @Override
     public void onBindViewHolder(final ViewHolder holder, final int position) {
 
-        Log.e(TAG,"bind to view:");
+        Log.e(TAG, "bind to view:");
 
         holder.caption.setVisibility(View.GONE);
         HappySession session = model.getSession(position);
 
         holder.sessionCardName.setText(session.getName());
 
-        Log.e(TAG,"bind to view: Session: "+session);
+        Log.e(TAG, "bind to view: Session: " + session);
         int fullTime = model.getFullTimeForSession(session);
 
         Log.e(TAG, "bind to view: Session:fullTime " + fullTime);
+
+        ProgressBarModel progressBarModel = new ProgressBarModel(null,model.getSessionDataProvider().getDaoFacade());
+        ProgressBarPresenter presenter = new ProgressBarPresenter(progressBarModel,holder.sessionMainProgress);
+
+        holder.sessionMainProgress.setModel(progressBarModel);
+        holder.sessionMainProgress.setPresenter(presenter);
 
         holder.sessionMainProgress.restoreProgress(fullTime);
         holder.session_card_full_time.setText(DateUtils.getTimeProgress(fullTime));

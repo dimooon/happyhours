@@ -9,8 +9,8 @@ import android.os.IBinder;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.DatabaseSessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.service.ActivityService;
 import happyhours.dimooon.com.happyhours.view.custom.pager.MainPager;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.HappyToolbar;
@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
 
         Intent activityServiceIntent = new Intent(this, ActivityService.class);
-
-        startService(activityServiceIntent);
         bindService(activityServiceIntent, ActivityServuceConnection, Context.BIND_AUTO_CREATE);
     }
 

@@ -12,6 +12,8 @@ import android.widget.TextView;
 import happyhours.dimooon.com.happyhours.R;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
 import happyhours.dimooon.com.happyhours.tools.animation.ColorUtils;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarModel;
+import happyhours.dimooon.com.happyhours.view.custom.progressbar.ProgressBarPresenter;
 import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.SessionModel;
 
@@ -86,8 +88,12 @@ public class SessionAdapter extends RecyclerView.Adapter<SessionAdapter.ViewHold
             holder.name.setBackgroundColor(Color.TRANSPARENT);
             holder.happyTaskTextLabel.setBackgroundColor(Color.TRANSPARENT);
         }
-        holder.value.assignDAO(sessionModel.getDaoFacade());
-        holder.value.assignTimerActivity(timerActivity);
+
+        ProgressBarModel model = new ProgressBarModel(timerActivity,sessionModel.getDaoFacade());
+        ProgressBarPresenter presenter = new ProgressBarPresenter(model,holder.value);
+        holder.value.setPresenter(presenter);
+        holder.value.setModel(model);
+
         ((CheckBox)holder.isHappy).setChecked(sessionModel.isHappy(timerActivity));
 
         holder.value.restoreProgress(sessionModel.getActivityValue(timerActivity));

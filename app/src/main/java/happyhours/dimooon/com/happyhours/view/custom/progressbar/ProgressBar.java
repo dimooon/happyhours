@@ -1,12 +1,9 @@
 package happyhours.dimooon.com.happyhours.view.custom.progressbar;
 
-import android.widget.SeekBar;
-
-import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
-import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-
 public interface ProgressBar {
-    void assignTimerActivity(HappyTimerActivity timerActivity);
-    void assignDAO(HappyFacade facade);
+    void setPresenter(ProgressBarPresenter presenter);
+    ProgressBarPresenter getPresenter();
+    void setModel(ProgressBarModel model);
     void restoreProgress(int progress);
+    void publishValue(long progress);
 }

@@ -6,7 +6,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import happyhours.dimooon.com.happyhours.model.database.manager.DatabaseSessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.DatabaseSessionDataProvider;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;

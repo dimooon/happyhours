@@ -13,10 +13,9 @@ import android.support.annotation.Nullable;
 import android.util.Log;
 import android.widget.Toast;
 
-import happyhours.dimooon.com.happyhours.R;
+import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.timer.SessionTimer;
 import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
-import happyhours.dimooon.com.happyhours.view.custom.progressbar.TimeProgressBar;
 
 /**
  * Created by dmytro on 10/22/15.
@@ -30,6 +29,7 @@ public class ActivityService extends Service {
 
     private Looper serviceLooper;
     private ActivityServiceHandler activityServiceHandler;
+    private HappySession session;
 
     @Override
     public void onCreate() {
@@ -41,6 +41,7 @@ public class ActivityService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
+
         Toast.makeText(this, "service starting", Toast.LENGTH_SHORT).show();
 
         Message msg = activityServiceHandler.obtainMessage();
@@ -54,6 +55,16 @@ public class ActivityService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return binder;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        session = null;
+    }
+
+    public HappySession getSession() {
+        return session;
     }
 
     public class ActivityServiceBinder extends Binder {
@@ -72,16 +83,17 @@ public class ActivityService extends Service {
         }
     }
 
-    public void attach(TimeProgressBar itemVIew) {
-        sessionTimer.attach(itemVIew);
+    public void attach(TimerUpdatedListener timerUpdatedListener) {
+        sessionTimer.attach(timerUpdatedListener);
     }
 
-    public void start(TimeProgressBar itemView) {
-        sessionTimer.start((TimeProgressBar) itemView.findViewById(R.id.timeProgressItem));
+    public void initSession(HappySession session,TimerUpdatedListener timerUpdatedListener){
+        this.session = session;
+        sessionTimer = new SessionTimer(timerUpdatedListener);
     }
 
-    public void initSession(TimerUpdatedListener progressBar){
-        sessionTimer = new SessionTimer(progressBar);
+    public boolean restoreSession(){
+        return session!=null;
     }
 
     private final class ActivityServiceHandler extends Handler {
@@ -93,7 +105,16 @@ public class ActivityService extends Service {
         @Override
         public void handleMessage(Message msg) {
             Log.e(TAG,"Started");
+
+            while (true){
+
+                Log.e(TAG,"booom");
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
-
 }

@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryLogModel;
 import happyhours.dimooon.com.happyhours.view.fragments.storylog.StoryView;
 import happyhours.dimooon.com.happyhours.view.fragments.toolbar.ToolBarView;

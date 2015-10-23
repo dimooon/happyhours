@@ -8,21 +8,15 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import happyhours.dimooon.com.happyhours.R;
-import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
-import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.timer.TimerUpdatedListener;
 import happyhours.dimooon.com.happyhours.tools.DateUtils;
 
-public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListener,ProgressBar {
-
-    private HappyTimerActivity timerActivity;
-    private HappyFacade facade;
-    private boolean active;
-
-    private static final int PROGRESS_MAX = 60 * 60 * 8;
+public class TimeProgressBar extends RelativeLayout implements ProgressBar {
 
     private SeekBar progressBar;
     private TextView timeProgress;
+
+    private ProgressBarModel model;
+    private ProgressBarPresenter presenter;
 
     public TimeProgressBar(Context context) {
         super(context);
@@ -40,54 +34,35 @@ public class TimeProgressBar extends RelativeLayout implements TimerUpdatedListe
     }
 
     void init(){
-        inflate(getContext(), R.layout.timer_progress_bar_layout,this);
+        inflate(getContext(), R.layout.timer_progress_bar_layout, this);
 
         progressBar = (SeekBar)findViewById(R.id.progressInBar);
         timeProgress = (TextView) findViewById(R.id.progressInTime);
+    }
 
-        progressBar.setMax(PROGRESS_MAX);
+    public void setModel(ProgressBarModel model){
+        this.model = model;
+
+        progressBar.setMax(model.getMaxProgress());
         progressBar.setEnabled(false);
     }
-    @Override
-    public boolean publishValue(long value) {
+
+    public void setPresenter(ProgressBarPresenter presenter){
+        this.presenter = presenter;
+    }
+
+    public ProgressBarPresenter getPresenter(){
+        return presenter;
+    }
+
+    public void publishValue(long value) {
 
         int progress = progressBar.getProgress() + (int) value;
 
-        Log.e(TimeProgressBar.class.getSimpleName(),getName()+"progress: "+progress);
-
-
-        if(!active){
-            return (!active && progress > PROGRESS_MAX);
-        }
-
-        if(timerActivity!=null&&facade!=null){
-            facade.updateTimerActivity(timerActivity.getId(),timerActivity.getTimerId(),timerActivity.getActivityId(),progress);
-        }
+        model.storeProgress(progress);
 
         progressBar.setProgress(progress);
         updateTime(progress);
-
-        return progress > PROGRESS_MAX;
-    }
-
-    @Override
-    public void active(boolean active) {
-        this.active = active;
-    }
-
-    @Override
-    public String getName() {
-        return timerActivity == null ? "Main Progress" : timerActivity.getTimerName();
-    }
-
-    @Override
-    public void assignTimerActivity(HappyTimerActivity timerActivity){
-        this.timerActivity = timerActivity;
-    }
-
-    @Override
-    public void assignDAO(HappyFacade facade){
-        this.facade = facade;
     }
 
     @Override

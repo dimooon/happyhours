@@ -9,7 +9,7 @@ import happyhours.dimooon.com.happyhours.model.database.facade.HappyFacade;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappySession;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimer;
 import happyhours.dimooon.com.happyhours.model.database.facade.bean.HappyTimerActivity;
-import happyhours.dimooon.com.happyhours.model.database.manager.SessionDataProvider;
+import happyhours.dimooon.com.happyhours.model.database.data.SessionDataProvider;
 
 /**
  * Created by dmytro on 10/22/15.
